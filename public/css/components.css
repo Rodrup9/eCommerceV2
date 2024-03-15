@@ -1,0 +1,181 @@
+:root{
+    --transformSlider: 0;
+    --transitionSlider: transform 500ms;
+    --opacitySlider: 1;
+
+    --widhtComponentSlider: 1335px;
+    --widthComponentCardOnly: 288px;
+    --cardDirectionFlex: column;
+    --cardGapDetalles: 2px;
+
+}
+
+/* Tarjeta de producto------------------------------------------------------------------------------------------------------- */
+
+.card{
+    background-color: var(--colorElements);
+    color: var(--fuenteElements);
+    min-width: var(--widthComponentCardOnly);
+    max-width: var(--widthComponentCardOnly);
+    /*max-height: 500px;*/
+    display: flex;
+    flex-direction: var(--cardDirectionFlex);
+    text-decoration: none;
+    /*transition: all 200ms ease;*/
+}
+
+.imgProducto{   
+    
+    min-height: 288px;
+    max-height: 288px;
+    min-width: 288px;
+    max-width: 288px;
+    background-color: antiquewhite;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgProducto img{
+    min-width: 100%;
+}
+
+.detalles{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    gap: var(--cardGapDetalles);
+    border: var(--borderCard);
+}
+
+.moreDetalles{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+.iconOption{
+    display: flex;
+    gap: 10px;
+}
+
+.iconoCard{
+    font-size: 20px;
+    transition: all 200ms;
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 5px;
+    
+}
+
+.iconoCard:hover{
+    background-color: var(--hoverIconFondo);
+}
+
+.tag{
+    display: flex;
+    justify-content: flex-start;
+    background-color: #ffe600;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin: 0;
+}
+
+.tag p{
+    color: var(--black-950);
+    font-weight: 500;
+}
+
+.priceDes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.precioActivo{
+    position: relative;
+    z-index: 0;
+    opacity: .5;
+}
+
+.precioActivo::after{
+    position: absolute;
+    content: "";
+    width: 110%;
+    height: 2px;
+    background-color: #e70000;
+    transform-origin: center;
+    transform: rotate(8deg);
+    z-index: 100;
+    top: 10px;
+    left: -2px;
+    opacity: 1;
+}
+
+.descuento{
+    font-weight: 600;
+    color: var(--verde);
+}
+
+
+
+/* SliderProduct ----------------------------------------------------------------------------------------------------------- */
+
+.section{
+    margin-bottom: 40px;
+    width: var(--widhtComponentSlider);
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.boxProductos{
+    display: flex;
+    gap: 10px;
+}
+
+.sliderProductos{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.arrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 200ms;
+    border-radius: 5px;
+    opacity: var(--opacitySlider);
+}
+
+.arrow i{
+    transition: all 200ms;
+    transform: scale(1.5);
+}
+
+.arrow i:hover{
+    color: var(--hoverElements);
+    transform: scale(2);
+}
+
+.arrowIcon{
+    font-size: 30px;
+}
+
+
+.sliderBoxProductos{
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    transform: translateX(var(--transformSlider));
+    transition: var(--transitionSlider);
+}

@@ -1,0 +1,73 @@
+.container-left {
+    background-color: var(--formularioBox);
+    width: 70%;
+    min-height: 100vh;
+    max-height: 100%;
+    margin: 0;
+    box-shadow: 60px -5px 150px -22px var(--formularioBoxShadow);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+}
+
+.container-center {
+    margin: auto;
+    width: 50%;
+    max-width: 50%;
+    padding: 0 40px;
+}
+
+h1 {
+    padding: 30px 0 20px 0;
+    text-align: center;
+    font-size: 35px;
+    color: var(--fuenteHeader);
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 20px;
+}
+
+.submit {
+    display: block;
+    width: 220px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 30px auto;
+    background-color: var(--hoverHeader);
+    border: 0;
+    color: var(--fuenteHeader);
+}
+
+.container-right {
+	width: 50%;
+    margin: auto;
+}
+
+.title-right {
+    margin: -100px 0 0 0;
+}
+
+.elements {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.round {
+    border-radius: 100%;
+    width: 90px;
+    height: 90px;
+    background-color: var(--fuenteHeader);
+}
+
+.changePage {
+    margin-left: 5vh;
+    margin-bottom: 5vh;
+}

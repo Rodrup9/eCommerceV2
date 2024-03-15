@@ -1,0 +1,217 @@
+/*funete*/
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+
+:root {
+
+    /* Hexadecimal */
+
+    --white-50: #ffffff; /* Color Principal */
+    --white-100: #efefef;
+    --white-200: #dcdcdc;
+    --white-300: #bdbdbd;
+    --white-400: #989898;
+    --white-500: #7c7c7c;
+    --white-600: #656565;
+    --white-700: #525252;
+    --white-800: #464646;
+    --white-900: #3d3d3d;
+    --white-950: #292929;
+
+    --black-50: #f6f6f6;
+    --black-100: #e7e7e7;
+    --black-200: #d1d1d1;
+    --black-300: #b0b0b0;
+    --black-400: #888888;
+    --black-500: #6d6d6d;
+    --black-600: #5d5d5d;
+    --black-700: #4f4f4f;
+    --black-800: #454545;
+    --black-900: #3d3d3d;
+    --black-950: #000000; /*Color Principal */
+
+    --gamboge-50: #fcf8ea;
+    --gamboge-100: #f7eeca;
+    --gamboge-200: #f1dc97;
+    --gamboge-300: #e8c35c;
+    --gamboge-400: #e0a92f;
+    --gamboge-500: #d99923; /* Color Principal */
+    --gamboge-600: #b4711a;
+    --gamboge-700: #905218;
+    --gamboge-800: #78421b;
+    --gamboge-900: #66381d;
+    --gamboge-950: #3b1c0d;
+
+    --tuatara-50: #f7f7f6;
+    --tuatara-100: #e5e5e2;
+    --tuatara-200: #c9cac5;
+    --tuatara-300: #a6a7a1;
+    --tuatara-400: #82847d;
+    --tuatara-500: #686a62;
+    --tuatara-600: #52544d;
+    --tuatara-700: #434540;
+    --tuatara-800: #383936;
+    --tuatara-900: #343532; /* Color Principal */
+    --tuatara-950: #1b1b18;
+
+    --masala-50: #f6f6f6;
+    --masala-100: #e7e7e7;
+    --masala-200: #d1d1d1;
+    --masala-300: #b0b0b0;
+    --masala-400: #888888;
+    --masala-500: #6d6d6d;
+    --masala-600: #5d5d5d;
+    --masala-700: #4f4f4f;
+    --masala-800: #474747; /* Color Principal */
+    --masala-900: #3d3d3d;
+    --masala-950: #262626;/*Menu oscuro*/
+
+
+    /* Utilicen estas variables de abajo para los colores de su interfaz */
+    --colorHeader: #262626;
+    --colorSubHeader: #474747;
+    --colorElements: #474747;
+    --colorFondo: #343532;
+
+    --fuenteHeader: #ffffff;
+    --fuenteSubHeader: #ffffff;
+    --fuenteElements: #ffffff;
+
+    --hoverHeader: #d99923;
+    --hoverSubHeader: ;
+    --hoverElements: #d99923;
+    --hoverIconFondo: #383936;
+
+    --boxShadowSubmenu: 0 0 0 transparent;
+
+    --btnConfirm: #d99923;
+    --btnCancel: #343532;
+    --btnDelete: ;
+    --btnNext: ;
+    --btnNeutro: #343532;
+
+    --hoverBtn: #ffffff;
+    --hoverBackBtn: #292929;
+
+    /* Utilicen el borderCard en las secciones que quieran delimitar, solo se mostrara cuando el tema cambie a claro */
+    --borderCard: 1px solid transparent;
+
+    /* Variables utilizadas para la vista de la sesiones */
+    --formularioBox: #474747;
+    --formularioBoxShadow: #D9992340;
+    --formularioInput: #ffffffbd;
+  }
+
+html{
+    scroll-behavior:smooth;
+    /*font-size: 62.5%;*/ /*es igual a 10 px y a un rem*/
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 1.8;
+    font-family: Poppins, 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+}
+
+body{
+    background-color: var(--colorFondo);
+    color: var(--fuenteElements);
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+}
+
+li{
+    list-style: none;
+}
+
+/*
+img{
+    max-width: 100%;
+    display: block;
+}*/
+
+/*verMas*/
+
+.verMas{
+    color: var(--fuenteElements);
+    text-decoration: none;
+    border: 1px solid var(--fuenteElements);
+    border-radius: 5px;
+    padding: 0px 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    transition: all 200ms;
+}
+
+.verMas:hover{
+    background-color: var(--hoverElements);
+    color: #ffffff;
+    border-color: var(--hoverElements);
+}
+
+.bxMy{
+    font-size: 24px;
+    border-radius: 50%;
+    color: var(--fuenteElements);
+    transition: color 200ms;
+}
+
+/*---------------- Buttons -------------------------------*/
+.btnDefinite{
+    padding: 1px 0px;
+    text-align: center;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+}
+
+.btnText{
+    padding: 3px 15px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: 200ms;
+    text-decoration: none;
+}
+
+.btnIcon{
+    display: none;
+}
+
+.btnConfirm{
+    background-color: var(--btnConfirm);
+    color: var(--white-50);
+}
+
+.btnCancel{
+    background-color: var(--btnCancel);
+    color: var(--white-50);
+}
+
+.btnDelete{
+    background-color: var(--btnDelete);
+}
+
+.btnNext{
+    background-color: var(--btnNext);
+}
+
+.btnNeutro{
+    background-color: var(--btnNeutro);
+    color: var(--white-50);
+}
+
+.btnText:hover{
+    background-color: var(--hoverBackBtn);
+    color: var(--hoverBtn);
+}

@@ -1,0 +1,49 @@
+.container-center {
+    width: 40%;
+    min-height: 100vh;
+    max-height: 100%;
+    margin: 0 auto;
+    background-color: var(--formularioBox);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-elements {
+    margin: auto;
+    max-width: 80%;
+    width: 80%;
+}
+
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 400;
+    color: var(--fuenteHeader);
+}
+
+.descripcion {
+    font-size: 15px;
+    margin: 40px 0;
+    text-align: left;
+}
+
+.submit {
+    display: block;
+    width: 220px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 30px auto;
+    background-color: var(--hoverHeader);
+    border: 0;
+    color: var(--fuenteHeader);
+}
+
+.regresar {
+    position: absolute;
+    bottom: 0;
+}

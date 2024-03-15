@@ -1,0 +1,43 @@
+.container-left {
+    background-color: var(--formularioBox);
+    width: 40%;
+    min-height: 100vh;
+    max-height: 100%;
+    margin: 0;
+    box-shadow: 60px -5px 150px -22px var(--formularioBoxShadow);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-center {
+    margin: auto 40px;
+    width: 80%;
+    max-width: 80%;
+}
+
+h1 {
+    padding: 40px 0 30px 0;
+    text-align: center;
+    font-size: 35px;
+    color: var(--fuenteHeader);
+}
+
+.submit {
+    display: block;
+    width: 220px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 30px auto;
+    background-color: var(--hoverHeader);
+    border: 0;
+    color: var(--fuenteHeader);
+}
+
+.changePage {
+    position: absolute;
+    left: 5vh;
+    bottom: 5vh;
+}

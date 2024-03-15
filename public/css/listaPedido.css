@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.lista-pedidos{
+    width: 1450px;
+    display: flex;
+    flex-direction: column;
+    background-color: #474747;
+    
+
+}
+
+.pedido{
+    display: flex;
+    justify-content: space-between;
+    background-color: #5e5e5e;
+    align-items: center;
+    margin: 5px 10px;
+    padding: 10px 10px;
+    border-radius: 7px;
+    color: #FFFFFF;
+}
+.pedido a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+

@@ -1,0 +1,65 @@
+.cajita{
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+}
+
+
+
+.Imgencita {
+    size: 50px;
+    padding: 6px 0px 10px 28px;
+    margin-right: 5px; /* Agrega margen derecho de 2px */
+}
+.container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.details {
+    background-color: var(--colorElements);
+    padding: 25px;
+    margin: 5px 30px 20px 5px;
+}
+
+.letra{
+    font-size: 160%;
+}
+
+.calif {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 72px;
+}
+
+.calificacion{
+width: 80%;
+
+}
+
+.contenedor-details{
+    background-color: var(--colorElements);
+    padding: 25px;
+    margin: 20px 50px 10px 20px;
+}
+.contenedor-tecnicos{
+    background-color: var(--colorElements);
+    padding: 25px;
+    margin: 20px 50px 10px 20px;
+}
+.section-coco{
+    display: flex;
+}
+.contenedor-coments{
+    background-color: var(--colorElements);
+    padding: 25px;
+    margin: 20px 30px 10px 20px;
+}
+
+.contenedor-addcoments{
+    background-color: var(--colorElements);
+    padding: 10px;
+    margin: 20px 50px 10px 5px;
+}

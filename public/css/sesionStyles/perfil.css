@@ -1,0 +1,35 @@
+h1 {
+    font-size: 30px;
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+}
+
+.container {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.usuario {
+    display: block;
+}
+
+.right {
+    display: inline-block;
+}
+
+.datos {
+    display: grid;
+}
+
+img {
+    width: 200px;
+}

@@ -1,0 +1,177 @@
+
+.contenido_producto form{
+    display:grid;
+    grid-template-columns:500px 800px;
+    background-color: #474747;
+}
+
+
+.datos_producto,.info_principal,.info_entrega{
+    display: flex;
+    flex-direction: column;
+}
+
+.datos_producto{
+    padding: 20px 25px;
+}
+
+
+.info_tipos_entrega,.vinculo_direccion,.agregar_direccion{
+    
+    display: flex;
+    flex-direction: row;
+}
+.info_entrega{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.info_tipos_entrega input{
+    width: 40px;
+    height: 30px;
+    
+}
+.info_tipos_entrega{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.vinculo_direccion{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.vinculo_direccion input{
+    width: 50px;
+    height: 40px;
+    
+}
+
+
+.agregar_direccion{
+    display: flex;
+    flex-direction: column;
+}
+
+.btns_acciones{
+    display: flex;
+    position: relative;
+    top: 20%;
+    flex-direction: row;
+    
+}
+.btnregresar{
+    color: #FFFFFF;
+    font-size: 20px;
+    margin: 10px 10px;
+}
+.aggProduc{
+    background-color: #D99923;
+    color: #FFFFFF;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 260px;
+    height: 61px;
+    border: none;
+    margin: 0px 10px;
+}
+.opc_avanzada{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 25px;
+}
+
+.inimage{
+    display: none;
+}
+
+.img_producto2 input[type="file"] {
+    display: none;
+}
+
+
+
+
+
+.img-central{
+    width: 273px;
+    height: 273px;
+    border-radius: 15px;
+}
+.centro-agg-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.imgs-agg{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    margin: 10px 0px;
+}
+
+.img-mas{
+    height: 40px;
+    border-radius: 10px;
+}
+
+
+.img_producto{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #323233;
+}
+.img-principal{
+    width: 350px;
+    height: 350px;
+    border-radius: 25px;
+}
+
+.labFomr, .subtitle{
+    color:#FFFFFF;
+}
+
+.subtitle{
+    font-size: 40px;
+}
+.labFomr{
+    font-size: 15px;
+}
+p{
+    color: #FFFFFF;
+}
+
+.inlargo{
+    height: 40px;
+    border-radius: 11px;
+    background-color:#474747;
+    border: 1px solid #FFFFFF;
+    margin: 10px 0px;
+    color: #FFFFFF;
+    padding: 5px 20px;
+}
+.inlargo,.incorto:focus{
+    outline-color: #FFFFFF;
+}
+.incorto{
+    width: 180px;
+    height: 40px;
+    border-radius: 11px;
+    background-color: #474747;
+    border: 1px solid #FFFFFF;
+    margin: 10px 0px;
+    color: #FFFFFF;
+    padding: 5px 20px;
+}
+
+
+
+/*Boton img*/
+.btnAddImg input[type="file"]{
+    display: none;
+}
+
+.btnAddImg{
+    display: inline-block;
+    position: relative;
+}
