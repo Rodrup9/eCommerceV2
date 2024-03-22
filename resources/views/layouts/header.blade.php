@@ -38,8 +38,18 @@
                 @if ($nameView != "Home")
                     <a href="/home" class="opcionPrincipal">Home</a>
                 @endif
-                <a href="{{route('login')}}" class="opcionPrincipal">Iniciar sesión</a>
-                <a href="{{route('register')}}" class="opcionPrincipal">Registrarse</a>
+
+                @guest
+                    <a href="{{route('login')}}" class="opcionPrincipal">Iniciar sesión</a>
+                    <a href="{{route('register')}}" class="opcionPrincipal">Registrarse</a>
+                @else
+                <form action="{{route('logOut')}}" method="POST">
+                    @csrf
+                    <a href="#" onclick="this.closest('form').submit()" class="opcionPrincipal">Cerrar sesión</a>
+                </form>
+                    {{-- <a href="{{route('logOut')}}" class="opcionPrincipal">Cerrar sesión</a> --}}
+                @endguest
+                
             </div>
         </nav>
         @section('subMenu')

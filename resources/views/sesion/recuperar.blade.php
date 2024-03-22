@@ -13,7 +13,11 @@
                 @csrf
                 <fieldset>
                     <label for="">Correo electrónico</label>
-                    <input type="email" name="email">
+                    <input type="email" name="email" value="{{old('email')}}">
+                    @foreach ($errors->get('email') as $item)
+                        <span class="alert">*{{$item}}</span>
+                        <br>
+                    @endforeach
                 </fieldset>
                 <button class="submit" type="submit">Enviar código</button>
             </form>
