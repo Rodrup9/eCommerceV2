@@ -28,7 +28,7 @@ class StoreRegister extends FormRequest
             'name' => 'required|min:2|regex:/^[\pL\s\-]+$/u',
             'apellido_pa' => 'required|min:3|regex:/^[\pL\s\-]+$/u',
             'apellido_ma' => 'required|min:3|regex:/^[\pL\s\-]+$/u',
-            'email' => 'required|email|unique:users,correo',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:8',
         ];
     }
