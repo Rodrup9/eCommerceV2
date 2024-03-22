@@ -20,6 +20,9 @@ return new class extends Migration
             $table->integer('cantidad');
             $table->boolean('oferta');
             $table->float('precio_ante')->nullable();
+            $table->string("tipo_envio",255);
+            $table->string("direccion",255)->nullable();
+            $table->date("fecha_lim_desc")->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

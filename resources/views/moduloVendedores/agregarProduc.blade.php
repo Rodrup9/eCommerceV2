@@ -14,39 +14,33 @@
                 <h1 class="subtitle1">Nuevo Producto</h1>
                 <div class="info_principal">
                     <label class="labFomr" for="">Nombre del producto</label>
-                    <input class="inlargo" type="text" name="nombre">
+                    <input class="inlargo" type="text" name="nombre" value="{{old("nombre")}}">
                     @error('nombre') <p>{{$message}}</p> @enderror
                     <label class="labFomr" for="">Descripción del producto</label>
-                    <textarea class="inlargo" name="descripcion" id="" cols="30" rows="10"></textarea>
+                    <textarea class="inlargo" name="descripcion" id="" cols="30" rows="10">{{old("descripcion")}}</textarea>
                     @error('descripcion') <p>{{$message}}</p> @enderror
                     <label class="labFomr" for="">Precio</label>
-                    <input class="incorto" type="number" name="precio" id="">
+                    <input class="incorto" type="number" name="precio" id="" value="{{old("precio")}}">
                     @error('precio') <p>{{$message}}</p> @enderror
                     <label class="labFomr" for="">Cantidad</label>
-                    <input class="incorto" type="number" name="cantidad" id="">
+                    <input class="incorto" type="number" name="cantidad" id="cantidad" value="{{old("cantidad")}}">
                     @error('cantidad') <p>{{$message}}</p> @enderror
                     @error('precio_ante') <p>{{$message}}</p> @enderror
                     @error('imagen') <p>{{$message}}</p> @enderror
+                    @error('tipo_envio') <p>{{$message}}</p> @enderror
                 </div>
                 <div class="info_entrega">
                     <h2 class="subtitle">Tipo de entrega</h2>
                     <div class="info_tipos_entrega">
-                        <input  type="radio" name="" id="">
-                        <label class="labFomr" for="">Recoger</label>
-                        
-                        <input type="radio" name="" id="">
-                        <label class="labFomr" for="">Envio</label>
-                        
-                        <input type="radio" name="" id="">
-                        <label class="labFomr" for="">Ambos</label>
-                    </div>
-                    <div class="vinculo_direccion">
-                        <input type="checkbox" name="" id="">
-                        <p>Vincular dirección: </p>
+                        <select id="entrega" name="tipo_envio">
+                            <option value="recoguer">Recoger</option>
+                            <option value="envio">Envio</option>
+                            <option value="ambos">Ambos</option>
+                        </select>
                     </div>
                     <div class="agregar_direccion">
                         <label  class="labFomr" for="">Agregar una nueva dirección</label>
-                        <input class="inlargo" type="text" name="" id="">
+                        <input class="inlargo" type="text" name="direccion" id="direccion" value="{{old("direccion")}}">
                     </div>
                 </div>
                 <div class="btn-avanzado-des">Avanzado</div>
@@ -55,7 +49,7 @@
                 <div class="opc_avanzada ocultar">
                     <div class="centro-agg-img">
                         <h3 class="subtitle">Configuración avanzada</h3>
-                        <img class="img-central"  src="https://www.innovasport.com/medias/gorra-new-era-59fifty-chicago-white-sox-authentic-2018-is-70358700-1.jpg?context=bWFzdGVyfGltYWdlc3wyMTc5OTh8aW1hZ2UvanBlZ3xpbWFnZXMvaGE1L2gzYy85NzkzNjU5NDA0MzE4LmpwZ3xiMjhkNjc1ZGE5YWQ0YzQxMTg2MmU3ZjY2ZWZlYjkzYzNmY2E2YWU2ZGQyYmFhZjFjMjE5ZjNlYTMzNjAwYzRi" alt="">
+                        {{-- <img class="img-central"  src="" alt=""> --}}
                         <label for="addImg" class="btnText btnConfirm">
                             <i class='bx bxs-file-image'></i>
                             <span>Agregar imagen</span> 
@@ -64,19 +58,19 @@
                     
                     <p>Imagenes añadidas</p>
                     <div class="imgs-agg">
-                        <img class="img-mas" src="https://www.innovasport.com/medias/gorra-new-era-59fifty-chicago-white-sox-authentic-2018-is-70358700-1.jpg?context=bWFzdGVyfGltYWdlc3wyMTc5OTh8aW1hZ2UvanBlZ3xpbWFnZXMvaGE1L2gzYy85NzkzNjU5NDA0MzE4LmpwZ3xiMjhkNjc1ZGE5YWQ0YzQxMTg2MmU3ZjY2ZWZlYjkzYzNmY2E2YWU2ZGQyYmFhZjFjMjE5ZjNlYTMzNjAwYzRi" alt="">
-                        <img class="img-mas" src="https://www.innovasport.com/medias/gorra-new-era-59fifty-chicago-white-sox-authentic-2018-is-70358700-1.jpg?context=bWFzdGVyfGltYWdlc3wyMTc5OTh8aW1hZ2UvanBlZ3xpbWFnZXMvaGE1L2gzYy85NzkzNjU5NDA0MzE4LmpwZ3xiMjhkNjc1ZGE5YWQ0YzQxMTg2MmU3ZjY2ZWZlYjkzYzNmY2E2YWU2ZGQyYmFhZjFjMjE5ZjNlYTMzNjAwYzRi" alt="">
-                        <img class="img-mas" src="https://www.innovasport.com/medias/gorra-new-era-59fifty-chicago-white-sox-authentic-2018-is-70358700-1.jpg?context=bWFzdGVyfGltYWdlc3wyMTc5OTh8aW1hZ2UvanBlZ3xpbWFnZXMvaGE1L2gzYy85NzkzNjU5NDA0MzE4LmpwZ3xiMjhkNjc1ZGE5YWQ0YzQxMTg2MmU3ZjY2ZWZlYjkzYzNmY2E2YWU2ZGQyYmFhZjFjMjE5ZjNlYTMzNjAwYzRi" alt="">
+                        {{-- <img class="img-mas" src="" alt="" id="img1">
+                        <img class="img-mas" src="" alt="" id="img2">
+                        <img class="img-mas" src="" alt="" id="img3"> --}}
                     </div>
                     <div class="cortos-principal">
                         <div class="inscortos">
                             <label class="labFomr" for="">Descuento inicial</label>
-                            <input class="incorto" type="number" name="descuento" id="">
+                            <input class="incorto" type="number" name="descuento" id="descuento" value="{{old("descuento")}}">
     
                         </div>
                         <div class="inscortos">
                             <label class="labFomr " for="">Fecha limite de descuento</label>
-                            <input class="incorto" type="date" name="fechaLimite" id="">
+                            <input class="incorto" type="date" name="FechaLimite" id="FechaLimite" value="{{old("FechaLimite")}}">
                         </div>
                     </div>
                     <div class="btns_acciones">
@@ -87,9 +81,9 @@
                     <div class="btn-avanzado-close"><span class="material-symbols-outlined iconn">cancel</span></div>
                 </div>
                 <div class="img_producto">
-                    <img class="img-principal" src="https://www.innovasport.com/medias/gorra-new-era-59fifty-chicago-white-sox-authentic-2018-is-70358700-1.jpg?context=bWFzdGVyfGltYWdlc3wyMTc5OTh8aW1hZ2UvanBlZ3xpbWFnZXMvaGE1L2gzYy85NzkzNjU5NDA0MzE4LmpwZ3xiMjhkNjc1ZGE5YWQ0YzQxMTg2MmU3ZjY2ZWZlYjkzYzNmY2E2YWU2ZGQyYmFhZjFjMjE5ZjNlYTMzNjAwYzRi" alt="">
+                    <img class="img-principal" id="imagen" src="" alt="">
                     <div class="btnAddImg">
-                        <input name="imagen" type="file" id="addImg" />
+                        <input name="imagen[]" type="file" id="addImg" accept="image/*" onchange="cargarImagen(event)"  multiple />
                         <label for="addImg" class="btnText btnConfirm">
                             <i class='bx bxs-file-image'></i>
                             <span>Agregar imagen</span> 
@@ -102,22 +96,46 @@
                     </div>
                     
                 </div>
-                
             </div>
-            
-
         </form>
-        
+    
     </div>
+
+    <script>
+        function cargarImagen(event){
+            let archivos = event.target.files;
+            let contenedor = document.querySelector(".imgs-agg")
+
+            if(archivos.length <= 1){
+                let render = new FileReader()
+                render.onload = function(){
+                    let imagenPrin = document.querySelector(".img-principal")
+                    imagenPrin.src = render.result
+                }
+                render.readAsDataURL(archivos[0])
+
+
+            }else{
+
+                for (let index = 0; index < archivos.length; index++) {
+                let render = new FileReader()
+                render.onload = function(){
+                    let imagen = document.createElement("img");
+                    imagen.src = render.result;
+                    imagen.classList.add("img-mas");
+                    contenedor.appendChild(imagen);
+                }
+                render.readAsDataURL(archivos[index])
+                
+                }
+            }
+            
+            
+        }
+    </script>
     
 @endsection
 
 @section('jsPage')
     <script src="/js/moduloVendedor.js"></script>
 @endsection
-
-
-
-
-
-    

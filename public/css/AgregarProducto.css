@@ -81,7 +81,7 @@ img{
 .btn-avanzado-des{
     width: 95px;
     position: relative;
-    top: -750px;
+    top: -700px;
     left: 380px;
     background-color: var(--btnConfirm);
     cursor: pointer;
