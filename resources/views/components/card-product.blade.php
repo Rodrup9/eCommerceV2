@@ -20,6 +20,7 @@
             @endif
             
         </div>
+        <p>{{$producto}}</p>
         <p class="descripcion">{{$slot}}</p>
     </div>
 </a>

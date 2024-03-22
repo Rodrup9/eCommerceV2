@@ -3,28 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     function index(){
+        $consulta = Producto::all();
+        $img = Image::all();
+        $longConsult = count($consulta);
+        for($i = 0; $i <= 4; $i++ ){
+            $consulta[$i]['url'] = $img[$i]["url"];
+        }
         return view('moduloInicio.home', [
             'nameView' => 'Home',
-            'products' => [
-                'product' => [
-                    'name' => 'mouse'
-,                    'precio' => '500.00',
-                    'description' => 'cosas, muchas cosas que no megustas decir cuales son sinduda alguna no me gusta',
-                    'img' => 'https://picsum.photos/200/300',
-                    'descuento' => '200.00',
-                    'tag' => '1° MÁS VENDIDO',
-                    'categoria' => [
-                        'tecnologia',
-                        'gamming',
-                        'accesorios Pc'
-                    ]
-                ],
-            ],
+            'products' => $consulta,
             'sectionS' => [
                 'Busquedas recientes' => [
                     'url' => 'recientes'
