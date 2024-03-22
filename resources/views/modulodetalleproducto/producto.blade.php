@@ -10,24 +10,26 @@
 
 
 @section('main')
-{{--Si utilizan el menu desplegable recomiendo utilizar este divCenterMain--}}
     <main class="cajita">
         <div class="container">
             <div class="Imgencita">
-                <img src="https://picsum.photos/200/300" alt="">
+                <img src="{{$productoD['url']}}" alt="">
             </div>
             <div class="details">
-                <h1>Mouse Logitech Mx Master 3s Inalámbrico Distancia 10 M Color Grafito</h1> <br>
-                <h1 class="letra">${{ $products['product']['descuento'] }}</h1><br>
+                <h1>{{$productoD['nombre']}}</h1> <br>
+                <h1 class="letra"></h1><br>
                 <p>Tipo de envío</p>
                 <p>Enviado Desde China</p>
-                <p>Disponibles 4</p>
+                <p>{{$productoD['precio']}}</p>
+                <p>{{$productoD['oferta']}}</p>
+                <p>{{$productoD['precio_ante']}}</p>
+                <p>Disponibles {{$productoD['cantidad']}}</p>
                 <p>visita la Tienda de Ddtech</p>
                 <a class="btnText btnConfirm" href="">Comprar Ahora</a>
                 <a class="btnText btnCancel" href="">Agregar al carrito</a>
             </div>
             <div class="sourseDetalles">
-                <p>Califiación</p>
+                <p>Califiación</p>  
                 <span class="calificacion">75%</span>
                 <div class="">
                     <span class="start"><i class='bx bxs-star' ></i></span>
@@ -40,11 +42,7 @@
         </div>
         <div class="contenedor-details">
             <h1>Detalles</h1>
-            <p>Este es MX Master 3S, un emblemático mouse remasterizado.
-                Siente cada momento de tu flujo de trabajo con más precisión, sensación táctil y desempeño, gracias a los clicks discretos y un sensor de seguimiento sobre cristal Grosor mínimo del cristal: 4 mm. de 8.000 dpi.
-                Con clicks discretos: crea y haz todo tipo de cosas con la misma sensación de click, pero con menos ruido. Los clicks discretos ofrecen una sensación táctil satisfactoria y producen un 90% menos de ruido.
-                Y si a eso se añade un botón rueda de desplazamiento electromagnético MagSpeed sumamente discreto, se obtiene una experiencia de alto desempeño sin distracciones.
-                MX Master 3S funciona hasta 70 días con una carga completa, y permite tres horas de uso con un minuto de carga rápida.</p>
+            <p>{{$productoD['descripcion']}}</p>
         </div>
         <div class="contenedor-tecnicos">
             <h1>Detalles Tecnicos</h1>
@@ -54,114 +52,22 @@
             <H2>CONECTIVIDAD: Inalambrico</H2>
             <H2>Uso sugerido: Jugar</H2>
         </div>
-    @foreach ($sectionS as $nameS => $data)
-        {{-- x-slider-product es como se llama al componente del slider, solo hay que pasar 3 parametros, 
-            nombre de la seccion que se pone como $nameS, la url para ver mas hacer de esa seccion que se declara con $urlS
-            y el contenido que se pone sin más dentro de la etiqueta--}}
+        @foreach ($sectionS as $nameS => $data)
         <x-slider-product>
-            
-            {{--Esta son las unicas variables que se deben enviar--}}
+        @foreach ($products as $item)
             <x-slot name="nameSectionSlider">{{$nameS}}</x-slot>
             <x-slot name="urlSectionSlider">{{$data['url']}}</x-slot>
-            {{--Aqui termian las variables del slider lo demás es contenido--}}
-            <x-card-product :img="$products['product']['img']">
-                <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-                <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-                <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-                <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-                {{$products['product']['description']}}
+            <x-card-product :img="$item['url']">
+                <x-slot name="id">{{$item['producto_id']}}</x-slot>
+                <x-slot name="producto">{{$item['nombre']}}</x-slot>
+                <x-slot name="tag">{{$item['oferta']}}</x-slot>
+                <x-slot name="descuento">{{$item['oferta']}}</x-slot>
+                <x-slot name="precio">{{$item['precio']}}</x-slot>
+                {{$item['descripcion']}}
             </x-card-product>
-            <x-card-product :img="$products['product']['img']">
-                <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-                <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-                <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-                <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-                {{$products['product']['description']}}
-            </x-card-product>
-            <x-card-product :img="$products['product']['img']">
-                <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-                <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-                <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-                <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-                {{$products['product']['description']}}
-            </x-card-product>
-            <x-card-product :img="$products['product']['img']">
-                <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-                <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-                <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-                <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-                {{$products['product']['description']}}
-            </x-card-product>
-            <x-card-product :img="$products['product']['img']">
-                <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-                <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-                <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-                <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-                {{$products['product']['description']}}
-            </x-card-product>
-            <x-card-product :img="$products['product']['img']">
-                <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-                <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-                <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-                <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-                {{$products['product']['description']}}
-            </x-card-product>
+        @endforeach
         </x-slider-product>
-    @endforeach 
-    @foreach ($sectiosur as $nameS => $data)
-    {{-- x-slider-product es como se llama al componente del slider, solo hay que pasar 3 parametros, 
-        nombre de la seccion que se pone como $nameS, la url para ver mas hacer de esa seccion que se declara con $urlS
-        y el contenido que se pone sin más dentro de la etiqueta--}}
-    <x-slider-product>
-        
-        {{--Esta son las unicas variables que se deben enviar--}}
-        <x-slot name="nameSectionSlider">{{$nameS}}</x-slot>
-        <x-slot name="urlSectionSlider">{{$data['url']}}</x-slot>
-        {{--Aqui termian las variables del slider lo demás es contenido--}}
-        <x-card-product :img="$products['product']['img']">
-            <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-            <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-            <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-            <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-            {{$products['product']['description']}}
-        </x-card-product>
-        <x-card-product :img="$products['product']['img']">
-            <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-            <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-            <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-            <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-            {{$products['product']['description']}}
-        </x-card-product>
-        <x-card-product :img="$products['product']['img']">
-            <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-            <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-            <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-            <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-            {{$products['product']['description']}}
-        </x-card-product>
-        <x-card-product :img="$products['product']['img']">
-            <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-            <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-            <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-            <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-            {{$products['product']['description']}}
-        </x-card-product>
-        <x-card-product :img="$products['product']['img']">
-            <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-            <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-            <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-            <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-            {{$products['product']['description']}}
-        </x-card-product>
-        <x-card-product :img="$products['product']['img']">
-            <x-slot name="producto">{{$products['product']['name']}}</x-slot>
-            <x-slot name="tag">{{$products['product']['tag']}}</x-slot>
-            <x-slot name="descuento">{{$products['product']['descuento']}}</x-slot>
-            <x-slot name="precio">{{$products['product']['precio']}}</x-slot>
-            {{$products['product']['description']}}
-        </x-card-product>
-    </x-slider-product>
-@endforeach 
+    @endforeach
 <div class="section-coco">
     <div class="contenedor-coments">
     <h1>Comentarios</h1>

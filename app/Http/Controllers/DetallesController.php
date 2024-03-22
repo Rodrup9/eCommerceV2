@@ -2,39 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Return_;
 
 class DetallesController extends Controller
 {
-    function index(){
+    function index(Request $request){
+        $id = $request->route('id');
+        $producto = Producto::join('images', 'productos.producto_id', '=', 'images.image_id')
+            ->where('productos.producto_id', $id)->where('images.image_id', $id)->first();
+        $consulta = Producto::join('images', 'productos.producto_id', '=', 'images.image_id')
+            ->get();
         return view('modulodetalleproducto.producto', [
-            'nameView' => 'Home',
-            'products' => [
-                'product' => [
-                    'name' => 'mouse'
-,                    'precio' => '51000.00',
-                    'description' => 'cosas, muchas cosas que no megustas decir cuales son sinduda alguna no me gusta',
-                    'img' => 'https://picsum.photos/200/300',
-                    'descuento' => '200.00',
-                    'tag' => '1° MÁS VENDIDO',
-                    'categoria' => [
-                        'tecnologia',
-                        'gamming',
-                        'accesorios Pc'
-                    ]
-                ],
-            ],
+            'nameView' => 'Producto',
+            'productoD' => $producto,
+            'products' => $consulta,
             'sectionS' => [
                 'Mas productos del vendedor' => [
                     'url' => 'recientes'
                 ],
-            ],
-            'sectiosur' => [
                 'Sugerencias' => [
                     'url' => 'recientes'
                 ],
-            ]
+            ],
         ]);
 
     }

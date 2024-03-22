@@ -55,7 +55,7 @@ Route::controller(HomeController::class)->group(function(){
 });
 
 Route::controller(CatalogoController::class)->group(function(){
-    Route::get('/catalogo/{filter?}', 'index')->name('catalogo');
+    Route::get('/catalogo/{id?}/{filter?}', 'index')->name('catalogo');
 });
 
 
@@ -88,5 +88,5 @@ Route::controller(AdminEcommerceController::class)->group(function(){
 
 
 Route::controller(DetallesController::class)->group(function(){
-    Route::get("/detalles","index")->name('detalles');
+    Route::get("/detalles/{id?}/{producto?}","index")->name('detalles');
 });
