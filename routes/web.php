@@ -32,18 +32,20 @@ Route::get('/', function () {
 
 //Rutas para el manejo de las sesiones
 Route::controller(SesionController::class)->group(function() {
-    Route::get('login', 'index')->name('login');
-    Route::post('iniciar', 'login')->name('signin');
-    Route::get('register', 'register')->name('register');
-    Route::post('registro', 'check')->name('confirmar');
+    Route::get('login', 'index')->name('login')->middleware('guest');
+    Route::post('login', 'login')->name('signin')->middleware('guest');
+    Route::get('register', 'register')->name('register')->middleware('guest');
+    Route::post('registro', 'check')->name('confirmar')->middleware('guest');
+    
+    Route::post('logOut', 'logOut')->name('logOut');
 
-    Route::get('recuperacionDeCuenta', 'recuperacion')->name('recuperar');
+    Route::get('recuperacionDeCuenta', 'recuperacion')->name('recuperar')->middleware('guest');
 
-    Route::get('sendCode', 'code')->name('sendCode');
+    Route::get('sendCode', 'code')->name('sendCode')->middleware('guest');
 
-    Route::get('verificacionDeCodigo', 'verificacion')->name('verificacion');
+    Route::get('verificacionDeCodigo', 'verificacion')->name('verificacion')->middleware('guest');
 
-    Route::get('reestablecerContraseña', 'reestablecer')->name('reestablecer');
+    Route::get('reestablecerContraseña', 'reestablecer')->name('reestablecer')->middleware('guest');
 });
 
 
