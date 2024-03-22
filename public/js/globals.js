@@ -41,18 +41,25 @@ const colorThemes = {
   const button = document.getElementById('changeColorButton');
   
   button.addEventListener('click', () => {
-      const currentTheme = button.value;
+      const currentTheme = localStorage.getItem('theme');
       const nextTheme = currentTheme === 'oscuro' ? 'claro' : 'oscuro';
     
       Object.entries(colorThemes[nextTheme]).forEach(([property, value]) => {
           document.documentElement.style.setProperty(`--${property}`, value);
       });
       button.innerHTML = '';
-      if(button.value == 'claro'){
+      if(currentTheme == 'claro'){
           button.innerHTML = `<i class='bx bx-sun'></i>`;
       }else{
           button.innerHTML = `<i class='bx bx-moon'></i>`;
       }
-  
-      button.value = nextTheme;
+      localStorage.setItem('theme', nextTheme)
   });
+
+if (!localStorage.getItem('theme')){
+    localStorage.setItem('theme', 'oscuro')
+}else{
+    Object.entries(colorThemes[localStorage.getItem('theme')]).forEach(([property, value]) => {
+        document.documentElement.style.setProperty(`--${property}`, value);
+    });
+}

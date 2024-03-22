@@ -1,4 +1,4 @@
-<a href="/detalles" class="card producto">
+<a href="/detalles/{{$id}}/{{$producto}}" class="card producto">
     <div class="imgProducto">
         <img src="{{$img}}" alt="{{$producto}}">
     </div>
