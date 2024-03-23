@@ -9,8 +9,5 @@ class Categoria extends Model
 {
     use HasFactory;
 
-    //Relación many-to-many
-    public function users() {
-        return $this->belongsToMany('App\Models\User');
-    }
+    
 }

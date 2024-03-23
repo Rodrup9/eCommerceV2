@@ -59,6 +59,9 @@ class AgregarProductoController extends Controller{
                 $producto->images()->save($imagen);
             }
         }
+
+        //operador terneario 
+        // $valor = ($ProductoRequest->hasFile("imagen")) ? "tiene imagen" : "no tiene imagen";
         return view("moduloVendedores.homeVendedor",["nameView"=> "Home"]);
     }
     

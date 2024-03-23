@@ -90,3 +90,6 @@ Route::controller(AdminEcommerceController::class)->group(function(){
 Route::controller(DetallesController::class)->group(function(){
     Route::get("/detalles/{id?}/{producto?}","index")->name('detalles');
 });
+
+
+

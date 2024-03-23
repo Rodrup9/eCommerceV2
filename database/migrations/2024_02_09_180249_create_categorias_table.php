@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->id('categoria_id');
-            $table->string('nombre')->unique();
+            $table->string("nombre");
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('subcategorias');
     }
 };
