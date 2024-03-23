@@ -9,5 +9,13 @@ class Categoria extends Model
 {
     use HasFactory;
 
+
+    public function subcategorias(){
+        return $this->hasMany(Subcategoria::class);
+    }
+
+    public function productos(){
+        return $this->hasManyThrough(Producto::class,Subcategoria::class);
+    }
     
 }

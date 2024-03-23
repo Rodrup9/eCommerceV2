@@ -18,4 +18,8 @@ class Producto extends Model
     public function images() {
         return $this->morphOne('App\Models\Image', 'imageable');
     }
+
+    public function categoria(){
+        return $this->belongsTo(Subcategoria::class);
+    }
 }
