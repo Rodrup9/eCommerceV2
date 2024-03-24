@@ -17,12 +17,31 @@ const direction = {
   const inHamburger = document.getElementById('inHamburger');
   
   menu.addEventListener('click', () => {
-    let currentDirection = inHamburger.value;
+    let currentDirection = localStorage.getItem('aside');
     const nextDirection = currentDirection === 'open' ? 'close' : 'open';
   
     Object.entries(direction[nextDirection]).forEach(([property, value]) => {
       document.documentElement.style.setProperty(`--${property}`, value);
     });
+    if (localStorage.getItem('aside') === 'close'){
+      localStorage.setItem('numSlider', 4)
+    }else{
+      localStorage.setItem('numSlider', 3)
+    }
   
-    inHamburger.value = nextDirection;
+    localStorage.setItem('aside', nextDirection)
   });
+
+  if (!localStorage.getItem('aside')){
+    localStorage.setItem('numSlider', 4)
+    localStorage.setItem('aside', 'close')
+  }else{
+    Object.entries(direction[localStorage.getItem('aside')]).forEach(([property, value]) => {
+      document.documentElement.style.setProperty(`--${property}`, value);
+    });
+    if (localStorage.getItem('aside') === 'close'){
+      localStorage.setItem('numSlider', 3)
+    }else{
+      localStorage.setItem('numSlider', 4)
+    }
+  }

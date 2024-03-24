@@ -9,8 +9,13 @@ class Categoria extends Model
 {
     use HasFactory;
 
-    //Relación many-to-many
-    public function users() {
-        return $this->belongsToMany('App\Models\User');
+
+    public function subcategorias(){
+        return $this->hasMany(Subcategoria::class);
     }
+
+    public function productos(){
+        return $this->hasManyThrough(Producto::class,Subcategoria::class);
+    }
+    
 }

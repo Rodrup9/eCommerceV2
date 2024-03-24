@@ -8,7 +8,7 @@
 
 @section('main')
 <main class="mainAdminAdmin">
-    <a href="/adminListaEcommerce/vendedores" class="cardMenuAdmin">
+    <a href="{{route("vendedor.lista.productos")}}" class="cardMenuAdmin">
         <i class='bx bx-store-alt' ></i>
         <h2>Lista productos</h2>
     </a>

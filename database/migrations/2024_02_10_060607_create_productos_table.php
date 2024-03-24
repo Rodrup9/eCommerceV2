@@ -14,17 +14,26 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id('producto_id');
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('categoria_id')->nullable();
             $table->string('nombre');
             $table->text('descripcion');
             $table->float('precio');
             $table->integer('cantidad');
             $table->boolean('oferta');
             $table->float('precio_ante')->nullable();
+            $table->string('tipo_envio',255);
+            $table->string('direccion',255)->nullable();
+            $table->date('fecha_lim_desc')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
+                ->onDelete('set null');
+
+            $table->foreign('categoria_id')
+                ->references('categoria_id')
+                ->on('categorias')
                 ->onDelete('set null');
         });
     }

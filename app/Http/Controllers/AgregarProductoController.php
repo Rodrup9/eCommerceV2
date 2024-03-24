@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Cloudinary\Cloudinary;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Cloudinary\Api\Upload\UploadApi;
-use Cloudinary\Configuration\Configuration;
-use App\Http\Requests\StoreProductoRequest;
 use App\Models\Image;
 use App\Models\Producto;
+use App\Http\Requests\StoreProductoRequest;
+use Cloudinary\Configuration\Configuration;
+use Cloudinary\Api\Upload\UploadApi;
 
 class AgregarProductoController extends Controller{
 
@@ -16,15 +17,29 @@ class AgregarProductoController extends Controller{
         return view("moduloVendedores.agregarProduc",["nameView"=> "agregarProducto"]);
     }
 
-     public function AgregarProducto(StoreProductoRequest $ProductoRequest){
+    public function AgregarProducto(StoreProductoRequest $ProductoRequest){
         $producto = new Producto;
         $producto->nombre = $ProductoRequest->nombre;
         $producto->descripcion = $ProductoRequest->descripcion;
-        $producto->precio = $ProductoRequest->precio;
         $producto->cantidad = $ProductoRequest->cantidad;
-        $producto->oferta = true;
-        $producto->precio_ante = $ProductoRequest->precio;
+        $producto->direccion = $ProductoRequest->direccion;
+        $producto->tipo_envio = $ProductoRequest->tipo_envio;
+        
+        if(empty($ProductoRequest->descuento)){
+            $producto->precio = $ProductoRequest->precio;
+            $producto->oferta = false;
+            $producto->precio_ante = null;
+            $producto->fecha_lim_desc = null;
+        }else{
+            $producto->oferta = true;
+            $descuento = $ProductoRequest->precio - $ProductoRequest->descuento;
+            $producto->precio = $descuento;
+            $producto->precio_ante = $ProductoRequest->precio;
+            $producto->fecha_lim_desc = $ProductoRequest->FechaLimite;
+        }
         $producto->save();
+        
+
         Configuration::instance([
             'cloud' => [
                 'cloud_name' => 'dlxpr11ok', 
@@ -33,16 +48,21 @@ class AgregarProductoController extends Controller{
             'url' => [
                 'secure' => true]]);
         
-        $cloudinary = new UploadApi();
-        $resultado=$cloudinary->upload($ProductoRequest->file("imagen")->getRealPath(),["folder"=>"Productos"]);
-        $url = $resultado["secure_url"];
+        if($ProductoRequest->hasFile("imagen")){
+            $total_imagen = $ProductoRequest->file("imagen");
+            foreach ($total_imagen as $img) {
+                $cloudinary = new UploadApi();
+                $resultado=$cloudinary->upload($img->getRealPath(),["folder"=>"Productos"]);
+                $url = $resultado["secure_url"];
+                $imagen = new Image;
+                $imagen->url = $url;        
+                $producto->images()->save($imagen);
+            }
+        }
 
-        $imagen = new Image;
-        $imagen->url = $url;        
-        $producto->images()->save($imagen);
-
+        //operador terneario 
+        // $valor = ($ProductoRequest->hasFile("imagen")) ? "tiene imagen" : "no tiene imagen";
         return view("moduloVendedores.homeVendedor",["nameView"=> "Home"]);
-
     }
     
 }

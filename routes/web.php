@@ -55,19 +55,21 @@ Route::controller(HomeController::class)->group(function(){
 });
 
 Route::controller(CatalogoController::class)->group(function(){
-    Route::get('/catalogo/{filter?}', 'index')->name('catalogo');
+    Route::get('/catalogo/{id?}/{filter?}', 'index')->name('catalogo');
 });
 
 
 Route::controller(AgregarProductoController::class)->group(function(){
     Route::get("/vendedor/producto","NuevoProducto")->name("vendedor.producto");
-     Route::post("/vendedor/producto","AgregarProducto")->name("vendedor.agg.producto");
+    Route::post("/vendedor/producto","AgregarProducto")->name("vendedor.agg.producto");
 });
 
 Route::controller(VendedorController::class)->group(function(){
     Route::get("/vendedor/pedidos","pedidos")->name("vendedor.pedidos");
     Route::get("/vendedor/pedidos/detalles","detalles")->name("vendedor.pedidos.detalles");
     Route::get("/vendedor","index")->name("vendedor");
+    Route::get("/vendedor/lista/productos","listaProductos")->name("vendedor.lista.productos");
+    Route::get("/vendedor/producto/{producto}","detallesProducto")->name("vendedor.producto.detalle");
 });
 
 Route::controller(ShoppingCartController::class)->group(function(){
@@ -86,5 +88,8 @@ Route::controller(AdminEcommerceController::class)->group(function(){
 
 
 Route::controller(DetallesController::class)->group(function(){
-    Route::get("/detalles","index")->name('detalles');
+    Route::get("/detalles/{id?}/{producto?}","index")->name('detalles');
 });
+
+
+
