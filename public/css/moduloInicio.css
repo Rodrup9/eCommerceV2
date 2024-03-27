@@ -6,7 +6,7 @@
 .boxOfertas{
     display: flex;
     flex-direction: column;
-    height: 86vh;
+    height: 150vh;
     width: var(--widhtComponentSlider);
     gap: 10px;
     padding: 30px 40px 40px 40px;
