@@ -9,11 +9,12 @@ class Subcategoria extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'subcategoria_id';
     public function categoria(){
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(Categoria::class,'categoria_id');
     }
 
     public function productos(){
-        return $this->hasMany(Producto::class);
+        return $this->hasMany(Producto::class,'subcategoria_id');
     }
 }

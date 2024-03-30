@@ -26,7 +26,7 @@ class StoreProductoRequest extends FormRequest
             "descripcion" => "required|max:10000",
             "precio" => "required",
             "cantidad" => "required|min:1|max:1000",
-            "imagen" => "required",
+            // "imagen" => "required",
             // "tipo_envio" => "required",
         ];
     }

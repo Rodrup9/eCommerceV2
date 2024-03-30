@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id('producto_id');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('categoria_id')->nullable();
+            $table->unsignedBigInteger('subcategoria_id')->nullable();
             $table->string('nombre');
             $table->text('descripcion');
             $table->float('precio');
@@ -31,9 +31,9 @@ return new class extends Migration
                 ->on('users')
                 ->onDelete('set null');
 
-            $table->foreign('categoria_id')
-                ->references('categoria_id')
-                ->on('categorias')
+            $table->foreign('subcategoria_id')
+                ->references('subcategoria_id')
+                ->on('subcategorias')
                 ->onDelete('set null');
         });
     }

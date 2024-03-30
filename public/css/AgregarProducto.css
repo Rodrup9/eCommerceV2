@@ -15,7 +15,7 @@
 }
 
 .avanzado{
-    width: 689.33px;;
+    width: 689.33px;
     display: flex;
     flex-direction: column;
 }
@@ -93,14 +93,15 @@ img{
 .ocultar{
     position: absolute;
     opacity: 0;
+    pointer-events: none;
 }
 
 .btn-avanzado-close{
     width: 40px;
     height: 40px;
     position: relative;
-    top: -640px;
-    left: 720px;
+    top: -290px;
+    left: 740px;
     /* background-color: var(--btnConfirm); */
     cursor: pointer;
     border-radius: 50%;
@@ -188,6 +189,7 @@ img{
     height: 61px;
     border: none;
     margin: 0px 10px;
+    cursor: pointer;
 }
 
 .subtitle1{

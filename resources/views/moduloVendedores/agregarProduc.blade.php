@@ -8,7 +8,7 @@
 
 @section('main')
     <div class="contenido-principal">
-        <form action="{{route("vendedor.agg.producto")}}" method="POST" enctype="multipart/form-data"">
+        <form class="formAgg" action="{{route("vendedor.agg.producto")}}" method="POST" enctype="multipart/form-data"">
             @csrf
             <div class="datos_producto">
                 <h1 class="subtitle1">Nuevo Producto</h1>
@@ -28,6 +28,19 @@
                     @error('precio_ante') <p>{{$message}}</p> @enderror
                     @error('imagen') <p>{{$message}}</p> @enderror
                     @error('tipo_envio') <p>{{$message}}</p> @enderror
+
+                    <h2>Categorias</h2>
+                    <select name="categorias" id="categorias">
+                        @foreach ($categorias as $categoria)  
+                            <optgroup label="{{$categoria->nombre}}">
+                                @foreach ($categoria->subcategorias as $subcategoria)
+                                    <option value="{{$subcategoria->subcategoria_id}}">{{$subcategoria->nombre}}</option>
+                                @endforeach
+                            </optgroup>                            
+                        @endforeach
+                    </select>
+                    
+                    
                 </div>
                 <div class="info_entrega">
                     <h2 class="subtitle">Tipo de entrega</h2>
@@ -92,6 +105,7 @@
                     <div class="btns_acciones">
                         <a class="btnregresar" href="{{route("vendedor.pedidos")}}">Regresar</a>
                         <button class="aggProduc" type="submit">Agregar Producto</button>
+                        
                         <br>
                     </div>
                     
@@ -138,4 +152,5 @@
 
 @section('jsPage')
     <script src="/js/moduloVendedor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
