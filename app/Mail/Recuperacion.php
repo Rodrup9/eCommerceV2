@@ -14,12 +14,13 @@ class Recuperacion extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $datos;
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($datos)
     {
-        //
+        $this->datos = $datos;
     }
 
     /**

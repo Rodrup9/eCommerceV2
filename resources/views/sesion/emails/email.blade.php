@@ -48,7 +48,7 @@
     <div class="container">
         <h1>Tu código de acceso es:</h1>
         <div class="code">
-            <span><?php echo Str::random(10) ?></span>
+            <span>{{$datos}}</span>
         </div>
         <p>Utiliza este código para reestablecer tu contraseña.</p>
         <div class="footer">
