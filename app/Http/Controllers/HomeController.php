@@ -17,6 +17,11 @@ class HomeController extends Controller
             ->orderBy('oferta', 'desc')
             ->take(5)
             ->get();
+        
+        $position = 1;
+        foreach($ofertasEspeciales as $item){
+            $item['position'] = "oferta" . $position++;
+        }
         /*
         $recientes = Producto::join('images', 'productos.producto_id', '=', 'images.image_id')
             ->where('productos.producto_id, $recientes') "cookies"
