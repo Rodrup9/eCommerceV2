@@ -182,6 +182,7 @@ img{
     border: 1px solid transparent;
     transition: 200ms;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .btnIcon{

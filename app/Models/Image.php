@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'image_id';
     //polimorfica
     public function imageable(){
         return $this->morphTo();

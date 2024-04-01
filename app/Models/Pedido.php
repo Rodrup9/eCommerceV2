@@ -9,6 +9,8 @@ class Pedido extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'pedido_id';
+
     //many-to-one
     public function user(){
         return $this->belongsTo('App\Models\User');
@@ -16,17 +18,17 @@ class Pedido extends Model
 
     //many-to-one
     public function ubicacion(){
-        return $this->belongsTo('App\Models\Ubicacione');
+        return $this->belongsTo('App\Models\Ubicacione','ubicacion_id');
     }
 
     //many-to-one
     public function estado_pedido(){
-        return $this->belongsTo('App\Models\Estado_pedido');
+        return $this->belongsTo('App\Models\Estado_pedido','estado_pedido_id');
     }
 
     //many-to-one
     public function tipo_de_entrega(){
-        return $this->belongsTo('App\Models\Tipo_de_entrega');
+        return $this->belongsTo('App\Models\Tipo_de_entrega','tipo_de_entrega_id');
     }
     
 }

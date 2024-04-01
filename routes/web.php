@@ -1,16 +1,15 @@
 <?php
 
 
-use App\Http\Controllers\AgregarProductoController;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\AdminEcommerceController;
-
 use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\DetallesController;
 use App\Http\Controllers\VendedorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\SesionController;
 use App\Http\Controllers\ShoppingCartController;
 
@@ -36,15 +35,10 @@ Route::controller(SesionController::class)->group(function() {
     Route::post('login', 'login')->name('signin')->middleware('guest');
     Route::get('register', 'register')->name('register')->middleware('guest');
     Route::post('registro', 'check')->name('confirmar')->middleware('guest');
-    
     Route::post('logOut', 'logOut')->name('logOut');
-
     Route::get('recuperacionDeCuenta', 'recuperacion')->name('recuperar')->middleware('guest');
-
     Route::get('sendCode', 'code')->name('sendCode')->middleware('guest');
-
     Route::get('verificacionDeCodigo', 'verificacion')->name('verificacion')->middleware('guest');
-
     Route::get('reestablecerContraseña', 'reestablecer')->name('reestablecer')->middleware('guest');
     Route::post('reestablecerContraseña', 'reestableciendo')->name('reestablecerPass')->middleware('guest');
 });
@@ -60,9 +54,11 @@ Route::controller(CatalogoController::class)->group(function(){
 });
 
 
-Route::controller(AgregarProductoController::class)->group(function(){
+Route::controller(ProductoController::class)->group(function(){
     Route::get("/vendedor/producto","NuevoProducto")->name("vendedor.producto");
     Route::post("/vendedor/producto","AgregarProducto")->name("vendedor.agg.producto");
+    Route::get("/vendedor/producto/{producto}/delete","EliminarProductos")->name("vendedor.delete.producto");
+    Route::put("/vendedor/producto/{producto}/update","ActualizarProducto")->name("vendor.producto.actualizar");
 });
 
 Route::controller(VendedorController::class)->group(function(){
@@ -71,6 +67,7 @@ Route::controller(VendedorController::class)->group(function(){
     Route::get("/vendedor","index")->name("vendedor");
     Route::get("/vendedor/lista/productos","listaProductos")->name("vendedor.lista.productos");
     Route::get("/vendedor/producto/{producto}","detallesProducto")->name("vendedor.producto.detalle");
+    
 });
 
 Route::controller(ShoppingCartController::class)->group(function(){

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id('image_id');
             $table->string('url');
+            $table->string("public_id");
             $table->unsignedBigInteger('imageable_id');
             $table->string('imageable_type');
             $table->timestamps();

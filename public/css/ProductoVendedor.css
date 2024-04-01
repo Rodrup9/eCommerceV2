@@ -1,5 +1,5 @@
 
-.contenido_producto form{
+/* .contenido_producto form{
     display:grid;
     grid-template-columns:500px 800px;
     background-color: #474747;
@@ -76,7 +76,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px 25px;
-}
+} */
 
 .inimage{
     display: none;
@@ -89,7 +89,7 @@
 
 
 
-
+/* 
 .img-central{
     width: 273px;
     height: 273px;
@@ -162,7 +162,7 @@ p{
     margin: 10px 0px;
     color: #FFFFFF;
     padding: 5px 20px;
-}
+} */
 
 
 
@@ -174,4 +174,13 @@ p{
 .btnAddImg{
     display: inline-block;
     position: relative;
+}
+
+.containerModal{
+    background-color: var(--colorElements);
+    color: var(--fuenteElements) ;
+}
+
+.colorBtn{
+    background-color: bisque;
 }

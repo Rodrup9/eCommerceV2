@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Producto;
+use App\Models\Subcategoria;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -32,9 +34,15 @@ class VendedorController extends Controller
     }
 
     public function detallesProducto($producto){
-        $datosProducto = Producto::where("producto_id",$producto)->first();
+        $datosProducto = Producto::findOr($producto);
+        $subCat = $datosProducto->Subcategoria;
+        $imagesProducto = $datosProducto->images;
+        $categorias =  Categoria::with("subcategorias")->get();
         return view("moduloVendedores.detallesProducto",
-            ["datosProducto" => $datosProducto,
+            ["Producto" => $datosProducto,
+            "Imagenes" => $imagesProducto,
+            "categorias" =>$categorias,
+            "subcategoria" => $subCat,
             "nameView"=>"detalles produc"]);
     }
 }
