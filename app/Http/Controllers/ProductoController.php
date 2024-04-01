@@ -129,8 +129,8 @@ class ProductoController extends Controller{
 
         }   
 
-        if($ProductoRequest->hasFile("imagen")){
-            $total_imagen = $ProductoRequest->file("imagen");
+        if($ProductoRequest->hasFile("imagenActualizar")){
+            $total_imagen = $ProductoRequest->file("imagenActualizar");
             foreach ($total_imagen as $img) {
                 $nombreImagen = pathinfo($img->getClientOriginalName(),PATHINFO_FILENAME);
                 $cloudinary = new UploadApi();

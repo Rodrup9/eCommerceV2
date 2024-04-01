@@ -3,7 +3,7 @@ const habilitarEdicion = document.querySelector("#habilitar")
 const form = document.querySelector(".formin")
 const btnAct = document.querySelector(".botonActualizar")
 const btnElm = document.querySelector(".botonEliminar")
-
+const img = document.querySelector("#addImg")
 
 
 habilitarEdicion.addEventListener("change",()=>{
@@ -120,4 +120,22 @@ const handleClick =(e)=>{
 
 btnElm.addEventListener("click", handleClick);
 
+
+const cargarImagen=(event)=>{
+    let archivos = event.target.files;
+    let contenedor = document.querySelector(".img-nuevas")
+        for (let index = 0; index < archivos.length; index++) {
+        let render = new FileReader()
+        render.onload = function(){
+            let imagen = document.createElement("img");
+            imagen.src = render.result;
+            imagen.classList.add("img-mas");
+            contenedor.appendChild(imagen);
+        }
+        render.readAsDataURL(archivos[index])
+        
+        }
+}
+
+img.addEventListener("change",cargarImagen)
 

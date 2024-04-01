@@ -30,7 +30,7 @@
                     @error('tipo_envio') <p>{{$message}}</p> @enderror
 
                     <h2>Categorias</h2>
-                    <select name="categorias" id="categorias">
+                    <select name="categorias" id="selects">
                         @foreach ($categorias as $categoria)  
                             <optgroup label="{{$categoria->nombre}}">
                                 @foreach ($categoria->subcategorias as $subcategoria)
@@ -45,7 +45,7 @@
                 <div class="info_entrega">
                     <h2 class="subtitle">Tipo de entrega</h2>
                     <div class="info_tipos_entrega">
-                        <select id="entrega" name="tipo_envio">
+                        <select id="selects" name="tipo_envio">
                             <option value="recoguer">Recoger</option>
                             <option value="envio">Envio</option>
                             <option value="ambos">Ambos</option>
@@ -56,13 +56,13 @@
                         <input class="inlargo" type="text" name="direccion" id="direccion" value="{{old("direccion")}}">
                     </div>
                 </div>
-                <div class="btn-avanzado-des">Avanzado</div>
+                <div class="btnText btnConfirm btn-avanzado-des">Avanzado</div>
             </div>
             <div class="avanzado">
                 <div class="opc_avanzada ocultar">
                     <div class="centro-agg-img">
                         <h3 class="subtitle">Configuración avanzada</h3>
-                        {{-- <img class="img-central"  src="" alt=""> --}}
+                        
                         <label for="addImg" class="btnText btnConfirm">
                             <i class='bx bxs-file-image'></i>
                             <span>Agregar imagen</span> 
@@ -71,9 +71,7 @@
                     
                     <p>Imagenes añadidas</p>
                     <div class="imgs-agg">
-                        {{-- <img class="img-mas" src="" alt="" id="img1">
-                        <img class="img-mas" src="" alt="" id="img2">
-                        <img class="img-mas" src="" alt="" id="img3"> --}}
+                        
                     </div>
                     <div class="cortos-principal">
                         <div class="inscortos">
@@ -87,8 +85,8 @@
                         </div>
                     </div>
                     <div class="btns_acciones">
-                        <a class="btnregresar" href="{{route("vendedor.pedidos")}}">Regresar</a>
-                        <button class="aggProduc" type="submit">Agregar Producto</button>
+                        <a class="btnText btnConfirm" href="{{route("vendedor")}}">Regresar</a>
+                        <button class="btnText btnConfirm" type="submit">Agregar Producto</button>
                     </div>
                     
                     <div class="btn-avanzado-close"><span class="material-symbols-outlined iconn">cancel</span></div>
@@ -96,15 +94,15 @@
                 <div class="img_producto">
                     <img class="img-principal" id="imagen" src="" alt="">
                     <div class="btnAddImg">
-                        <input name="imagen[]" type="file" id="addImg" accept="image/*" onchange="cargarImagen(event)"  multiple />
+                        <input name="imagen[]" type="file" id="addImg" accept="image/*" multiple />
                         <label for="addImg" class="btnText btnConfirm">
                             <i class='bx bxs-file-image'></i>
                             <span>Agregar imagen</span> 
                         </label>
                     </div>
                     <div class="btns_acciones">
-                        <a class="btnregresar" href="{{route("vendedor.pedidos")}}">Regresar</a>
-                        <button class="aggProduc" type="submit">Agregar Producto</button>
+                        <a class="btnText btnConfirm" href="{{route("vendedor")}}">Regresar</a>
+                        <button class="btnText btnConfirm" type="submit">Agregar Producto</button>
                         
                         <br>
                     </div>
@@ -115,39 +113,6 @@
     
     </div>
 
-    <script>
-        function cargarImagen(event){
-            let archivos = event.target.files;
-            let contenedor = document.querySelector(".imgs-agg")
-
-            if(archivos.length <= 1){
-                let render = new FileReader()
-                render.onload = function(){
-                    let imagenPrin = document.querySelector(".img-principal")
-                    imagenPrin.src = render.result
-                }
-                render.readAsDataURL(archivos[0])
-
-
-            }else{
-
-                for (let index = 0; index < archivos.length; index++) {
-                let render = new FileReader()
-                render.onload = function(){
-                    let imagen = document.createElement("img");
-                    imagen.src = render.result;
-                    imagen.classList.add("img-mas");
-                    contenedor.appendChild(imagen);
-                }
-                render.readAsDataURL(archivos[index])
-                
-                }
-            }
-            
-            
-        }
-    </script>
-    
 @endsection
 
 @section('jsPage')

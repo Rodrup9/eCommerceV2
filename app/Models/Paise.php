@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Paise extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'pais_id';
 
     //Relación one-to-many
     public function estados() {
-        return $this->hasMany('App\Models\Estado');
+        return $this->hasMany('App\Models\Estado','pais_id');
     }
 }

@@ -6,9 +6,7 @@
     <link rel="stylesheet" href="/css/ProductoVendedor.css">
 @endsection
 
-@section('subMenu')
-    @include('layouts.subHeaderVendedor')
-@endsection
+
 
 @section('main')
     <div class="cont-detalles">
@@ -89,7 +87,7 @@
                         </div>
                             <p>carga las nuevas imagenes</p>
                             <div class="btnAddImg">
-                                <input name="imagen[]" type="file" id="addImg" accept="image/*" onchange="cargarImagen(event)"  multiple />
+                                <input name="imagenActualizar[]" type="file" id="addImg" accept="image/*"  multiple />
                                 <label for="addImg" class="btnText btnConfirm">
                                     <i class='bx bxs-file-image'></i>
                                     <span>Agregar imagen</span> 
@@ -113,26 +111,6 @@
             </div>
         
     </div>
-
-    <script>
-        function cargarImagen(event){
-            let archivos = event.target.files;
-            let contenedor = document.querySelector(".img-nuevas")
-                for (let index = 0; index < archivos.length; index++) {
-                let render = new FileReader()
-                render.onload = function(){
-                    let imagen = document.createElement("img");
-                    imagen.src = render.result;
-                    imagen.classList.add("img-mas");
-                    contenedor.appendChild(imagen);
-                }
-                render.readAsDataURL(archivos[index])
-                
-                }
-            
-            
-        }
-    </script>
 @endsection
 
 @section('jsPage')
