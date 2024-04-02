@@ -14,7 +14,7 @@
                 <fieldset>
                     <label for="">Correo electrónico</label>
                     <input type="email" name="email" value="{{old('email')}}">
-                    @foreach ($errors->get('email') as $item)
+                    @foreach ($errors->all() as $item)
                         <span class="alert">*{{$item}}</span>
                         <br>
                     @endforeach

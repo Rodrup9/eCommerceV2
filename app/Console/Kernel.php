@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Models\Password_reset_token;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
