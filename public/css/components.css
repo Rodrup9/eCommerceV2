@@ -120,7 +120,49 @@
     color: var(--verde);
 }
 
+.nameProduct{
+    font-weight: 600;
+}
 
+.cardVerMasExtra{
+    min-width: 288px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: var(--colorElements);
+    color: var(--fuenteElements);
+    gap: 10px;
+}
+
+.cardVerMasExtra i{
+    color: var(--fuenteElements);
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.cardVerMasExtra i::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--hoverElements);
+    z-index: -1;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: all 200ms;
+}
+
+.cardVerMasExtra:hover i::after{
+    transform: scaleY(1);
+}
 
 /* SliderProduct ----------------------------------------------------------------------------------------------------------- */
 

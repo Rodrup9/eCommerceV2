@@ -32,7 +32,7 @@ sliderSections.forEach((section) => {
         sliderCounter--;
       }
     } else if (direction == DIRECTION.RIGHT) {
-      if (sliderCounter == sliderElements.length - localStorage.getItem('numSlider')) {
+      if (sliderCounter == sliderElements.length - localStorage.getItem('numSlider') || slider.childElementCount < localStorage.getItem('numSlider')) {
         
       } else {
         rooStyles.setProperty('--transformSlider', `${transformValue - sliderElements[sliderCounter].scrollWidth - 8}px`);

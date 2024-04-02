@@ -6,18 +6,9 @@
 .boxOfertas{
     display: flex;
     flex-direction: column;
-    height: 150vh;
+    height: 90vh;
     width: var(--widhtComponentSlider);
-    gap: 10px;
     padding: 30px 40px 40px 40px;
-}
-
-.ofertaPanel{
-    overflow: hidden;
-}
-
-.ofertaPanel img{
-    width: 100%;
 }
 
 .iconActivate{
@@ -43,13 +34,250 @@
 
 .boxOfertaMain{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 8fr 2fr;
     width: 100%;
     min-height: 100%;
+}
+
+
+
+.ofertasProductsNum{
+    display: flex;
+    grid-column: 1 / 3;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.ofertasProductsNum img{
+    border-radius: 15px 0 0 15px;
+    width: 80px;
+    height: 80px;
+    transition: all 200ms;
+}
+
+.ofertaPanel{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    transform-origin: center;
+    transition: all 200ms;
+    position: relative;
+    z-index: 1;
+}
+
+.ofertaPanel:hover{
+    margin-bottom: 10px;
+}
+
+.ofertaPanel::after{
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 25%;
+    height: 2px;
+    width: 50%;
+    background-color: var(--hoverElements);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all 200ms;
+    z-index: -1;
+}
+
+.ofertaPanelActivate{
+    margin-bottom: 10px;
+}
+
+.ofertaPanelActivate::after{
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 25%;
+    height: 2px;
+    width: 50%;
+    background-color: var(--hoverElements);
+    transform-origin: left;
+    transform: scaleX(1);
+    transition: all 200ms;
+    z-index: -1;
+}
+
+.ofertaPanel:hover::after{
+    transform: scaleX(1);
+}
+/*
+.ofertaPanel:hover img{
+    width: 85px;
+    height: 85px;
+}*/
+
+.ofertaPanel span{
+    display: none;
+}
+
+.ofertaOptionExpandir2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorElements);
+    border-radius: 0px 15px 15px 0;
+    text-decoration: none;
+    color: var(--fuenteElements);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.ofertaOptionExpandir2::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--hoverElements);
+    z-index: -1;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all 200ms;
+}
+
+.ofertaOptionExpandir2:hover::after{
+    transform: scaleX(1);
+}
+
+.ofertaOptionExpandir2:hover{
+    color: var(--colorElements);
+}
+
+.ofertaOptionExpandir2 i{
+    font-size: 24px;
+    color: var(--fuenteElements);
+}
+
+.ofertasProductsNumMas{
+    padding: 15px;
+    color: var(--fuenteElements);
+    background-color: var(--colorElements);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    position: relative;
+    transition: all 200ms;
+}
+
+.ofertaOptionExpandir i, .ofertasProductsNumMas i{
+    font-size: 24px;
+}
+
+.ofertaOptionExpandir{
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 200ms;
+    position: absolute;
+    background-color: var(--colorElements);
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    border-radius: 0px 15px 15px 0;
+    top: 0;
+    right: -85px;
+}
+
+.ofertasProductsNumMas:hover{
+    border-radius: 15px 0px 0px 15px;
+}
+
+.ofertasProductsNumMas:hover .ofertaOptionExpandir{
+    transform: scaleX(1);
+}
+
+.ofertaCheckImg{
+    background-color: var(--colorElements);
+    overflow: hidden;
+}
+
+.ofertaCheckInfo{
+    background-color: var(--colorElements);
+    border-radius: 0 15px 15px 0;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1;
+}
+
+.ofertaCheckImg img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.infoButtom{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    height: 100%;
+}
+
+.infoButtomOpen{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.numeros{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
 }
 
+.ofertaPS{
+    background-color: var(--hoverElements);
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+.precioAntePS{
+    opacity: 0.5;
+    position: relative;
+    z-index: -1;
+}
+
+.precioAntePS::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: var(--hoverElements);
+}
+/*
+.rueda{
+    width: 0%;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: anim 5s;
+    background-color: var(--hoverElements);
+}
+
+@keyframes anim {
+    100%{
+        width: 100%;
+    }
+}*/
+
+/*
 .oferta1{
     grid-column: 1 / 3;
     grid-row: 1 / 3;
@@ -66,7 +294,7 @@
 
 .oferta3{
     grid-row: 2 / 4;
-}
+}*/
 
 /* Catalogo ------------------------------------------------------------------*/
 

@@ -1,65 +1,70 @@
-.cajita{
- display: flex;
- justify-content: center;
- flex-direction: column;
-}
-
-
-
-.Imgencita {
-    size: 50px;
-    padding: 6px 0px 10px 28px;
-    margin-right: 5px; /* Agrega margen derecho de 2px */
-}
-.container {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.details {
-    background-color: var(--colorElements);
-    padding: 25px;
-    margin: 5px 30px 20px 5px;
-}
-
-.letra{
-    font-size: 160%;
-}
-
-.calif {
+.boxDetalleProducts{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-left: 72px;
+    width: 100%;
+    padding: 30px 40px 40px 40px;
 }
 
-.calificacion{
-width: 80%;
-
-}
-
-.contenedor-details{
-    background-color: var(--colorElements);
-    padding: 25px;
-    margin: 20px 50px 10px 20px;
-}
-.contenedor-tecnicos{
-    background-color: var(--colorElements);
-    padding: 25px;
-    margin: 20px 50px 10px 20px;
-}
-.section-coco{
+.contentDetallesProduct{
     display: flex;
-}
-.contenedor-coments{
-    background-color: var(--colorElements);
-    padding: 25px;
-    margin: 20px 30px 10px 20px;
+    flex-direction: column;
+    position: relative;
+    background-color: burlywood;
+    height: 90vh;
 }
 
-.contenedor-addcoments{
+.contentDetallesDetalles{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    gap: 10px;
+    bottom: 0;
+    left: 0;
+}
+
+.imgProducto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.imgProducto img{
+    min-width: 100%;
+    object-fit: cover;
+}
+
+.sourseDetalles{
+    flex: 1;
+}
+
+.details{
     background-color: var(--colorElements);
-    padding: 10px;
-    margin: 20px 50px 10px 5px;
+    color: var(--fuenteElements);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    gap: 5px;
+    flex: 3;
+}
+
+.boxInputEnvio select{
+    background-color: transparent;
+    color: var(--fuenteElements);
+    border: 1px solid var(--fuenteElements);
+    border-radius: 5px;
+}
+
+.boxInputCantidad{
+    display: flex;
+    gap: 5px;
+}
+
+.inputCantidad{
+    background-color: transparent;
+    color: var(--fuenteElements);
+    border: 1px solid var(--fuenteElements);
+    padding: 0  0 0 10px;
+    border-radius: 5px;
 }
