@@ -58,7 +58,9 @@
                     </div>
                 </div>
             @else
-                <p>Parace que ocurrio un error</p>
+                <div class="errorTry">
+                    <p>Ups! Parece que hubo un error</p>
+                </div>
             @endif
         </main>
     @if (count($products) > 0)
@@ -82,7 +84,9 @@
             </x-slider-product>
         @endforeach
     @else
-        <p>Parece que hubo un error</p>
+        <div class="errorTry">
+            <p>Ups! Parece que hubo un error</p>
+        </div>
     @endif
     </div> 
 

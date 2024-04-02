@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    gap: 30px;
     padding: 30px 40px 40px 40px;
 }
 
@@ -56,6 +57,11 @@
     border-radius: 5px;
 }
 
+.boxInputEnvio option{
+    background-color: var(--colorHeader);
+    color: var(--fuenteHeader);
+}
+
 .boxInputCantidad{
     display: flex;
     gap: 5px;
@@ -67,4 +73,88 @@
     border: 1px solid var(--fuenteElements);
     padding: 0  0 0 10px;
     border-radius: 5px;
+}
+
+/*------------------ Descripcion -----------------------------------------------------*/
+
+.descripcionProductosDetalles{
+    background-color: var(--colorElements);
+    color: var(--fuenteElements);
+    padding: 20px 30px;
+    border-radius: 5px;
+}
+
+.descripcionProductosDetalles h2{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/*------------------------- Comentarios ----------------------------------------------------*/
+
+.comentariosAddShow{
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    align-items: start;
+    gap: 30px;
+    padding: 0 40px;
+}
+
+.comentariosAddShow h2{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.comentariosAddShow h3{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.comentariosShow{
+    background-color: var(--colorElements);
+    color: var(--fuenteElements);
+    border-radius: 5px;
+    padding: 20px 30px;
+}
+
+.comentariosAdd{
+    background-color: var(--colorElements);
+    color: var(--fuenteElements);
+    border-radius: 5px;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comentariosAdd i{
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.sinComentarios{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.writtingComentario{
+    width: 100%;
+    height: 150px;
+    background-color: var(--hoverIconFondo);
+    color: var(--fuenteElements);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.scoreAdd{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btnEnviar{
+    display: flex;
+    justify-content: end;
 }
