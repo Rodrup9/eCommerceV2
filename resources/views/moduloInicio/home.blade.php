@@ -86,9 +86,10 @@
     @endif
     </div> 
 
-    <footer>
-        
-    </footer>
+@endsection
+
+@section("footer")
+    @include('layouts.footer')
 @endsection
 
 {{-- Agregar los js de su modulo --}}
