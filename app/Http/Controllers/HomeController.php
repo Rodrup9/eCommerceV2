@@ -14,6 +14,7 @@ class HomeController extends Controller
             ->get();
 
         $ofertasEspeciales = Producto::join('images', 'productos.producto_id', '=', 'images.image_id')
+            ->join('subcategorias', 'productos.subcategoria_id', '=', 'subcategorias.subcategoria_id')
             ->orderBy('oferta', 'desc')
             ->take(5)
             ->get();
