@@ -95,6 +95,8 @@ Route::controller(AdminEcommerceController::class)->group(function(){
 
 Route::controller(DetallesController::class)->group(function(){
     Route::get("/detalles/{id?}/{producto?}","index")->name('detalles');
+    Route::get("/actualizarDatos/{id?}","updateComentarios")->name('updateComentarios');
+    Route::post("/addComentarioUser","addComentarioUser")->name('addComentarioUser');
 });
 
 

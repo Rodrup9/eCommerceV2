@@ -24,7 +24,7 @@
                                 <p id="nombreP"></p>
                                 <p id="desP"></p>
                                 <div class="infoButtom">
-                                    <div id="nSubC" class=""></div>
+                                    <div id="nSubC" class="categoriaCard"></div>
                                     <div class="infoButtomOpen">
                                         <div class="numeros"><span id="ofertaP" class="ofertaPS"></span><span id="precioAnteP" class="precioAntePS"></span><span id="precioP" class="precioPS"></span></div>
                                         <a id="buttomP" class="btnConfirm btnText" href="">Ver producto</a>

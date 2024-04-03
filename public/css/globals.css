@@ -187,8 +187,8 @@ img{
 
 .btnHidden{
     position: absolute;
-    top: 0;
-    left: -5000;
+    top: -5000px;
+    left: -5000px;
 }
 
 .btnIcon{

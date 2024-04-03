@@ -221,9 +221,16 @@
 
 .infoButtom{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: end;
     height: 100%;
+}
+
+.categoriaCard{
+    background-color: var(--colorHeader);
+    color: var(--funeteHeader);
+    padding: 2px 8px;
+    border-radius: 5px;
 }
 
 .infoButtomOpen{
