@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Detalle_de_pedido extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'detalle_id';
     
     public function pedido(){
-        return $this->hasMany('App\Models\Producto');
+        return $this->hasMany('App\Models\Producto','pedido_id');
     }
 
     public function productos(){
-        return $this->hasMany('App\Models\Producto');
+        return $this->hasMany('App\Models\Producto','producto_id');
     }
 }

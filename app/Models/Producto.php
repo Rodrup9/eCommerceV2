@@ -9,6 +9,10 @@ class Producto extends Model
 {
     use HasFactory;
 
+
+
+    protected $primaryKey = 'producto_id';
+
     //many-to-one
     public function user() {
         return $this->belongsTo('App\Models\User');
@@ -16,10 +20,10 @@ class Producto extends Model
 
     //one-to-many polimórfica
     public function images() {
-        return $this->morphOne('App\Models\Image', 'imageable');
+        return $this->morphMany('App\Models\Image', 'imageable');
     }
 
-    public function categoria(){
-        return $this->belongsTo(Subcategoria::class);
+    public function subcategoria(){
+        return $this->belongsTo(Subcategoria::class,"subcategoria_id");
     }
 }

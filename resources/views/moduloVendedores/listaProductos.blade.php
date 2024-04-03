@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="/css/navVendedor.css">
 @endsection
 
-@section('subMenu')
-    @include('layouts.subHeaderVendedor')
-@endsection
+
 
 
 @section('main')
@@ -19,8 +17,8 @@
     <div class="pedido">
         <a href="{{route("vendedor.producto.detalle",$producto->producto_id)}}">{{$producto->nombre}}</a>
         <p class="">{{$producto->descripcion}}</p>
-        <span class="material-symbols-outlined">delete</span>
-        <span class="material-symbols-outlined">update</span>
+        {{-- <a href="{{route("vendedor.delete.producto",$producto->producto_id)}}"><span class="material-symbols-outlined">delete</span></a>
+        <span class="material-symbols-outlined">update</span> --}}
     </div>    
     @endforeach
     

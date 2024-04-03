@@ -9,11 +9,13 @@ class Comentario extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'comentario_id';
+
     public function user() {
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 
     public function productos() {
-        return $this->hasMany('App\Models\Producto','prducto_id', 'producto_id');
+        return $this->hasMany('App\Models\Producto','producto_id', 'producto_id');
     }
 }
