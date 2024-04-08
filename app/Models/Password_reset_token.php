@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Calidad_producto extends Model
+class Password_reset_token extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'email';
+    public $incrementing = false;
+
     protected $fillable = [
-        'producto_id',
-        'media',
-        'sumaCalificacion',
-        'total_vendidas'
+        'token', 'used'
     ];
 }

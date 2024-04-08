@@ -33,3 +33,7 @@ h1 {
 img {
     width: 200px;
 }
+
+a {
+    color: var(--fuenteElements);
+}

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCode extends FormRequest
+class ComprobarCodigo extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +22,15 @@ class StoreCode extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|exists:users,email',
+            'code' => 'required|exists:password_reset_tokens,token|size:6'
         ];
     }
 
     public function messages() {
         return [
-            'email.required' => 'Debe completar este campo',
-            'email.exists' => 'Este correo no existe',
-            // 'email.unique' => 'Ya hay un código asociado a este correo',
+            'code.required' => 'Debe completar este campo',
+            'code.exists' => 'Compruebe que haya colocado bien el código',
+            'code.size' => 'Código erroneo'
         ];
     }
 }

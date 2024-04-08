@@ -37,7 +37,7 @@
                             <optgroup label="{{$categoria->nombre}}">
                                 
                                 @foreach ($categoria->subcategorias as $subcategoria)
-                                    <option value="{{$subcategoria->subcategoria_id}}">{{$subcategoria->nombre}}</option>
+                                    <option value="{{$subcategoria->subcategoria_id}}">{{$subcategoria->nombreSubCategoria}}</option>
                                 @endforeach
                             </optgroup>                            
                         @endforeach

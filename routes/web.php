@@ -40,6 +40,7 @@ Route::controller(SesionController::class)->group(function() {
     Route::get('sendCode', 'code')->name('sendCode')->middleware('guest');
     Route::get('verificacionDeCodigo', 'verificacion')->name('verificacion')->middleware('guest');
     Route::get('reestablecerContraseña', 'reestablecer')->name('reestablecer')->middleware('guest');
+    Route::post('reestablecerContraseña', 'reestableciendo')->name('reestablecerPass')->middleware('guest');
 });
 
 
@@ -80,12 +81,22 @@ Route::controller(AdminEcommerceController::class)->group(function(){
     Route::get('/adminEcommerce', 'index')->name('homeAdminEcommerce');
     Route::get('/adminListaEcommerce/{lista?}', 'lista')->name('adminListaEcommerce');
     Route::get('/adminListaEcommerce/{lista?}/{data?}', 'detalles')->name('adminListDetalles');
-    Route::get('/perfil', 'perfil')->name('perfil');
+    Route::get('/perfil', 'perfil')->name('perfil')->middleware('auth');
+
+    //Aquí puse todo sobre actualizar datos de la sesion, debido a que no sabia donde colocarlas
+
+    Route::get('/actualizarPerfil','actualizar')->name('actPerfil')->middleware('auth');
+    Route::put('/actConfirmacion','confirmacion')->name('actConfirmacion')->middleware('auth');
+
+    Route::get('/actualizarContraseña', 'actualizarContraseña')->name('actContraseña')->middleware('auth');
+    Route::put('/confirmContraseña', 'confirmacionContraseña')->name('confirmContraseña')->middleware('auth');
 });
 
 
 Route::controller(DetallesController::class)->group(function(){
     Route::get("/detalles/{id?}/{producto?}","index")->name('detalles');
+    Route::get("/actualizarDatos/{id?}","updateComentarios")->name('updateComentarios');
+    Route::post("/addComentarioUser","addComentarioUser")->name('addComentarioUser');
 });
 
 

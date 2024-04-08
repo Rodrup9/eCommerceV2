@@ -185,6 +185,12 @@ img{
     cursor: pointer;
 }
 
+.btnHidden{
+    position: absolute;
+    top: -5000px;
+    left: -5000px;
+}
+
 .btnIcon{
     display: none;
 }
@@ -215,4 +221,14 @@ img{
 .btnText:hover{
     background-color: var(--hoverBackBtn);
     color: var(--hoverBtn);
+}
+
+/* ------------------------------- ERROR -------------------------------*/
+
+.errorTry{
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--colorHeader);
+    color: var(--fuenteHeader);
 }

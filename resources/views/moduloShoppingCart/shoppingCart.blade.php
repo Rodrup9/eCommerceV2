@@ -6,86 +6,23 @@
 
 @section('main')
     <main class="mainShoppingCart">
-        @if ($user != null and $cart != null)
+        {{--@if ($user != null and $cart != null)--}}
             <form method="get" action="{{route('confirmData')}}" class="sectionShoppingCart">
                 @csrf  
                 <div class="headerMain">
                     <h1>Tú carrito de compras</h1>
                 </div>
-                <section class="productsCart"> 
-                    <div class="productCart">
-                        <input type="checkbox" name="" id="">
-                        <img src="https://picsum.photos/200/300" alt="">
-                        <p>Producto</p>
-                        <input type="number" name="" id="">
-                        <span>$2000</span>
-                        <i class='bx bx-trash bxMy'></i>
-                    </div>  
-                    <div class="productCart">
-                        <input type="checkbox" name="" id="">
-                        <img src="https://picsum.photos/200/300" alt="">
-                        <p>Producto</p>
-                        <input type="number" name="" id="">
-                        <span>$2000</span>
-                        <i class='bx bx-trash bxMy'></i>
-                    </div>  
-                    <div class="productCart">
-                        <input type="checkbox" name="" id="">
-                        <img src="https://picsum.photos/200/300" alt="">
-                        <p>Producto</p>
-                        <input type="number" name="" id="">
-                        <span>$2000</span>
-                        <i class='bx bx-trash bxMy'></i>
-                    </div>  
-                    <div class="productCart">
-                        <input type="checkbox" name="" id="">
-                        <img src="https://picsum.photos/200/300" alt="">
-                        <p>Producto</p>
-                        <input type="number" name="" id="">
-                        <span>$2000</span>
-                        <i class='bx bx-trash bxMy'></i>
-                    </div>  
-                    <div class="productCart">
-                        <input type="checkbox" name="" id="">
-                        <img src="https://picsum.photos/200/300" alt="">
-                        <p>Producto</p>
-                        <input type="number" name="" id="">
-                        <span>$2000</span>
-                        <i class='bx bx-trash bxMy'></i>
-                    </div>  
-                    <div class="productCart">
-                        <input type="checkbox" name="" id="">
-                        <img src="https://picsum.photos/200/300" alt="">
-                        <p>Producto</p>
-                        <input type="number" name="" id="">
-                        <span>$2000</span>
-                        <i class='bx bx-trash bxMy'></i>
-                    </div>  
-                    <div class="productCart">
-                        <input type="checkbox" name="" id="">
-                        <img src="https://picsum.photos/200/300" alt="">
-                        <p>Producto</p>
-                        <input type="number" name="" id="">
-                        <span>$2000</span>
-                        <i class='bx bx-trash bxMy'></i>
-                    </div>  
-                    <div class="productCart">
-                        <input type="checkbox" name="" id="">
-                        <img src="https://picsum.photos/200/300" alt="">
-                        <p>Producto</p>
-                        <input type="number" name="" id="">
-                        <span>$2000</span>
-                        <i class='bx bx-trash bxMy'></i>
-                    </div>  
+                <section id="productsCart" class="productsCart"> 
+                    
                 </section>
                 <p class="fraseFooter">Selecciona los productos que desees comprar</p>
                 <div class="buttonCart">
-                    <a href="{{$urlPage}}"" class="btnText btnCancel">Cancelar</a>
+                    <a href="#" class="btnText btnCancel">Cancelar</a>
                     <button type="submit" class="btnText btnConfirm">Pagar</button>
                 </div>
                 {{-- <a " class="buttonRegresar">{{$urlPage}}</a> --}}
             </form>
-            
+        {{--
         @elseif ($user != null)
             <div class="sinProductos sin">
                 <h2>Añade productos a tu carrito de compras</h2>
@@ -102,6 +39,7 @@
                 </div>
             </div>
         @endif
+        --}}
         <div>
             
         </div>

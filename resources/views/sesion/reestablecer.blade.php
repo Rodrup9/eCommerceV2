@@ -8,15 +8,24 @@
     <div class="container-center">
         <div class="center-elements">
             <h1>Reestablece tú contraseña</h1>
-            <p class="descripcion">Crea una nueva contraseña para correp@gmail.com, asegurate de no olvidarla, y no la compartas con nadie</p>
-            <form action="" method="POST">
-                @method('put')
+            <p class="descripcion">Crea una nueva contraseña, asegurate de no olvidarla, y no la compartas con nadie</p>
+            <form action="{{route('reestablecerPass')}}" method="POST">
 
                 @csrf
                 
                 <fieldset>
+                    <label for="">Correo electrónico</label>
+                    <input type="email" value="{{$correo}}" disabled>
+                    <input type="hidden" name="email" value="{{$correo}}">
+                </fieldset>
+                
+                <fieldset>
                     <label for="">Nueva contraseña</label>
                     <input type="password" name="password">
+                    @foreach ($errors->get('password') as $item)
+                        <span class="alert">*{{$item}}</span>
+                        <br>
+                    @endforeach
                 </fieldset>
 
                 <fieldset>

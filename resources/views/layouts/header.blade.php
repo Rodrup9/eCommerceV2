@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/globals.css">
     <link rel="stylesheet" href="/css/headers.css">
+    <link rel="stylesheet" href="/css/footer.css">
     @yield('cssPage')
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     {{-- El nombre la pagina es pasado por la ruta desde el controlador --}}
@@ -62,6 +63,12 @@
             {{-- Contenido de la pagina --}}
         @show
     </section>
+
+    <footer class="footer">
+        @section('footer')
+
+        @show
+    </footer>
     @yield('jsPage')
 
     <script src="/js/globals.js"></script>

@@ -14,18 +14,24 @@
 
         <div class="right">
             <div class="datos">
+                <h1>Nombre de usuario</h1>
+                <p>{{$username}}</p>
+
                 <h1>Nombre</h1>
-                <p>Nombre de ejemplo</p>
+                <p>{{$nombre}}</p>
 
                 <h1>Apellido paterno</h1>
-                <p>Ejemplo de appPaterno</p>
+                <p>{{$apellido_pa}}</p>
 
                 <h1>Apellido materno</h1>
-                <p>Ejemplo de appMaterno</p>
+                <p>{{$apellido_ma}}</p>
 
                 <h1>Correo eletrónico</h1>
-                <p>example@gmail.com</p>
+                <p>{{$correo}}</p>
             </div>
         </div>
+    <a href="{{route('actPerfil')}}">Actualizar</a>
+    <a href="{{route('actContraseña')}}">¿Deseas cambiar su contraseña?</a>
+    <a href="">Vuelvete vendedor</a>
     </div>
 @endsection

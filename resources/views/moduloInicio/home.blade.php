@@ -13,51 +13,89 @@
     @include('layouts.asideDes')
     <div class="divCenterMain">
         <main class="boxOfertas">
-            <div class="tittle"><p>Ofertas especiales</p> <a class="verMas" href="catalogo/null/ofertasEspeciales">Ver más</a></div>
-            <div class="boxSliderOfertas">
-                <div class="boxBoxOfertas">
-                    <div class="boxOfertaMain">
-                        <a href="/detalles/{{$ofertasEspeciales[0]['producto_id']}}/{{$ofertasEspeciales[0]['nombre']}}" class="ofertaPanel oferta1">
-                            <img src="{{$ofertasEspeciales[0]['url']}}" alt="">
-                        </a>
-                        <a href="/detalles/{{$ofertasEspeciales[1]['producto_id']}}/{{$ofertasEspeciales[1]['nombre']}}" class="ofertaPanel oferta2">
-                            <img src="{{$ofertasEspeciales[1]['url']}}" alt="">
-                        </a>
-                        <a href="/detalles/{{$ofertasEspeciales[2]['producto_id']}}/{{$ofertasEspeciales[2]['nombre']}}" class="ofertaPanel oferta3">
-                            <img src="{{$ofertasEspeciales[2]['url']}}" alt="">
-                        </a>
-                        <a href="/detalles/{{$ofertasEspeciales[3]['producto_id']}}/{{$ofertasEspeciales[3]['nombre']}}" class="ofertaPanel oferta4">
-                            <img src="{{$ofertasEspeciales[3]['url']}}" alt="">
-                        </a>
-                        <a href="/detalles/{{$ofertasEspeciales[4]['producto_id']}}/{{$ofertasEspeciales[4]['nombre']}}" class="ofertaPanel oferta5">
-                            <img src="{{$ofertasEspeciales[4]['url']}}" alt="">
-                        </a>
+            @if (count($ofertasEspeciales) > 0)
+                <div class="boxSliderOfertas">
+                    <div class="boxBoxOfertas">
+                        <div class="boxOfertaMain">
+                            <div class="ofertaCheckImg">
+                                <img id="imgCheck" src="#" alt="producto">
+                            </div>
+                            <div class="ofertaCheckInfo">
+                                <p id="nombreP"></p>
+                                <p id="desP"></p>
+                                <div class="infoButtom">
+                                    <div id="nSubC" class="categoriaCard"></div>
+                                    <div class="infoButtomOpen">
+                                        <div class="numeros"><span id="ofertaP" class="ofertaPS"></span><span id="precioAnteP" class="precioAntePS"></span><span id="precioP" class="precioPS"></span></div>
+                                        <a id="buttomP" class="btnConfirm btnText" href="">Ver producto</a>
+                                    </div>        
+                                </div>
+                                <span class="anim"></span>
+                            </div>
+                            <div class="ofertasProductsNum">
+                                @foreach ($ofertasEspeciales as $item)
+                                    <div class="ofertaPanel">
+                                        <img src="{{$item['url']}}" alt="" onclick="showOfert('{{$item["position"]}}')">
+                                        <a  href="/detalles/{{$item['producto_id']}}/{{$item['nombre']}}" class="ofertaOptionExpandir2">
+                                            <i class='bx bx-log-in-circle'></i>
+                                        </a>
+                                        <span class="{{$item['position']}}">
+                                            <p class="nombreP">{{$item['nombre']}}</p>
+                                            <p class="idP">{{$item['producto_id']}}</p>
+                                            <p class="desP">{{$item['descripcion']}}</p>
+                                            <p class="preP">{{$item['precio']}}</p>
+                                            <p class="ofertaP">{{$item['oferta']}}</p>
+                                            <p class="preAnteP">{{$item['precio_ante']}}</p>
+                                            <p class="imgP">{{$item['url']}}</p>
+                                            <p class="nombreSC">{{$item['nombreSubCategoria']}}</p>
+                                        </span>
+                                    </div>
+                                @endforeach
+                                <a href="catalogo/null/ofertas-especiales" class="ofertasProductsNumMas">
+                                    <i class='bx bx-plus'></i>
+                                    <div class="ofertaOptionExpandir">Ver más</div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @else
+                <div class="errorTry">
+                    <p>Ups! Parece que hubo un error</p>
+                </div>
+            @endif
         </main>
-    
-    @foreach ($sectionS as $nameS => $data)
-        <x-slider-product>
-        @foreach ($products as $item)
-            <x-slot name="nameSectionSlider">{{$nameS}}</x-slot>
-            <x-slot name="urlSectionSlider">{{$data['url']}}</x-slot>
-            <x-card-product :img="$item['url']">
-                <x-slot name="id">{{$item['producto_id']}}</x-slot>
-                <x-slot name="producto">{{$item['nombre']}}</x-slot>
-                <x-slot name="tag">{{$item['oferta']}}</x-slot>
-                <x-slot name="descuento">{{$item['oferta']}}</x-slot>
-                <x-slot name="precio">{{$item['precio']}}</x-slot>
-                {{$item['descripcion']}}
-            </x-card-product>
+    @if (count($products) > 0)
+        @foreach ($sectionS as $nameS => $data)
+            <x-slider-product>
+            @foreach ($products as $item)
+                <x-slot name="nameSectionSlider">{{$nameS}}</x-slot>
+                <x-slot name="urlSectionSlider">{{$data['url']}}</x-slot>
+                <x-card-product :img="$item['url']">
+                    <x-slot name="id">{{$item['producto_id']}}</x-slot>
+                    <x-slot name="producto">{{$item['nombre']}}</x-slot>
+                    <x-slot name="tag">{{$item['oferta']}}</x-slot>
+                    <x-slot name="descuento">{{$item['oferta']}}</x-slot>
+                    <x-slot name="precio">{{$item['precio']}}</x-slot>
+                    {{$item['descripcion']}}
+                </x-card-product>
+            @endforeach
+                <x-card-ver-mas-extra>
+                    <x-slot name="urlSectionCard">{{$data['url']}}</x-slot>
+                </x-card-ver-mas-extra>
+            </x-slider-product>
         @endforeach
-        </x-slider-product>
-    @endforeach 
+    @else
+        <div class="errorTry">
+            <p>Ups! Parece que hubo un error</p>
+        </div>
+    @endif
     </div> 
 
-    <footer>
-        
-    </footer>
+@endsection
+
+@section("footer")
+    @include('layouts.footer')
 @endsection
 
 {{-- Agregar los js de su modulo --}}

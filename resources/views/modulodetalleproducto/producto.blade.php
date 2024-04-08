@@ -10,98 +10,173 @@
 
 
 @section('main')
-    <main class="cajita">
-        <div class="container">
-            <div class="Imgencita">
-                <img src="{{$productoD['url']}}" alt="">
-            </div>
-            <div class="details">
-                <h1>{{$productoD['nombre']}}</h1> <br>
-                <h1 class="letra"></h1><br>
-                <p>Tipo de envío</p>
-                <p>Enviado Desde China</p>
-                <p>{{$productoD['precio']}}</p>
-                <p>{{$productoD['oferta']}}</p>
-                <p>{{$productoD['precio_ante']}}</p>
-                <p>Disponibles {{$productoD['cantidad']}}</p>
-                <p>visita la Tienda de Ddtech</p>
-                <a class="btnText btnConfirm" href="">Comprar Ahora</a>
-                <a class="btnText btnCancel" href="">Agregar al carrito</a>
-            </div>
-            <div class="sourseDetalles">
-                <p>Califiación</p>  
-                <span class="calificacion">75%</span>
-                <div class="">
-                    <span class="start"><i class='bx bxs-star' ></i></span>
-                    <span class="start"><i class='bx bxs-star' ></i></span>
-                    <span class="start"><i class='bx bxs-star' ></i></span>
-                    <span class="start"><i class='bx bx-star' ></i></span>
-                    <span class="start"><i class='bx bx-star' ></i></span>
-                </div>
-            </div>
-        </div>
-        <div class="contenedor-details">
-            <h1>Detalles</h1>
-            <p>{{$productoD['descripcion']}}</p>
-        </div>
-        <div class="contenedor-tecnicos">
-            <h1>Detalles Tecnicos</h1>
-            <H2>MARCA: DIERYA</H2>
-            <H2>MATERIAL: Fierro viejo</H2>
-            <H2>BOTONES: 7</H2>
-            <H2>CONECTIVIDAD: Inalambrico</H2>
-            <H2>Uso sugerido: Jugar</H2>
-        </div>
-        @foreach ($sectionS as $nameS => $data)
-        <x-slider-product>
-        @foreach ($products as $item)
-            <x-slot name="nameSectionSlider">{{$nameS}}</x-slot>
-            <x-slot name="urlSectionSlider">{{$data['url']}}</x-slot>
-            <x-card-product :img="$item['url']">
-                <x-slot name="id">{{$item['producto_id']}}</x-slot>
-                <x-slot name="producto">{{$item['nombre']}}</x-slot>
-                <x-slot name="tag">{{$item['oferta']}}</x-slot>
-                <x-slot name="descuento">{{$item['oferta']}}</x-slot>
-                <x-slot name="precio">{{$item['precio']}}</x-slot>
-                {{$item['descripcion']}}
-            </x-card-product>
-        @endforeach
-        </x-slider-product>
-    @endforeach
-<div class="section-coco">
-    <div class="contenedor-coments">
-    <h1>Comentarios</h1>
-    <h2>Username</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde quas delectus quisquam,
-        ab sequi reprehenderit voluptatum modi aspernatur, odio amet maxime facilis inventore
-        atque! Dolore modi vel quaerat consequatur hic.</p>
-    <h2>Username</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde quas delectus quisquam,
-        ab sequi reprehenderit voluptatum modi aspernatur, odio amet maxime facilis inventore
-        atque! Dolore modi vel quaerat consequatur hic.</p>
-    <h2>Username</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde quas delectus quisquam,
-        ab sequi reprehenderit voluptatum modi aspernatur, odio amet maxime facilis inventore
-        atque! Dolore modi vel quaerat consequatur hic.</p>
-    </div>
-    <div class="contenedor-addcoments">
-        <form>
-            <label for="texto">CALIFICA TU PRODUCTO:</label><br>
-            <input type="text" id="texto" name="texto"><br>
-            <input class="btnText btnConfirm" type="submit" value="Enviar Calificacion">
-            
-        </form>
-    </div>
-</div>
-    
-
-
-    </main> 
-
-    <footer>
+    <div>
+        <main class="boxDetalleProducts">
+            <section class="contentDetallesProduct">
+                @if (false)
+                    <img src="{{$productoD['url']}}" alt="" class="imgProducto"
+                @endif
+                <form method="post" action="#" class="contentDetallesDetalles">
+                    @csrf
+                    <div class="imgProducto">
+                        <img src="{{$productoD['url']}}" alt="">
+                    </div>
+                    <div class="details">
+                        <h1>{{$productoD['nombre']}}</h1>
+                        <p>Dirección: <span>{{$productoD['direccion']}}</span></p>
+                        <p>Vendido por <span>{{$productoD['user_id']}}</span></p>
+                        <div class="boxInputCantidad">
+                            <label for="">Cantidad</label>
+                            <input id="CountProductoCart" class="inputCantidad" type="number" name="number" value="1" max="{{$productoD['cantidad']}}" min="1">
+                            <input type="hidden" value="{{$productoD['producto_id']}}">
+                        </div>
+                        <div class="boxInputEnvio">
+                            <label for="">Envio</label>
+                            <select name="" id="">
+                                @if('ambos' == $productoD['tipo_envio'])
+                                    <option value="">Envio a domicilio</option>
+                                    <option value="">Regojer</option>
+                                @elseif($productoD['tipo_envio'] == 'recoguer')
+                                    <option value="">Regojer</option>
+                                @elseif($productoD['tipo_envio'] == 'envio')
+                                    <option value="">Envio a domicilio</option>
+                                @else
         
-    </footer>
+                                @endif
+                            </select>
+                        </div>
+                        <div>
+                            @if($productoD['oferta'] > 0)
+                                <p><span>{{$productoD['oferta']}}</span>%</p>
+                                <p>$<span>{{$productoD['precio_ante']}}</span></p>
+                            @endif
+                            <p>$<span>{{$productoD['precio']}}</span></p>
+                        </div>
+                        <div class="boxButtons">
+                            <button type="button" onclick="addCart(1)" class="btnText btnConfirm">Comprar Ahora</button>
+                            <button type="button" onclick="addCart(0)" class="btnText btnCancel" >Agregar al carrito</button>
+                            <a href="/shoppingCart" id="btnComprarAhora" class="btnHidden" type="submit"></a>
+                            <input type="hidden" id="urlProductCart" name="url" value="{{$productoD['url']}}">
+                            <input type="hidden" id="idProductoCart" name="id" value="{{$productoD['producto_id']}}">
+                            <input type="hidden" id="NameProductoCart" name="nombre" value="{{$productoD['nombre']}}">
+                            <input type="hidden" id="PriceProductoCart" name="precio" value="{{$productoD['precio']}}">
+                        </div>
+                    </div>
+                    <div class="sourseDetalles">
+                        <p>Califiación</p>  
+                        <span class="calificacion">75%</span>
+                        <div class="">
+                            <span class="start"><i class='bx bxs-star' ></i></span>
+                            <span class="start"><i class='bx bxs-star' ></i></span>
+                            <span class="start"><i class='bx bxs-star' ></i></span>
+                            <span class="start"><i class='bx bx-star' ></i></span>
+                            <span class="start"><i class='bx bx-star' ></i></span>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            @if (count($productoD['urls']) != 0)
+                <section class="imgBoxImgs">
+                    <div class="tittleImg">
+                        <h3>Imagenes</h3>
+                        <div id="iconArrow">
+                            <i class='bx bx-chevron-down' onclick="imgShowBox(0)"></i>
+                        </div>
+                    </div>
+                    {{--<i class='bx bx-chevron-left arrowSliderD'></i>--}}
+                    <div class="sliderImg">
+                        <div class="boxSliderImg">
+                            @foreach ($productoD['urls'] as $item)
+                                <img class="imgSlider" src="{{$item}}" alt="" onclick="showImgBig('{{$item}}')">
+                             @endforeach
+                        </div>
+                    </div>
+                    {{--<i class='bx bx-chevron-right arrowSliderD'></i>--}}
+                </section>
+            @endif
+            <section class="descripcionProductosDetalles">
+                <h2>Descripción del Articulo</h2>
+                <p>{{$productoD['descripcion']}}</p>
+            </section>
+        
+        </main>
+        
+        @if (count($products) > 0)
+            @foreach ($sectionS as $nameS => $data)
+                <section class="sliderProductsSection">
+                    <x-slider-product>
+                    @foreach ($products as $item)
+                        <x-slot name="nameSectionSlider">{{$nameS}}</x-slot>
+                        <x-slot name="urlSectionSlider">{{$data['url']}}</x-slot>
+                        <x-card-product :img="$item['url']">
+                            <x-slot name="id">{{$item['producto_id']}}</x-slot>
+                            <x-slot name="producto">{{$item['nombre']}}</x-slot>
+                            <x-slot name="tag">{{$item['oferta']}}</x-slot>
+                            <x-slot name="descuento">{{$item['oferta']}}</x-slot>
+                            <x-slot name="precio">{{$item['precio']}}</x-slot>
+                            {{$item['descripcion']}}
+                        </x-card-product>
+                    @endforeach
+                        <x-card-ver-mas-extra>
+                            <x-slot name="urlSectionCard">{{$data['url']}}</x-slot>
+                        </x-card-ver-mas-extra>
+                    </x-slider-product>
+                </section>
+            @endforeach
+        @else
+            <div class="errorTry">
+                <p>Parece que hubo un error</p>
+            </div>
+        @endif
+        <section class="comentariosAddShow">
+            <div id="boxComentarios" class="comentariosShow">
+                    {{--
+                    <x-card-comentario>
+                        <x-slot name="nameUser"></x-slot>
+                        <x-slot name="scoreIcons"></x-slot>
+                        <x-slot name="comentarioTetxt"></x-slot>
+                    </x-card-comentario>
+                    --}}
+            </div>
+            <div class="comentariosAdd">
+                <h3>Califica esté producto</h3>
+                <div id="starsContainer" class="scoreAdd">
+                    <span class="start"><i id="star1" class='star bx bx-star' ></i></span>
+                    <span class="start"><i id="star2" class='star bx bx-star' ></i></span>
+                    <span class="start"><i id="star3" class='star bx bx-star' ></i></span>
+                    <span class="start"><i id="star4" class='star bx bx-star' ></i></span>
+                    <span class="start"><i id="star5" class='star bx bx-star' ></i></span>
+                </div>
+                <textarea class="writtingComentario" name="comentarioAdd" id="cAdd" cols="" rows="" placeholder="Escribe un comentario"></textarea>
+                <div class="btnEnviar">
+                    <button id="btnComentario" onclick="addComentarioUser()" class="btnText btnConfirm" type="button">Enviar comentario</button>
+                </div>
+                <form action="addComentarioUser" method="post">
+                    @csrf
+                    <input id="prodcutoId" name="producto" type="hidden" value="{{$productoD['producto_id']}}">
+                    {{--<input id="userId" name="user" type="hidden" value="{{$productoD['poducto_id']}}">--}}
+                    <input id="comentarioText" name="comentarioText" type="hidden">
+                    <input id="scoreAdd" name="scoreAdd" type="hidden" value="0">
+                    <input type="hidden" name="_token" value='@csrf' >
+                    <button class="btnHidden" type="submit"></button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <div id="imgBigAbsolute" class="imgBigAbsolute">
+        <i class='bx bx-x closeImg' onclick="closeShowImgBig()"></i>
+        <img id="imgBig" src="" alt="">
+    </div>
 @endsection
+
+@section("footer")
+    @include('layouts.footer')
+@endsection
+
 @section('jsPage')
+    <script src="/js/moduloDetalles.js"></script>
+    <script src="/js/ajaxComentarios.js"></script>
     <script src="/js/components.js"></script>
 @endsection

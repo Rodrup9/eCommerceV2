@@ -1,0 +1,35 @@
+
+.footer{
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--colorHeader);
+}
+
+.footerBox{
+    display: flex;
+    width: 50%;
+    gap: 5px;
+    padding: 30px 0;
+    justify-content: space-between; 
+    color: var(--fuenteHeader);
+}
+
+.footerBox h3{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.footerBox a{
+    font-size: 16px;
+    color: var(--fuenteHeader);
+    text-decoration: none;
+    opacity: .5;
+    transition: all 200ms;
+}
+
+.footerBox a:hover{
+    opacity: 2;
+    text-decoration: underline;
+}
