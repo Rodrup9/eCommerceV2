@@ -134,6 +134,7 @@
 .comentariosAdd i{
     font-size: 24px;
     cursor: pointer;
+    color: var(--btnConfirm);
 }
 
 .sinComentarios{

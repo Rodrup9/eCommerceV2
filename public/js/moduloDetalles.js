@@ -294,4 +294,63 @@ star5.addEventListener('click', function(event) {
     }
 });
 
+/* -------------------------------- Añadir producto sin ir ------------------------------*/
 
+function addCart(go) {
+    let idProductoCart = document.getElementById('idProductoCart').value;
+    let NameProductoCart = document.getElementById('NameProductoCart').value;
+    let CountProductoCart = document.getElementById('CountProductoCart').value;
+    let PriceProductoCart = document.getElementById('PriceProductoCart').value;
+    let urlProductCart = document.getElementById('urlProductCart').value;
+
+    let cartProduct = localStorage.getItem('cart');
+    if (cartProduct) {
+        let cartArray = JSON.parse(cartProduct);
+        let existingProduct = cartArray.find(item => item.id == idProductoCart);
+
+        if (!existingProduct) {
+            // Producto no existe en el carrito, agregar como nuevo
+            let newPrice = parseFloat(PriceProductoCart) * parseInt(CountProductoCart);
+            cartArray.push({
+                'id': idProductoCart,
+                'name': NameProductoCart,
+                'count': CountProductoCart,
+                'priceOrigin': PriceProductoCart, 
+                'price': newPrice,
+                'url': urlProductCart
+            });
+        } else {
+            // Producto existe en el carrito, verificar y actualizar si es necesario
+            if (existingProduct.count != CountProductoCart) {
+                // Calcular la nueva cantidad y nuevo precio
+                let newCountCount = parseInt(existingProduct.count) + parseInt(CountProductoCart);
+                let newPrice = parseFloat(existingProduct.price) * newCountCount;
+
+                // Actualizar la cantidad y precio del producto existente en el carrito
+                existingProduct.count = newCountCount;
+                existingProduct.price = newPrice;
+            }
+        }
+
+        // Guardar el carrito actualizado en localStorage
+        localStorage.setItem('cart', JSON.stringify(cartArray));
+    } else {
+        // No hay productos en el carrito, crear un nuevo carrito con el producto actual
+        let newPrice = parseFloat(PriceProductoCart) * parseInt(CountProductoCart);
+        let cartArray = [{
+            'id': idProductoCart,
+            'name': NameProductoCart,
+            'count': CountProductoCart,
+            'priceOrigin': PriceProductoCart,
+            'price': newPrice,
+            'url': urlProductCart
+        }];
+
+        // Guardar el carrito en localStorage
+        localStorage.setItem('cart', JSON.stringify(cartArray));
+    }
+    if(go){
+        let btnComprarAhora = document.getElementById('btnComprarAhora');
+        btnComprarAhora.click();
+    }
+}

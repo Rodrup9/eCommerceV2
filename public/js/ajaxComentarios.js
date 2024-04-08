@@ -66,9 +66,7 @@ function actualizarDatos() {
 
     xhr.send();
 }
-
-// Llamar a la función para actualizar los datos cada X segundos
-setInterval(actualizarDatos, 5000); // Actualizar cada 5 segundos (5000 milisegundos)
+setInterval(actualizarDatos, 5000);
 actualizarDatos()
 
 
@@ -89,7 +87,8 @@ function addComentarioUser() {
         if (xhr.status >= 200 && xhr.status < 300) {
             comentarioText.value = '';
             scoreAdd.value = 0;
-            console.log('Hecho')
+            var response = JSON.parse(xhr.responseText);
+            console.log('Respuesta del servidor:', response.mensaje);
         } else {
             console.error('Error al actualizar los datos:', xhr.statusText);
         }
@@ -105,6 +104,5 @@ function addComentarioUser() {
         calificacion: scoreAdd,
         //user_id: userId
     });
-    console.log(datos)
     xhr.send(datos);
 };

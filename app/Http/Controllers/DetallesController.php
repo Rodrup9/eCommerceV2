@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Calidad_producto;
 use App\Models\Comentario;
 use App\Models\Image;
 use App\Models\Producto;
@@ -48,8 +49,26 @@ class DetallesController extends Controller
     }
 
     public function addComentarioUser(Request $request){
-        $data = $request->all(); // Obtener todos los datos del cuerpo de la solicitud en formato JSON
+        $data = $request->all();
         $insert = Comentario::create($data);
-        return response()->json(['mensaje' => 'Datos insertados correctamente']);
+        $consulta = Calidad_producto::where('producto_id', '=' , $data['producto_id'])->first();
+        if ($consulta){
+            $newSuma = $consulta->sumaCalificacion + floatval($data['calificacion']);
+            $newTotal = $consulta->total_vendidas + 1;
+            $newMedia = $newSuma / $newTotal;
+            $consulta->media = $newMedia;
+            $consulta->sumaCalificacion = $newSuma;
+            $consulta->total_vendidas = $newTotal;
+            $consulta->save();
+        }else{
+            $data2 = [
+                'producto_id' => $data['producto_id'],
+                'media' => floatval($data['calificacion']),
+                'sumaCalificacion' => $data['calificacion'],
+                'total_vendidas' => 1
+            ];
+            $insert2 = Calidad_producto::create($data2);
+        }
+        return response()->json(['mensaje' => 'hola']);
     }
 }

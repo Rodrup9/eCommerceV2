@@ -27,7 +27,7 @@
                         <p>Vendido por <span>{{$productoD['user_id']}}</span></p>
                         <div class="boxInputCantidad">
                             <label for="">Cantidad</label>
-                            <input class="inputCantidad" type="number" name="number" value="1" max="{{$productoD['cantidad']}}" min="1">
+                            <input id="CountProductoCart" class="inputCantidad" type="number" name="number" value="1" max="{{$productoD['cantidad']}}" min="1">
                             <input type="hidden" value="{{$productoD['producto_id']}}">
                         </div>
                         <div class="boxInputEnvio">
@@ -53,8 +53,13 @@
                             <p>$<span>{{$productoD['precio']}}</span></p>
                         </div>
                         <div class="boxButtons">
-                            <button type="submit" class="btnText btnConfirm">Comprar Ahora</button>
-                            <button type="button" onclick="addCart()" class="btnText btnCancel" >Agregar al carrito</button>
+                            <button type="button" onclick="addCart(1)" class="btnText btnConfirm">Comprar Ahora</button>
+                            <button type="button" onclick="addCart(0)" class="btnText btnCancel" >Agregar al carrito</button>
+                            <a href="/shoppingCart" id="btnComprarAhora" class="btnHidden" type="submit"></a>
+                            <input type="hidden" id="urlProductCart" name="url" value="{{$productoD['url']}}">
+                            <input type="hidden" id="idProductoCart" name="id" value="{{$productoD['producto_id']}}">
+                            <input type="hidden" id="NameProductoCart" name="nombre" value="{{$productoD['nombre']}}">
+                            <input type="hidden" id="PriceProductoCart" name="precio" value="{{$productoD['precio']}}">
                         </div>
                     </div>
                     <div class="sourseDetalles">
