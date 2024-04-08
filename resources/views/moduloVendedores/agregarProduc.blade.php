@@ -14,25 +14,28 @@
                 <h1 class="subtitle1">Nuevo Producto</h1>
                 <div class="info_principal">
                     <label class="labFomr" for="">Nombre del producto</label>
-                    <input class="inlargo" type="text" name="nombre" value="{{old("nombre")}}">
+                    <input class="inlargo confirmacion" type="text" name="nombre" value="{{old("nombre")}}">
                     @error('nombre') <p>{{$message}}</p> @enderror
                     <label class="labFomr" for="">Descripción del producto</label>
-                    <textarea class="inlargo" name="descripcion" id="" cols="30" rows="10">{{old("descripcion")}}</textarea>
+                    <textarea class="inlargo confirmacion" name="descripcion" id="" cols="30" rows="10">{{old("descripcion")}}</textarea>
                     @error('descripcion') <p>{{$message}}</p> @enderror
                     <label class="labFomr" for="">Precio</label>
-                    <input class="incorto" type="number" name="precio" id="" value="{{old("precio")}}">
+                    <input class="incorto confirmacion" type="number" name="precio" id="" value="{{old("precio")}}">
                     @error('precio') <p>{{$message}}</p> @enderror
                     <label class="labFomr" for="">Cantidad</label>
-                    <input class="incorto" type="number" name="cantidad" id="cantidad" value="{{old("cantidad")}}">
+                    <input class="incorto confirmacion" type="number" name="cantidad" id="cantidad" value="{{old("cantidad")}}">
                     @error('cantidad') <p>{{$message}}</p> @enderror
                     @error('precio_ante') <p>{{$message}}</p> @enderror
                     @error('imagen') <p>{{$message}}</p> @enderror
                     @error('tipo_envio') <p>{{$message}}</p> @enderror
+                    @error('categorias') <p>{{$message}}</p> @enderror
 
                     <h2>Categorias</h2>
-                    <select name="categorias" id="selects">
+                    <select name="categorias" id="selects" class="confirmacion">
+                        <option disabled value="">Elegir :</option>
                         @foreach ($categorias as $categoria)  
                             <optgroup label="{{$categoria->nombre}}">
+                                
                                 @foreach ($categoria->subcategorias as $subcategoria)
                                     <option value="{{$subcategoria->subcategoria_id}}">{{$subcategoria->nombre}}</option>
                                 @endforeach
@@ -45,7 +48,8 @@
                 <div class="info_entrega">
                     <h2 class="subtitle">Tipo de entrega</h2>
                     <div class="info_tipos_entrega">
-                        <select id="selects" name="tipo_envio">
+                        <select id="selects" name="tipo_envio" class="confirmacion">
+                            <option disabled value="">nada</option>
                             <option value="recoguer">Recoger</option>
                             <option value="envio">Envio</option>
                             <option value="ambos">Ambos</option>
@@ -53,7 +57,7 @@
                     </div>
                     <div class="agregar_direccion">
                         <label  class="labFomr" for="">Agregar una nueva dirección</label>
-                        <input class="inlargo" type="text" name="direccion" id="direccion" value="{{old("direccion")}}">
+                        <input class="inlargo confirmacion" type="text" name="direccion" id="direccion" value="{{old("direccion")}}">
                     </div>
                 </div>
                 <div class="btnText btnConfirm btn-avanzado-des">Avanzado</div>
@@ -80,7 +84,7 @@
     
                         </div>
                         <div class="inscortos">
-                            <label class="labFomr " for="">Fecha limite de descuento</label>
+                            <label class="labFomr" for="">Fecha limite de descuento</label>
                             <input class="incorto" type="date" name="FechaLimite" id="FechaLimite" value="{{old("FechaLimite")}}">
                         </div>
                     </div>

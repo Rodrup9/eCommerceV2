@@ -24,6 +24,12 @@ BotonEsconder.addEventListener("click",()=>{
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault()
+    const input= document.querySelectorAll(".confirmacion")
+    console.log(input)
+    const confir = Array.from(input).every(con =>con.value.trim() === "")
+    console.log(confir)
+    
+    
     Swal.fire({
         icon: "question",
         title: "¿Quieres Guardar el producto?",
@@ -41,18 +47,33 @@ form.addEventListener("submit",(e)=>{
             cancelButton: 'btnText btnCancel',
         }
     }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
+        if(!confir){
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title:"Guardado Correctamente",
+                    icon:"success",
+                    customClass: {
+                        popup: 'containerModal',
+                        title: 'containerModal',
+                    }
+                })
+                form.submit()
+            }
+
+        }else{
+            console.log("llena los campos perro")
             Swal.fire({
-                title:"Guardado Correctamente",
-                icon:"success",
+                title: "Fallo al guardar el producto",
+                text: "Corrobore todos los campos",
+                icon: "error",
                 customClass: {
                     popup: 'containerModal',
                     title: 'containerModal',
                 }
-            });
+            })
             form.submit()
         }
+        
     });
 })
 
