@@ -36,7 +36,8 @@ class ProductoController extends Controller{
             $producto->fecha_lim_desc = null;
         }else{
             $producto->oferta = true;
-            $descuento = $ProductoRequest->precio - $ProductoRequest->descuento;
+            // $descuento = $ProductoRequest->precio - $ProductoRequest->descuento;
+            $descuento = ($ProductoRequest->descuento * $ProductoRequest->precio) / 100;
             $producto->precio = $descuento;
             $producto->precio_ante = $ProductoRequest->precio;
             $producto->fecha_lim_desc = $ProductoRequest->FechaLimite;
@@ -107,15 +108,16 @@ class ProductoController extends Controller{
         $ProductoAct->cantidad =$ProductoRequest->cantidad;
         $ProductoAct->tipo_envio =$ProductoRequest->tipo_envio;
         $ProductoAct->direccion =$ProductoRequest->direccion;
-        $ProductoAct->subcategoria_id = $ProductoRequest->subcategoria;
+        $ProductoAct->subcategoria_id = $ProductoRequest->categorias;
 
         if (empty($ProductoRequest->descuento)) {
             $ProductoAct->precio = $ProductoRequest->precio;
         }else{
-            $descuento = $ProductoRequest->precio - $ProductoRequest->descuento;
+            // $descuento = $ProductoRequest->precio - $ProductoRequest->descuento;
+            $descuento = ($ProductoRequest->descuento * $ProductoRequest->precio) / 100;
             $ProductoAct->precio = $descuento;
             $ProductoAct->precio_ante = $ProductoRequest->precio;
-            $ProductoAct->fecha_lim_desc = $ProductoRequest->FechaLimite;
+            $ProductoAct->fecha_lim_desc = $ProductoRequest->fecha_lim_desc;
         }
         $ProductoAct->save();
 

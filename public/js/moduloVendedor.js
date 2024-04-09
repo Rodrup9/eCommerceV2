@@ -13,7 +13,6 @@ botonAvanzado.addEventListener("click",()=>{
     
 })
 
-
 BotonEsconder.addEventListener("click",()=>{
     opc_avanzada.classList.add("ocultar")
     img_producto.classList.remove("ocultar")
@@ -21,9 +20,25 @@ BotonEsconder.addEventListener("click",()=>{
     
 })
 
-
 form.addEventListener("submit",(e)=>{
     e.preventDefault()
+    const input= document.querySelectorAll(".confirmacion")
+    // console.log(input)
+    // const confir = Array.from(input).every(con =>con.value.trim() === "")
+    let inputVacio = false
+    for (let index = 0; index < input.length; index++) {
+        if(input[index].value.trim()=== ""){
+            console.log("esta vacio")
+            inputVacio = true
+            break
+        }else{
+            console.log(input[index].value)
+        }
+        
+        
+    }
+    
+    
     Swal.fire({
         icon: "question",
         title: "¿Quieres Guardar el producto?",
@@ -41,8 +56,23 @@ form.addEventListener("submit",(e)=>{
             cancelButton: 'btnText btnCancel',
         }
     }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
+        if(inputVacio){
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Fallo al guardar el producto",
+                    text: "Corrobore todos los campos",
+                    icon: "error",
+                    customClass: {
+                        popup: 'containerModal',
+                        title: 'containerModal',
+                    }
+                })
+                form.submit()
+            }else{
+
+            }
+        }else{
+            console.log("llena los campos perro")
             Swal.fire({
                 title:"Guardado Correctamente",
                 icon:"success",
@@ -50,9 +80,11 @@ form.addEventListener("submit",(e)=>{
                     popup: 'containerModal',
                     title: 'containerModal',
                 }
-            });
+            })
+
             form.submit()
         }
+        
     });
 })
 
