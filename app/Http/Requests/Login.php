@@ -30,8 +30,8 @@ class Login extends FormRequest
     public function messages() {
         return [
             'email.required' => 'Debe de completar este campo',
+            'email.exists' => 'Contraseña o coorreo incorrecto',
             'password.required' => 'Debe de completar este campo',
-            'password.exists' => 'No existe este correo',
         ];
     }
 }
