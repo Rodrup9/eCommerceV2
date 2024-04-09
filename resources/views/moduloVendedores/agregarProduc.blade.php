@@ -32,7 +32,7 @@
 
                     <h2>Categorias</h2>
                     <select name="categorias" id="selects" class="confirmacion">
-                        <option disabled value="">Elegir :</option>
+                        <option selected disabled value="">Elegir :</option>
                         @foreach ($categorias as $categoria)  
                             <optgroup label="{{$categoria->nombre}}">
                                 
@@ -49,7 +49,7 @@
                     <h2 class="subtitle">Tipo de entrega</h2>
                     <div class="info_tipos_entrega">
                         <select id="selects" name="tipo_envio" class="confirmacion">
-                            <option disabled value="">nada</option>
+                            <option selected disabled value="">nada</option>
                             <option value="recoguer">Recoger</option>
                             <option value="envio">Envio</option>
                             <option value="ambos">Ambos</option>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="cortos-principal">
                         <div class="inscortos">
-                            <label class="labFomr" for="">Descuento inicial</label>
+                            <label class="labFomr" for="">Agregar Descuento %</label>
                             <input class="incorto" type="number" name="descuento" id="descuento" value="{{old("descuento")}}">
     
                         </div>

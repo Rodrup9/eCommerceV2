@@ -30,27 +30,15 @@
                     <label for="nombre">Nombre del producto:</label>
                     <input class="ipt desactivate" disabled type="text" name="nombre" id="nombre" value="{{$Producto->nombre}}">
                     @error('nombre') <p>{{$message}}</p> @enderror
-                    <label for="descripcion">Descripción del prodcuto</label>
+                    <label for="descripcion">Descripción del producto:</label>
                     <textarea class="ipt desactivate" disabled name="descripcion" id="descripcion" cols="30" rows="10">{{$Producto->descripcion}}</textarea>
-                    @error('nombre') <p>{{$message}}</p> @enderror
-                    <label for="precio">Precio del producto</label>
-                    @if ($Producto->oferta)
-                        <label for="precio_oferta">Precio de oferta:</label>
-                        <input class="ipt desactivate" type="number" value="{{$Producto->precio}}" name="descuento" id="precio" disabled>
-                        @error('precio') <p>{{$message}}</p> @enderror
+                    @error('descripcion') <p>{{$message}}</p> @enderror
 
-                        <label for="precio_normal">Precio Normal:</label>
-                        <input class="ipt desactivate" type="number" value="{{$Producto->precio_ante}}" name="precio" id="precio" disabled>
-                        @error('precio_ante') <p>{{$message}}</p> @enderror
+                    <label for="direccion">Agregar dirección:</label>
+                    <input type="text" class="ipt desactivate" disabled name="direccion" value="{{$Producto->direccion}}">
+                    @error('direccion') <p>{{$message}}</p> @enderror
 
-                        <label for="fecha_des">Fecha limite del descuento: </label>
-                        <input class="ipt desactivate" type="date" name="Fechalimite" id="Fechalimite" value="{{$Producto->fecha_lim_desc}}" disabled>
-                        
-                    @else
-                        <label for="precio">Precio:</label>
-                        <input class="ipt desactivate" type="number" name="precio" id="precio" value="{{$Producto->precio}}" disabled>
-                        @error('precio') <p>{{$message}}</p> @enderror
-                    @endif
+
                     <label for="cantidad">Cantidad del producto:</label>
                     <input class="ipt desactivate" type="number" name="cantidad" id="cantidad" value="{{$Producto->cantidad}}" disabled>
                     @error('cantidad') <p>{{$message}}</p> @enderror
@@ -65,17 +53,58 @@
                     @error('tipo_envio') <p>{{$message}}</p> @enderror
                     
                     <Label for="subcategorias">Categoria</Label>
-                    <select class="ipt desactivate" name="subcategoria" id="subcategoria" disabled="disabled">
-                        <option value="{{$subcategoria->subcategoria_id}}" selected>{{$subcategoria->nombre}}</option>
+                    <select class="ipt desactivate" name="categorias" id="subcategoria" disabled="disabled">
+                        <option value="{{$subcategoria->subcategoria_id}}" selected>{{$subcategoria->nombreSubCategoria}}</option>
                         @foreach($categorias as $categoria)
                             <optgroup label="{{$categoria->nombre}}">
                                 
                                 @foreach ($categoria->subcategorias as $subcategoria)
-                                    <option value="{{$subcategoria->subcategoria_id}}">{{$subcategoria->nombre}}</option>
+                                    <option value="{{$subcategoria->subcategoria_id}}">{{$subcategoria->nombreSubCategoria}}</option>
                                 @endforeach
                             </optgroup>
                         @endforeach
                     </select>
+
+                    <p>Precio del producto</p>
+                    @if ($Producto->oferta)
+
+                        @php
+                            $porcentajeDes = (($Producto->precio_ante - $Producto->precio)/ $Producto->precio_ante) * 100
+                            
+                        @endphp
+
+                        
+                        <div class="data-precio">
+                            <p>Descuento del Producto aplicado:</p>
+                            <p>{{$porcentajeDes}} %</p>
+
+                            <p>Precio del producto con el descuento aplicado:</p>
+                            <p>{{$Producto->precio}} mxn</p>
+                            
+                            <p>Precio original:</p>
+                            <p>{{$Producto->precio_ante}} mxn</p>
+                        </div>
+                        
+
+                        <p>Cambiar el precio original o el descuento</p>
+                        <label for="precio_oferta">Descuento en %:</label>
+                        <input class="ipt desactivate" type="number" value="{{$porcentajeDes}}" name="descuento" id="precio" disabled>
+                        @error('precio') <p>{{$message}}</p> @enderror
+
+                        <label for="precio_normal">Precio original:</label>
+                        <input class="ipt desactivate" type="number" value="{{$Producto->precio_ante}}" name="precio" id="precio" disabled>
+                        @error('precio_ante') <p>{{$message}}</p> @enderror
+
+                        <label for="fecha_des">Fecha limite del descuento: </label>
+                        <input class="ipt desactivate" type="date" name="fecha_lim_desc" id="Fechalimite" value="{{$Producto->fecha_lim_desc}}" disabled>
+                        
+                    @else
+                        <label for="precio">Precio:</label>
+                        <input class="ipt desactivate" type="number" name="precio" id="precio" value="{{$Producto->precio}}" disabled>
+                        @error('precio') <p>{{$message}}</p> @enderror
+                    @endif
+
+
                     <div class="principalImg">
                         <p>Images añadidas</p>
                         <p>Selecciona cuales imagenes deseas actualizar:</p>
@@ -98,6 +127,8 @@
                             
                         
                     </div>
+
+                    
                     
                 </form>
             <div>

@@ -50,6 +50,25 @@ habilitarEdicion.addEventListener("change",()=>{
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault()
+    let empityInput = true
+    console.log(empityInput)
+    const input= document.querySelectorAll(".ipt")
+    console.log(input)
+    for (let index = 0; index < input.length; index++) {
+        if(input[index].value.trim()=== ""){
+            console.log("esta vacio")
+            empityInput = false
+            console.log(empityInput)
+            break
+        }else{
+            console.log(input[index].value)
+        }
+        
+        
+    }
+    // const confir = Array.from(input).every(con =>con.value === null)
+    // console.log(confir)
+
     Swal.fire({
         icon: "question",
         title: "¿Quieres actualizar el producto?",
@@ -67,17 +86,32 @@ form.addEventListener("submit",(e)=>{
             cancelButton: 'btnText btnCancel',
         }
     }).then((result) => {
-        if (result.isConfirmed) {
+        if(empityInput){
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title:"Actualizado Correctamente",
+                    icon:"success",
+                    customClass: {
+                        popup: 'containerModal',
+                        title: 'containerModal',
+                    }
+                });
+                form.submit()
+            }
+
+        }else{
             Swal.fire({
-                title:"Actualizado Correctamente",
-                icon:"success",
+                title: "Fallo al actualizar el producto",
+                text: "Corrobore todos los campos",
+                icon: "error",
                 customClass: {
                     popup: 'containerModal',
                     title: 'containerModal',
                 }
-            });
+            })
             form.submit()
         }
+        
     });
 })
 
