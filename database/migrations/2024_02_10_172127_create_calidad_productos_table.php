@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('calidad_productos', function (Blueprint $table) {
             $table->id('calidad_producto_id');
             $table->unsignedBigInteger('producto_id');
-            $table->unsignedBigInteger('comentario_id')->nullable();
             $table->float('media');
+            $table->float('sumaCalificacion');
             $table->integer('total_vendidas');
             $table->timestamps();
 
@@ -23,11 +23,6 @@ return new class extends Migration
                 ->references('producto_id')
                 ->on('productos')
                 ->onDelete('cascade');
-
-            $table->foreign('comentario_id')
-                ->references('comentario_id')
-                ->on('comentarios')
-                ->onDelete('set null');
         });
     }
 

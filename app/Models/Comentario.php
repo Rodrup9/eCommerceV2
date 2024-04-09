@@ -9,6 +9,13 @@ class Comentario extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'producto_id',
+        'user_id',
+        'descripcion',
+        'calificacion'
+    ];
+
     protected $primaryKey = 'comentario_id';
 
     public function user() {

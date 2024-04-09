@@ -1,3 +1,7 @@
+:root{
+    --heightImg: 70px;
+}
+
 .boxDetalleProducts{
     display: flex;
     flex-direction: column;
@@ -10,7 +14,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    background-color: burlywood;
+    background-color: rgb(100, 247, 255);
     height: 90vh;
 }
 
@@ -19,6 +23,7 @@
     position: absolute;
     width: 100%;
     gap: 10px;
+    max-height: 300px;
     bottom: 0;
     left: 0;
 }
@@ -129,6 +134,7 @@
 .comentariosAdd i{
     font-size: 24px;
     cursor: pointer;
+    color: var(--btnConfirm);
 }
 
 .sinComentarios{
@@ -157,4 +163,95 @@
 .btnEnviar{
     display: flex;
     justify-content: end;
+}
+
+/* ---------------------------- Img -------------------------------------*/
+
+.imgBoxImgs{
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    height: var(--heightImg);
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-items: center;
+    background-color: var(--colorElements);
+    padding: 20px 10px;
+    border-radius: 5px;
+}
+
+.sliderImg{
+    display: flex;
+    overflow: hidden;
+    min-width: 100%;
+}
+
+.boxSliderImg{
+    display: flex;
+    justify-content: start;
+    gap: 8px;
+    min-width: 100%;
+}
+
+.imgSlider{
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.arrowSliderD{
+    font-size: 50px;
+}
+
+.tittleImg{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px 10px 20px;
+}
+
+.tittleImg h3{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.tittleImg i{
+    font-size: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tittleImg i:hover{
+    background-color: var(--hoverIconFondo);
+}
+
+
+/*--------------imgBigAbsolute -----------------------*/
+
+.imgBigAbsolute{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.452);
+    align-items: center;
+    justify-content: center;
+}
+
+.closeImg{
+    position: absolute;
+    top: 15px;
+    right: 300px;
+    font-size: 40px;
+    cursor: pointer;
+    color: white;
+}
+
+.imgBigAbsolute img{
+    width: 600px;
+    height: 600px;
 }

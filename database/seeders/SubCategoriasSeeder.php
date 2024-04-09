@@ -15,103 +15,103 @@ class SubCategoriasSeeder extends Seeder
     {
         $subCategorias = [
             [
-                'nombre' => 'Televisión',
+                'nombreSubCategoria' => 'Televisión',
                 'categoria_id' => '7'
             ],
             [
-                'nombre' => 'Audifonos',
+                'nombreSubCategoria' => 'Audifonos',
                 'categoria_id' => '7'
             ],
             [
-                'nombre' => 'Camara fotografica',
+                'nombreSubCategoria' => 'Camara fotografica',
                 'categoria_id' => '7'
             ],
             [
-                'nombre' => 'Bocinas',
+                'nombreSubCategoria' => 'Bocinas',
                 'categoria_id' => '7'
             ],
             [
-                'nombre' => 'Laptops',
+                'nombreSubCategoria' => 'Laptops',
                 'categoria_id' => '1'
             ],
             [
-                'nombre' => 'Tablets',
+                'nombreSubCategoria' => 'Tablets',
                 'categoria_id' => '1'
             ],
             [
-                'nombre' => 'Computadoras de escritorio',
+                'nombreSubCategoria' => 'Computadoras de escritorio',
                 'categoria_id' => '1'
             ],
             [
-                'nombre' => 'Celulares',
+                'nombreSubCategoria' => 'Celulares',
                 'categoria_id' => '1'
             ],
             [
-                'nombre' => 'Decoración del hogar',
+                'nombreSubCategoria' => 'Decoración del hogar',
                 'categoria_id' => '2'
             ],
             [
-                'nombre' => 'Baño',
+                'nombreSubCategoria' => 'Baño',
                 'categoria_id' => '2'
             ],
             [
-                'nombre' => 'Climatización y calefación',
+                'nombreSubCategoria' => 'Climatización y calefación',
                 'categoria_id' => '2'
             ],
             [
-                'nombre' => 'Iluminación',
+                'nombreSubCategoria' => 'Iluminación',
                 'categoria_id' => '2'
             ],
             [
-                'nombre' => 'Jardin',
+                'nombreSubCategoria' => 'Jardin',
                 'categoria_id' => '2'
             ],
             [
-                'nombre' => 'Fútbol',
+                'nombreSubCategoria' => 'Fútbol',
                 'categoria_id' => '3'
             ],
             [
-                'nombre' => 'Fitnes',
+                'nombreSubCategoria' => 'Fitnes',
                 'categoria_id' => '3'
             ],
             [
-                'nombre' => 'Golf',
+                'nombreSubCategoria' => 'Golf',
                 'categoria_id' => '3'
             ],
             [
-                'nombre' => 'Pesca',
+                'nombreSubCategoria' => 'Pesca',
                 'categoria_id' => '3'
             ],
             [
-                'nombre' => 'Box',
+                'nombreSubCategoria' => 'Box',
                 'categoria_id' => '3'
             ],
             [
-                'nombre' => 'Ropa',
+                'nombreSubCategoria' => 'Ropa',
                 'categoria_id' => '6'
             ],
             [
-                'nombre' => 'Zapatos',
+                'nombreSubCategoria' => 'Zapatos',
                 'categoria_id' => '6'
             ],
             [
-                'nombre' => 'Accesorios',
+                'nombreSubCategoria' => 'Accesorios',
                 'categoria_id' => '6'
             ],
             [
-                'nombre' => 'Libros',
+                'nombreSubCategoria' => 'Libros',
                 'categoria_id' => '5'
             ],
             [
-                'nombre' => 'Musica',
+                'nombreSubCategoria' => 'Musica',
                 'categoria_id' => '5'
             ],
             [
-                'nombre' => 'Pinturas',
+                'nombreSubCategoria' => 'Pinturas',
                 'categoria_id' => '5'
             ],
             [
-                'nombre' => 'Cuadros',
+                'nombreSubCategoria' => 'Cuadros',
                 'categoria_id' => '5'
             ]
         ];

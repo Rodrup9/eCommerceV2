@@ -27,7 +27,7 @@
                         <p>Vendido por <span>{{$productoD['user_id']}}</span></p>
                         <div class="boxInputCantidad">
                             <label for="">Cantidad</label>
-                            <input class="inputCantidad" type="number" name="number" value="1" max="{{$productoD['cantidad']}}" min="1">
+                            <input id="CountProductoCart" class="inputCantidad" type="number" name="number" value="1" max="{{$productoD['cantidad']}}" min="1">
                             <input type="hidden" value="{{$productoD['producto_id']}}">
                         </div>
                         <div class="boxInputEnvio">
@@ -53,8 +53,13 @@
                             <p>$<span>{{$productoD['precio']}}</span></p>
                         </div>
                         <div class="boxButtons">
-                            <button type="submit" class="btnText btnConfirm">Comprar Ahora</button>
-                            <button type="button" onclick="addCart()" class="btnText btnCancel" >Agregar al carrito</button>
+                            <button type="button" onclick="addCart(1)" class="btnText btnConfirm">Comprar Ahora</button>
+                            <button type="button" onclick="addCart(0)" class="btnText btnCancel" >Agregar al carrito</button>
+                            <a href="/shoppingCart" id="btnComprarAhora" class="btnHidden" type="submit"></a>
+                            <input type="hidden" id="urlProductCart" name="url" value="{{$productoD['url']}}">
+                            <input type="hidden" id="idProductoCart" name="id" value="{{$productoD['producto_id']}}">
+                            <input type="hidden" id="NameProductoCart" name="nombre" value="{{$productoD['nombre']}}">
+                            <input type="hidden" id="PriceProductoCart" name="precio" value="{{$productoD['precio']}}">
                         </div>
                     </div>
                     <div class="sourseDetalles">
@@ -70,6 +75,25 @@
                     </div>
                 </form>
             </section>
+            @if (count($productoD['urls']) != 0)
+                <section class="imgBoxImgs">
+                    <div class="tittleImg">
+                        <h3>Imagenes</h3>
+                        <div id="iconArrow">
+                            <i class='bx bx-chevron-down' onclick="imgShowBox(0)"></i>
+                        </div>
+                    </div>
+                    {{--<i class='bx bx-chevron-left arrowSliderD'></i>--}}
+                    <div class="sliderImg">
+                        <div class="boxSliderImg">
+                            @foreach ($productoD['urls'] as $item)
+                                <img class="imgSlider" src="{{$item}}" alt="" onclick="showImgBig('{{$item}}')">
+                             @endforeach
+                        </div>
+                    </div>
+                    {{--<i class='bx bx-chevron-right arrowSliderD'></i>--}}
+                </section>
+            @endif
             <section class="descripcionProductosDetalles">
                 <h2>Descripción del Articulo</h2>
                 <p>{{$productoD['descripcion']}}</p>
@@ -105,46 +129,54 @@
             </div>
         @endif
         <section class="comentariosAddShow">
-            <div class="comentariosShow">
-                @if (false)
-                    <h2>Comentarios</h2>
+            <div id="boxComentarios" class="comentariosShow">
+                    {{--
                     <x-card-comentario>
                         <x-slot name="nameUser"></x-slot>
                         <x-slot name="scoreIcons"></x-slot>
                         <x-slot name="comentarioTetxt"></x-slot>
                     </x-card-comentario>
-                @else
-                    <div class="sinComentarios">
-                        <h3>No hay comentarios para esté producto</h3>
-                        <p>Se el primero en calificar este producto</p>
-                    </div>
-                @endif
+                    --}}
             </div>
             <div class="comentariosAdd">
                 <h3>Califica esté producto</h3>
-                <div class="scoreAdd">
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
+                <div id="starsContainer" class="scoreAdd">
+                    <span class="start"><i id="star1" class='star bx bx-star' ></i></span>
+                    <span class="start"><i id="star2" class='star bx bx-star' ></i></span>
+                    <span class="start"><i id="star3" class='star bx bx-star' ></i></span>
+                    <span class="start"><i id="star4" class='star bx bx-star' ></i></span>
+                    <span class="start"><i id="star5" class='star bx bx-star' ></i></span>
                 </div>
                 <textarea class="writtingComentario" name="comentarioAdd" id="cAdd" cols="" rows="" placeholder="Escribe un comentario"></textarea>
                 <div class="btnEnviar">
-                    <button onclick="setComentario()" class="btnText btnConfirm" type="button">Enviar comentario</button>
+                    <button id="btnComentario" onclick="addComentarioUser()" class="btnText btnConfirm" type="button">Enviar comentario</button>
                 </div>
                 <form action="addComentarioUser" method="post">
                     @csrf
+                    <input id="prodcutoId" name="producto" type="hidden" value="{{$productoD['producto_id']}}">
+                    {{--<input id="userId" name="user" type="hidden" value="{{$productoD['poducto_id']}}">--}}
                     <input id="comentarioText" name="comentarioText" type="hidden">
-                    <input id="scoreAdd" name="scoreAdd" type="hidden">
+                    <input id="scoreAdd" name="scoreAdd" type="hidden" value="0">
+                    <input type="hidden" name="_token" value='@csrf' >
                     <button class="btnHidden" type="submit"></button>
                 </form>
             </div>
         </section>
 
     </div>
+
+    <div id="imgBigAbsolute" class="imgBigAbsolute">
+        <i class='bx bx-x closeImg' onclick="closeShowImgBig()"></i>
+        <img id="imgBig" src="" alt="">
+    </div>
 @endsection
 
 @section("footer")
     @include('layouts.footer')
+@endsection
+
+@section('jsPage')
+    <script src="/js/moduloDetalles.js"></script>
+    <script src="/js/ajaxComentarios.js"></script>
+    <script src="/js/components.js"></script>
 @endsection

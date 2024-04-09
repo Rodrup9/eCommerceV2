@@ -47,9 +47,10 @@ function showOfert(oferta){
     let preP = document.getElementById('precioP');
     let buttomP = document.getElementById('buttomP');
     let imgCheck = document.getElementById('imgCheck');
+    let nSubC = document.getElementById('nSubC');
     let lista = {};
     if(ofertaNum){
-        let data = ofertaNum.querySelectorAll('.nombreP, .idP, .desP, .preP, .ofertaP, .preAnteP, .imgP' )
+        let data = ofertaNum.querySelectorAll('.nombreP, .idP, .desP, .preP, .ofertaP, .preAnteP, .imgP, .nombreSC' )
         data.forEach(function(elemento) {
             if(elemento){
                 lista[elemento.classList[0]] = elemento.textContent.trim();
@@ -65,7 +66,8 @@ function showOfert(oferta){
         preAnteP.innerHTML = lista.preAnteP;
         preP.innerHTML = lista.preP;
         buttomP.href  = "/detalles/" + lista.idP + "/" + lista.nombreP;
-        imgCheck.src  = lista.imgP
+        imgCheck.src  = lista.imgP;
+        nSubC.innerHTML = lista.nombreSC;
         let padres = document.querySelectorAll('.ofertaPanel')
         for (let i = 0; i < padres.length; i++) {
             padres[i].classList.remove('ofertaPanelActivate');

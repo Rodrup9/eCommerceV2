@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('producto_id');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->text('descripcion');
-            $table->integer('calificacion')->unsigned();
+            $table->float('calificacion')->unsigned();
             $table->timestamps();
 
             $table->foreign('producto_id')
