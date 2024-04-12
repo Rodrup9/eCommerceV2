@@ -38,7 +38,10 @@
                 <li>
                     <h2>Opcion de prueba Admin</h2>
                     <ul>
-                        <li><a href="/adminEcommerce">Admin Ecommerce</a></li>
+                        @auth
+                            <li><a href="/adminEcommerce">Admin Ecommerce</a></li>
+                            <li><a href="{{route('vendedor')}}">Vendedor</a></li>
+                        @endauth
                     </ul>
                 </li>
             @elseif ($nameView == 'Historial')
