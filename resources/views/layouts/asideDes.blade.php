@@ -26,15 +26,22 @@
                 <li>
                     <h2>Perfil</h2>
                     <ul>
-                        <li><a href="#">Iniciar sesión</a></li>
-                        <li><a href="#">Registrarse</a></li>
-                        <li><a href="{{route('homeShoppingCart')}}">Carrito de Compras</a></li>
+                        @guest
+                            <li><a href="{{route('login')}}">Iniciar sesión</a></li>
+                            <li><a href="{{route('register')}}">Registrarse</a></li>
+                        @else
+                            <li><a href="{{route('homeShoppingCart')}}">Carrito de Compras</a></li>
+                            <li><a href="{{route('perfil')}}">Ver perfil</a></li>
+                        @endguest
                     </ul>
                 </li>
                 <li>
                     <h2>Opcion de prueba Admin</h2>
                     <ul>
-                        <li><a href="/adminEcommerce">Admin Ecommerce</a></li>
+                        @auth
+                            <li><a href="/adminEcommerce">Admin Ecommerce</a></li>
+                            <li><a href="{{route('vendedor')}}">Vendedor</a></li>
+                        @endauth
                     </ul>
                 </li>
             @elseif ($nameView == 'Historial')
