@@ -63,3 +63,4 @@ if (!localStorage.getItem('theme')){
         document.documentElement.style.setProperty(`--${property}`, value);
     });
 }
+

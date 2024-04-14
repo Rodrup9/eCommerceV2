@@ -47,10 +47,12 @@ Route::controller(SesionController::class)->group(function() {
 Route::controller(HomeController::class)->group(function(){
     Route::get('/home', 'index')->name('home');
     Route::get('/', 'index')->name('home');
+    Route::get('/homeUpdate/recientes', 'updateSlidersRecientes');
 });
 
-Route::controller(CatalogoController::class)->group(function(){
-    Route::get('/catalogo/{id?}/{filter?}', 'index')->name('catalogo');
+Route::group(['prefix' => 'catalogo'], function () {
+    Route::get('', [CatalogoController::class, 'index'])->name('catalogo');
+    Route::get('/search', [CatalogoController::class, 'search'])->name('search');
 });
 
 

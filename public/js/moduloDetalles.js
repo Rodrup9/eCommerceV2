@@ -355,26 +355,36 @@ function addCart(go) {
     }
 }
 
-function addRecientes(){
+function addRecientes() {
     let idProducto = document.getElementById('idProducto').value;
     let recientes = localStorage.getItem('recientes');
-    if(recientes){
+
+    if (recientes) {
+        // Parseamos la cadena JSON almacenada en localStorage a un array
         recientes = JSON.parse(recientes);
-        let con = recientes.filter(item => item !== idProducto);
-        if(!con){
-            if(recientes.length < 10){
-                recientes.push(idProducto);
-            }if(recientes.length == 10){
-                recientes.splice(0, 1);
-                recientes.push(idProducto);
-            }
-            recientes = JSON.stringify(recientes);
-            localStorage.setItem('recientes', recientes);
+
+        // Verificamos si el producto ya existe en el array de recientes
+        let index = recientes.indexOf(idProducto);
+
+        if (index !== -1) {
+            // Si el producto existe, lo eliminamos del array
+            recientes.splice(index, 1);
         }
-    }else{
-        let recientes = [idProducto];
-        recientes = JSON.stringify(recientes);
-        localStorage.setItem('recientes', recientes);
+
+        // Agregamos el producto al final del array de recientes
+        recientes.push(idProducto);
+
+        // Si hay más de 10 elementos, eliminamos el primero (el más antiguo)
+        if (recientes.length > 15) {
+            recientes.shift(); // Elimina el primer elemento
+        }
+
+        // Convertimos de nuevo el array a JSON y lo guardamos en localStorage
+        localStorage.setItem('recientes', JSON.stringify(recientes));
+    } else {
+        // Si no hay ningún valor en localStorage para 'recientes', creamos un nuevo array con el producto actual
+        localStorage.setItem('recientes', JSON.stringify([idProducto]));
     }
 }
+
 addRecientes();

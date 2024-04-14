@@ -45,3 +45,7 @@ const direction = {
       localStorage.setItem('numSlider', 4)
     }
   }
+
+const searching = document.getElementById('searching');
+const search = document.getElementById('search');
+

@@ -20,12 +20,14 @@
                 <i class="logo">
                     
                 </i>
-                <div class="boxBuscador">
+                <form method="get" action="{{ route('search') }}" class="boxBuscador">
+                    @csrf
                     <button id="buscarLupa" type="button" class="lupa">
                         <i class='bx bx-search'></i>
                     </button>
-                    <input type="search" name="" class="buscador" id="" placeholder="Buscar">
-                </div>
+                    <input type="search" name="searching" class="buscador" id="searching" placeholder="Buscar">
+                    <button id="searchBtn" class="btnHidden" type="submit"></button>
+                </form>
             </div>
             <div class="menuLeft">
                 <button id="changeColorButton" class="changeColorButton" type="button" value="oscuro" onclick="changeColor()">
