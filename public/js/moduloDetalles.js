@@ -354,3 +354,27 @@ function addCart(go) {
         btnComprarAhora.click();
     }
 }
+
+function addRecientes(){
+    let idProducto = document.getElementById('idProducto').value;
+    let recientes = localStorage.getItem('recientes');
+    if(recientes){
+        recientes = JSON.parse(recientes);
+        let con = recientes.filter(item => item !== idProducto);
+        if(!con){
+            if(recientes.length < 10){
+                recientes.push(idProducto);
+            }if(recientes.length == 10){
+                recientes.splice(0, 1);
+                recientes.push(idProducto);
+            }
+            recientes = JSON.stringify(recientes);
+            localStorage.setItem('recientes', recientes);
+        }
+    }else{
+        let recientes = [idProducto];
+        recientes = JSON.stringify(recientes);
+        localStorage.setItem('recientes', recientes);
+    }
+}
+addRecientes();

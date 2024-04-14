@@ -13,9 +13,6 @@
     <div>
         <main class="boxDetalleProducts">
             <section class="contentDetallesProduct">
-                @if (false)
-                    <img src="{{$productoD['url']}}" alt="" class="imgProducto"
-                @endif
                 <form method="post" action="#" class="contentDetallesDetalles">
                     @csrf
                     <div class="imgProducto">
@@ -28,7 +25,7 @@
                         <div class="boxInputCantidad">
                             <label for="">Cantidad</label>
                             <input id="CountProductoCart" class="inputCantidad" type="number" name="number" value="1" max="{{$productoD['cantidad']}}" min="1">
-                            <input type="hidden" value="{{$productoD['producto_id']}}">
+                            <input id="idProducto" type="hidden" value="{{$productoD['producto_id']}}">
                         </div>
                         <div class="boxInputEnvio">
                             <label for="">Envio</label>
