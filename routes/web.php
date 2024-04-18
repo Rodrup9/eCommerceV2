@@ -65,11 +65,11 @@ Route::controller(ProductoController::class)->group(function(){
 });
 
 Route::controller(VendedorController::class)->group(function(){
-    Route::get("/vendedor/pedidos","pedidos")->name("vendedor.pedidos");
-    Route::get("/vendedor/pedidos/detalles","detalles")->name("vendedor.pedidos.detalles");
-    Route::get("/vendedor","index")->name("vendedor");
-    Route::get("/vendedor/lista/productos","listaProductos")->name("vendedor.lista.productos");
-    Route::get("/vendedor/producto/{producto}","detallesProducto")->name("vendedor.producto.detalle");
+    Route::get("/vendedor/pedidos","pedidos")->name("vendedor.pedidos")->middleware('ven');
+    Route::get("/vendedor/pedidos/detalles","detalles")->name("vendedor.pedidos.detalles")->middleware('ven');
+    Route::get("/vendedor","index")->name("vendedor")->middleware('ven');
+    Route::get("/vendedor/lista/productos","listaProductos")->name("vendedor.lista.productos")->middleware('ven');
+    Route::get("/vendedor/producto/{producto}","detallesProducto")->name("vendedor.producto.detalle")->middleware('ven');
     
 });
 
