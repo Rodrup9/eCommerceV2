@@ -6,6 +6,7 @@ use App\Models\Categoria;
 use App\Models\Producto;
 use App\Models\Subcategoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class VendedorController extends Controller
@@ -17,8 +18,13 @@ class VendedorController extends Controller
 
     
     public function index(): View{
+
+    $user = Auth::user();
+
+
         return view("moduloVendedores.homeVendedor",
-        ['nameView' => 'Home']);
+        [   'nameView' => 'Home'
+        ]);
     }
 
     public function detalles(){

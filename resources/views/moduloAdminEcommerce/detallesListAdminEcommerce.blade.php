@@ -12,12 +12,12 @@
                     <i class='bx bx-left-arrow-alt'></i>
                 </a>
                 <div class="nameObject">
-                    <h3>Nombre</h3>
+                    <h3>Nombre de usuario:</h3>
                 </div>
             </header>
             <section class="sectionDetalles">
                 <div class="descriptionDetalles">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde impedit vero sequi soluta exercitationem facere cupiditate veniam, reprehenderit voluptatum sit ea perferendis necessitatibus saepe.
+                    {{$nameDetalle->nombre_de_usuario}}
                 </div>
                 <div class="sourseDetalles">
                     <p>Califiación</p>
@@ -31,7 +31,11 @@
                     </div>
                 </div>
                 <div class="moreDetalles">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, doloremque perspiciatis. Aut esse rem ex magni voluptatum, illum porro illo nostrum praesentium nobis in, ea voluptatibus nisi facilis sint ipsum.
+                    <p>Nombre:  {{$nameDetalle->nombre}}</p>
+                    <p>Apellido Paterno:  {{$nameDetalle->apellido_pa}}</p>
+                    <p>Apellido Materno:  {{$nameDetalle->apellido_ma}}</p>
+                    <p>Correo Electronico:  {{$nameDetalle->email}}</p>
+                    <p>Fecha de creación de la cuenta:  {{$nameDetalle->created_at}}</p>
                 </div>
                 <div class="comentariosDetalles">
                     <div class="comentarioObject">
@@ -83,9 +87,16 @@
             </section>
         </main>
         <aside class="asideDetalles">
-            <div class="deleteObject">
-                <i class='bx bx-trash'></i>
-            </div>
+            <form action="{{route('deleteUser',$nameDetalle->id)}}" method="post">
+                @csrf
+                @method('delete')
+                <button type="submit">
+                    <div class="deleteObject">
+                        <i class='bx bx-trash'></i>
+                    </div>
+                </button>
+            </form>
+
             <div class="saveObject">
                 <i class='bx bx-bookmark' ></i>
             </div>

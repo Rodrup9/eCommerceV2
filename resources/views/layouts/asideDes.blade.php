@@ -56,11 +56,11 @@
                 <li>
                     <h2>Opciones</h2>
                     <ul>
-                        <li><a href="/adminListaEcommerce/vendedores">Vendedores</a></li>
-                        <li><a href="/adminListaEcommerce/usuarios">Usuarios</a></li>
-                        <li><a href="/adminListaEcommerce/reportes">Reportes</a></li>
-                        <li><a href="/adminListaEcommerce/productos">Productos</a></li>
-                        <li><a href="/adminListaEcommerce/comentarios">Comentarios</a></li>
+                        <li><a href="/adminListaEcommerce/Vendedor">Vendedores</a></li>
+                        <li><a href="/adminListaEcommerce/Cliente">Usuarios</a></li>
+                        <li><a href="">Reportes</a></li>
+                        <li><a href="">Productos</a></li>
+                        <li><a href="">Comentarios</a></li>
                         <li><a href="#">Perfil</a></li>
                     </ul>
                 </li>

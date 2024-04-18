@@ -12,6 +12,7 @@ use App\Models\Producto;
 use App\Http\Requests\StoreProductoRequest;
 use Cloudinary\Configuration\Configuration;
 use Cloudinary\Api\Upload\UploadApi;
+use Illuminate\Support\Facades\Auth;
 
 class ProductoController extends Controller{
 
@@ -21,6 +22,7 @@ class ProductoController extends Controller{
     }
 
     public function AgregarProducto(StoreProductoRequest $ProductoRequest){
+        $user = Auth::user();
         $producto = new Producto;
         $producto->nombre = $ProductoRequest->nombre;
         $producto->descripcion = $ProductoRequest->descripcion;
@@ -28,6 +30,7 @@ class ProductoController extends Controller{
         $producto->direccion = $ProductoRequest->direccion;
         $producto->tipo_envio = $ProductoRequest->tipo_envio;
         $producto->subcategoria_id = $ProductoRequest->categorias;
+        $producto->user_id = $user->id;
 
         if(empty($ProductoRequest->descuento)){
             $producto->precio = $ProductoRequest->precio;

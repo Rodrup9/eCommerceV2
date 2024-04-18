@@ -33,7 +33,9 @@
         <h2>Perfil</h2>
     </a>
 </main>
+
 @endsection
+
 
 
 @section('jsPage')

@@ -18,7 +18,7 @@
             <a href="#" class="opcionSecundaria">Ropa</a>
         --}}
         @else
-            <p>Parece haber un problema: sin opciones</p>
+            {{-- <p>Parece haber un problema: sin opciones</p> --}}
         @endif
     </div>
     @if ($nameView == "Catalogo" || $nameView == 'Historial')

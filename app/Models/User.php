@@ -48,7 +48,7 @@ class User extends Authenticatable
     }
 
     //one-to-many
-    public function user() {
+    public function productos() {
         return $this->hasMany('App\Models\Producto');
     }
 
