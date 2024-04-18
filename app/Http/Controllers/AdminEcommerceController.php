@@ -111,10 +111,15 @@ class AdminEcommerceController extends Controller
 
     public function producVendedor(){
         // $users = User::whereHas('type_users', fn($query)=>$query->where('nombre','Vendedor'))->get();
-        // $users->productos();
+        // $ProdVen = $users->productos();
         
+        $users = User::with('productos')->get();
+        $proven = $users->whereHas('type_users', fn($query)=>$query->where('nombre','Vendedor'))->get();
+        // $users = User::all();
+        // $users->productos()->whereHas();
         return view('moduloAdminEcommerce.productosVendedor',[
             'nameView' => 'Productos de vendedores',
+            'productos' => $proven
         ]);
     }
 }
