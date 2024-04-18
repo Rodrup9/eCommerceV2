@@ -33,8 +33,9 @@
         <h2>Perfil</h2>
     </a>
 </main>
-<p>{{$usuario}}</p>
+
 @endsection
+
 
 
 @section('jsPage')

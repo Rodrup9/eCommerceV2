@@ -16,138 +16,24 @@
                 <h2>Lista de <span>{{$typeList}}</span></h2>
             </div>
         </div>
-        <a href="/adminListaEcommerce/detalles/algo" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
-        <a href="#" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
-        <a href="#" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
-        <a href="#" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
-        <a href="#" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
-        <a href="#" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
-        <a href="#" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
-        <a href="#" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
-        <a href="#" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
-        <a href="#" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
-        <a href="#" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
-        <a href="#" class="liListaContent">
-            <div class="liNombreList">
-                <p>Nombre</p>
-            </div>
-            <div class="liDescriptionList">
-                <p>Descripcion</p>
-            </div>
-            <div class="liDateList">
-                <p>Fecha</p>
-            </div>
-        </a>
+
+        @forelse ($usuarios as $user)
+            <a href="{{route('adminListDetalles',$user->id)}}" class="liListaContent">
+                <div class="liNombreList">
+                    <p>{{$user->nombre}}</p>
+                </div>
+                <div class="liDescriptionList">
+                    <p>{{$user->nombre_de_usuario}}</p>
+                </div>
+                <div class="liDateList">
+                    <p>{{$user->email}}</p>
+                </div>
+            </a>
+        @empty
+            <p>No hay ningun usuario registrado en la aplicación</p>
+        @endforelse
+        
+        
     </main>
 @endsection
 

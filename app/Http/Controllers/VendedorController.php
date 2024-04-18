@@ -23,8 +23,7 @@ class VendedorController extends Controller
 
 
         return view("moduloVendedores.homeVendedor",
-        [   'nameView' => 'Home',
-            'usuario'=>$user->nombre
+        [   'nameView' => 'Home'
         ]);
     }
 
