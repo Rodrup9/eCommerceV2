@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/globals.css">
     <link rel="stylesheet" href="/css/headers.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/sesionStyles/lista.css">
     @yield('cssPage')
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     {{-- El nombre la pagina es pasado por la ruta desde el controlador --}}
@@ -48,7 +49,16 @@
                 @else
                 <form action="{{route('logOut')}}" method="POST">
                     @csrf
-                    <a href="#" onclick="this.closest('form').submit()" class="opcionPrincipal">Cerrar sesión</a>
+                    <div class="dropdown">
+                        <div class="select">
+                            <img src="img/user.png" id="dropdownIcon" class="selected" alt="Dropdown Icon">
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="menu">
+                            <li><a href="{{route('perfil')}}" class="opcionPrincipal">Ver perfil</a></li>
+                            <li><a href="#" onclick="this.closest('form').submit()" class="opcionPrincipal">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
                 </form>
                     {{-- <a href="{{route('logOut')}}" class="opcionPrincipal">Cerrar sesión</a> --}}
                 @endguest
@@ -75,6 +85,7 @@
 
     <script src="/js/globals.js"></script>
     <script src="/js/headers.js"></script>
+    <script src="/js/sesion/vendedor.js"></script>
     
 </body>
 </html>

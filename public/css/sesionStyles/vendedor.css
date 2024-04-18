@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap");
+
+#vamos {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 2em;
+    border-radius: 10px;
+    padding: 20px;
+    background: var(--formularioBox);
+}
+
+.heading,
+.sub-heading {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: var(--fuenteHeader);
+}
+
+.heading {
+    font-size: 2.5em;
+}
+
+.sub-heading {
+    text-align: left;
+    margin-left: 3%;
+}
+
+.contactForm {
+    display: grid;
+    gap: 3em;
+}
+
+.form {
+    width: 100%;
+    margin-top: 1em;
+}
+
+.para {
+    color: var(--fuenteHeader);
+    font-size: 1.1rem;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+}
+
+.para2 {
+    text-align: left;
+    margin-left: 3%;
+}
+
+.input {
+    width: 95%;
+    max-width: 700px;
+    border: 2px groove var(--fuenteHeader);
+    font-size: 0.9rem;
+    padding: 1em;
+    outline: none;
+    background-color: var(--formularioBox);
+    color: var(--fuenteHeader);
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+
+.input:focus {
+    outline: none;
+    color: var(--fuenteHeader);
+}
+
+.input::placeholder {
+    text-transform: capitalize;
+}
+
+.submit {
+    background-color: var(--hoverHeader);
+    border: none;
+    color: var(--fuenteHeader);
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+#map {
+    height: 100%;
+    border-radius: 15px;
+}
+
+#infowindow-content .title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+    color: var(--fuenteHeader);
+}
+
+#map #infowindow-content {
+    display: inline;
+}
+
+.pac-card {
+    margin: 10px;
+    font: 400 18px Roboto, Arial, sans-serif;
+    overflow: hidden;
+    font-family: Roboto;
+    padding: 0;
+}
+
+#pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+}
+
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+.pac-controls label {
+    font-family: Roboto;
+    font-size: 19px;
+    font-weight: 300;
+    color: var(--fuenteHeader);
+}
+
+#pac-input {
+    width: 95%;
+    max-width: 700px;
+    background-color: var(--formularioBox);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--fuenteHeader);
+    border: 2px groove var(--fuenteHeader);
+    text-overflow: ellipsis;
+    font-size: 0.9rem;
+    padding: 1em;
+    outline: none;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+
+#pac-input:focus {
+    outline: none;
+    color: var(--fuenteHeader);
+}
+
+#title {
+    color: var(--fuenteHeader);
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+
+.gm-style .gm-style-iw-c {
+    background-color: var(--formularioBox);
+    box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
+}
+
+.gm-ui-hover-effect > span {
+    background-color: var(--fuenteHeader);
+}
+
+.pac-container {
+    background-color: var(--formularioBox);
+    position: absolute !important;
+    z-index: 1000;
+    border-radius: 2px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.pac-item-query,
+.pac-item {
+    color: var(--fuenteHeader);
+}
+
+.pac-item:focus {
+    background-color: var(--formularioBox);
+}
+

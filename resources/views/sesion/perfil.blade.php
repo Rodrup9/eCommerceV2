@@ -2,7 +2,6 @@
 
 @section('cssPage')
     <link rel="stylesheet" href="/css/sesionStyles/perfil.css">
-
 @endsection
 
 @section('main')
@@ -32,6 +31,6 @@
         </div>
     <a href="{{route('actPerfil')}}">Actualizar</a>
     <a href="{{route('actContraseña')}}">¿Deseas cambiar su contraseña?</a>
-    <a href="">Vuelvete vendedor</a>
+    <a href="{{route('vuelVen')}}">Vuelvete vendedor</a>
     </div>
 @endsection

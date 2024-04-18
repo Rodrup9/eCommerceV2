@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\PerfilController;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\AdminEcommerceController;
@@ -83,15 +84,6 @@ Route::controller(AdminEcommerceController::class)->group(function(){
     Route::get('/adminEcommerce', 'index')->name('homeAdminEcommerce');
     Route::get('/adminListaEcommerce/{lista?}', 'lista')->name('adminListaEcommerce');
     Route::get('/adminListaEcommerce/{lista?}/{data?}', 'detalles')->name('adminListDetalles');
-    Route::get('/perfil', 'perfil')->name('perfil')->middleware('auth');
-
-    //Aquí puse todo sobre actualizar datos de la sesion, debido a que no sabia donde colocarlas
-
-    Route::get('/actualizarPerfil','actualizar')->name('actPerfil')->middleware('auth');
-    Route::put('/actConfirmacion','confirmacion')->name('actConfirmacion')->middleware('auth');
-
-    Route::get('/actualizarContraseña', 'actualizarContraseña')->name('actContraseña')->middleware('auth');
-    Route::put('/confirmContraseña', 'confirmacionContraseña')->name('confirmContraseña')->middleware('auth');
 });
 
 
@@ -102,4 +94,12 @@ Route::controller(DetallesController::class)->group(function(){
 });
 
 
-
+Route::controller(PerfilController::class)->group(function(){
+    Route::get('/perfil', 'perfil')->name('perfil')->middleware('auth');
+    Route::get('/actualizarPerfil','actualizar')->name('actPerfil')->middleware('auth');
+    Route::put('/actConfirmacion','confirmacion')->name('actConfirmacion')->middleware('auth');
+    Route::get('/actualizarContraseña', 'actualizarContraseña')->name('actContraseña')->middleware('auth');
+    Route::put('/confirmContraseña', 'confirmacionContraseña')->name('confirmContraseña')->middleware('auth');
+    Route::get('/vuelveteVendedor', 'vuelveteVen')->name('vuelVen')->middleware('auth');
+    Route::post('/vuelveteVendedor', 'convertir')->name('convencion')->middleware('auth');
+});
