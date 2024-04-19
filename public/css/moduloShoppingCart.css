@@ -198,3 +198,10 @@
 .lStatus i{
     font-size: 28px;
 }
+
+.cantidad{
+    display: flex;
+    width: 40px;
+    text-align: center;
+    border: transparent;
+}

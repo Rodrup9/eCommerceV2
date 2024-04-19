@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\PerfilController;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\AdminEcommerceController;
@@ -47,10 +48,12 @@ Route::controller(SesionController::class)->group(function() {
 Route::controller(HomeController::class)->group(function(){
     Route::get('/home', 'index')->name('home');
     Route::get('/', 'index')->name('home');
+    Route::get('/homeUpdate/recientes', 'updateSlidersRecientes');
 });
 
-Route::controller(CatalogoController::class)->group(function(){
-    Route::get('/catalogo/{id?}/{filter?}', 'index')->name('catalogo');
+Route::group(['prefix' => 'catalogo'], function () {
+    Route::get('', [CatalogoController::class, 'index'])->name('catalogo');
+    Route::get('/search', [CatalogoController::class, 'search'])->name('search');
 });
 
 
@@ -83,7 +86,6 @@ Route::controller(AdminEcommerceController::class)->group(function(){
     Route::get('/adminListaEcommerce/detalles/{data?}', 'detalles')->name('adminListDetalles');
     Route::get('/perfil', 'perfil')->name('perfil')->middleware('auth');
     Route::delete('adminListaEcommerce/detalles/user/{user}','eliminarUser')->name('deleteUser');
-
     //Aquí puse todo sobre actualizar datos de la sesion, debido a que no sabia donde colocarlas
 
     Route::get('/actualizarPerfil','actualizar')->name('actPerfil')->middleware('auth');
@@ -91,7 +93,6 @@ Route::controller(AdminEcommerceController::class)->group(function(){
 
     Route::get('/actualizarContraseña', 'actualizarContraseña')->name('actContraseña')->middleware('auth');
     Route::put('/confirmContraseña', 'confirmacionContraseña')->name('confirmContraseña')->middleware('auth');
-
     Route::get('adminEcommerce/prodVend','producVendedor')->name('adminEcommerce.productos.vendedor');
 });
 
@@ -103,4 +104,12 @@ Route::controller(DetallesController::class)->group(function(){
 });
 
 
-
+Route::controller(PerfilController::class)->group(function(){
+    Route::get('/perfil', 'perfil')->name('perfil')->middleware('auth');
+    Route::get('/actualizarPerfil','actualizar')->name('actPerfil')->middleware('auth');
+    Route::put('/actConfirmacion','confirmacion')->name('actConfirmacion')->middleware('auth');
+    Route::get('/actualizarContraseña', 'actualizarContraseña')->name('actContraseña')->middleware('auth');
+    Route::put('/confirmContraseña', 'confirmacionContraseña')->name('confirmContraseña')->middleware('auth');
+    Route::get('/vuelveteVendedor', 'vuelveteVen')->name('vuelVen')->middleware('auth');
+    Route::post('/vuelveteVendedor', 'convertir')->name('convencion')->middleware('auth');
+});

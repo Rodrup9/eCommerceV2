@@ -71,4 +71,54 @@ class HomeController extends Controller
         ]
         */
     }
+
+    public function updateOfertas(Request $request){
+        $ofertasEspeciales = Producto::join('images', 'productos.producto_id', '=', 'images.image_id')
+            ->join('subcategorias', 'productos.subcategoria_id', '=', 'subcategorias.subcategoria_id')
+            ->orderBy('oferta', 'desc')
+            ->take(5)
+            ->get();
+        
+        $position = 1;
+        foreach($ofertasEspeciales as $item){
+            $item['position'] = "oferta" . $position++;
+        }
+        return response()->json($ofertasEspeciales);
+    }
+
+    public function updateSlidersRecientes(Request $request){
+        $num = $request->input('numeros');
+        if($num){
+            $num = json_decode($num);
+            $num = array_reverse($num);
+            $data = [];
+            foreach($num as $item){
+                $consulta = Producto::join('images', 'productos.producto_id', '=', 'images.image_id')
+                    ->where('productos.producto_id', $item)
+                    ->get();
+                if($consulta->isNotEmpty()){
+                    $data[] = $consulta;
+                }
+            }
+        }
+        if(!$data){
+            $data = [null];
+        }
+        return response()->json($data);
+    }
+
+    public function updateSliderSugerencias(Request $request){
+        
+
+        return response()->json();
+    }
+
+    public function updateSliderTendencias(Request $request){
+        return response()->json();
+    }
+
+    public function updateSliderDescuentos(Request $request){
+
+        return response()->json();
+    }
 }

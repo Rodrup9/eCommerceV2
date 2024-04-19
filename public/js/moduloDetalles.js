@@ -354,3 +354,37 @@ function addCart(go) {
         btnComprarAhora.click();
     }
 }
+
+function addRecientes() {
+    let idProducto = document.getElementById('idProducto').value;
+    let recientes = localStorage.getItem('recientes');
+
+    if (recientes) {
+        // Parseamos la cadena JSON almacenada en localStorage a un array
+        recientes = JSON.parse(recientes);
+
+        // Verificamos si el producto ya existe en el array de recientes
+        let index = recientes.indexOf(idProducto);
+
+        if (index !== -1) {
+            // Si el producto existe, lo eliminamos del array
+            recientes.splice(index, 1);
+        }
+
+        // Agregamos el producto al final del array de recientes
+        recientes.push(idProducto);
+
+        // Si hay más de 10 elementos, eliminamos el primero (el más antiguo)
+        if (recientes.length > 15) {
+            recientes.shift(); // Elimina el primer elemento
+        }
+
+        // Convertimos de nuevo el array a JSON y lo guardamos en localStorage
+        localStorage.setItem('recientes', JSON.stringify(recientes));
+    } else {
+        // Si no hay ningún valor en localStorage para 'recientes', creamos un nuevo array con el producto actual
+        localStorage.setItem('recientes', JSON.stringify([idProducto]));
+    }
+}
+
+addRecientes();

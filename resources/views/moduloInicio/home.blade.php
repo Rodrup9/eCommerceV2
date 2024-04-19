@@ -65,31 +65,100 @@
                 </div>
             @endif
         </main>
-    @if (count($products) > 0)
-        @foreach ($sectionS as $nameS => $data)
-            <x-slider-product>
-            @foreach ($products as $item)
-                <x-slot name="nameSectionSlider">{{$nameS}}</x-slot>
-                <x-slot name="urlSectionSlider">{{$data['url']}}</x-slot>
-                <x-card-product :img="$item['url']">
-                    <x-slot name="id">{{$item['producto_id']}}</x-slot>
-                    <x-slot name="producto">{{$item['nombre']}}</x-slot>
-                    <x-slot name="tag">{{$item['oferta']}}</x-slot>
-                    <x-slot name="descuento">{{$item['oferta']}}</x-slot>
-                    <x-slot name="precio">{{$item['precio']}}</x-slot>
-                    {{$item['descripcion']}}
-                </x-card-product>
+        {{--
+        <section id="sectionRecientes" class="section sectionSlider">
+            <div class="tittle"><p>Recientes</p></div>
+            <div class="boxProductos">
+                <div id="arrowSliderLeft" class="arrowSliderLeft arrow">
+                    <i class='bx bxs-chevron-left arrowIcon'></i>
+                </div>
+                <div id="sliderBox" class="sliderBox sliderProductos">
+                    <div id="slider1" class="slider sliderBoxProductos">
+                        
+                    </div>
+                </div>
+                <div id="arrowSliderRight" class="arrowSliderRight arrow">
+                    <i class='bx bxs-chevron-right arrowIcon'></i>
+                </div>
+            </div>
+        </section>
+        <section class="section sectionSlider">
+            <div class="tittle"><p>Sugerencias</p> <a class="verMas" href="catalogo/null/sugerencias">Ver más</a></div>
+            <div class="boxProductos">
+                <div id="arrowSliderLeft" class="arrowSliderLeft arrow">
+                    <i class='bx bxs-chevron-left arrowIcon'></i>
+                </div>
+                <div id="sliderBox" class="sliderBox sliderProductos">
+                    <div id="slider2" class="slider sliderBoxProductos">
+                        
+                    </div>
+                </div>
+                <div id="arrowSliderRight" class="arrowSliderRight arrow">
+                    <i class='bx bxs-chevron-right arrowIcon'></i>
+                </div>
+            </div>
+        </section>
+        <section class="section sectionSlider">
+            <div class="tittle"><p>Tendencias</p> <a class="verMas" href="catalogo/null/tendencias">Ver más</a></div>
+            <div class="boxProductos">
+                <div id="arrowSliderLeft" class="arrowSliderLeft arrow">
+                    <i class='bx bxs-chevron-left arrowIcon'></i>
+                </div>
+                <div id="sliderBox" class="sliderBox sliderProductos">
+                    <div id="slider3" class="slider sliderBoxProductos">
+                        
+                    </div>
+                </div>
+                <div id="arrowSliderRight" class="arrowSliderRight arrow">
+                    <i class='bx bxs-chevron-right arrowIcon'></i>
+                </div>
+            </div>
+        </section>
+        <section class="section sectionSlider">
+            <div class="tittle"><p>Descuentos</p> <a class="verMas" href="catalogo/null/descuentos">Ver más</a></div>
+            <div class="boxProductos">
+                <div id="arrowSliderLeft" class="arrowSliderLeft arrow">
+                    <i class='bx bxs-chevron-left arrowIcon'></i>
+                </div>
+                <div id="sliderBox" class="sliderBox sliderProductos">
+                    <div id="slider4" class="slider sliderBoxProductos">
+                        
+                    </div>
+                </div>
+                <div id="arrowSliderRight" class="arrowSliderRight arrow">
+                    <i class='bx bxs-chevron-right arrowIcon'></i>
+                </div>
+            </div>
+        </section>
+        --}}
+        @if (count($products) > 0)
+            @foreach ($sectionS as $nameS => $data)
+                <section class="sliderProductsSection">
+                    <x-slider-product>
+                    @foreach ($products as $item)
+                        <x-slot name="nameSectionSlider">{{$nameS}}</x-slot>
+                        <x-slot name="urlSectionSlider">{{$data['url']}}</x-slot>
+                        <x-card-product :img="$item['url']">
+                            <x-slot name="id">{{$item['producto_id']}}</x-slot>
+                            <x-slot name="producto">{{$item['nombre']}}</x-slot>
+                            <x-slot name="tag">{{$item['oferta']}}</x-slot>
+                            <x-slot name="descuento">{{$item['oferta']}}</x-slot>
+                            <x-slot name="precio">{{$item['precio']}}</x-slot>
+                            {{$item['descripcion']}}
+                        </x-card-product>
+                    @endforeach
+                        <x-card-ver-mas-extra>
+                            <x-slot name="urlSectionCard">{{$data['url']}}</x-slot>
+                        </x-card-ver-mas-extra>
+                    </x-slider-product>
+                </section>
             @endforeach
-                <x-card-ver-mas-extra>
-                    <x-slot name="urlSectionCard">{{$data['url']}}</x-slot>
-                </x-card-ver-mas-extra>
-            </x-slider-product>
-        @endforeach
-    @else
-        <div class="errorTry">
-            <p>Ups! Parece que hubo un error</p>
-        </div>
-    @endif
+        @else
+            <div class="errorTry">
+                <p>Parece que hubo un error</p>
+            </div>
+        @endif
+    
     </div> 
 
 @endsection
@@ -102,4 +171,5 @@
 @section('jsPage')
     <script src="/js/moduloInicio.js"></script>
     <script src="/js/components.js"></script>
+    <script src="/js/ajaxHome.js"></script>
 @endsection
