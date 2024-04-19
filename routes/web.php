@@ -73,7 +73,7 @@ Route::controller(VendedorController::class)->group(function(){
     Route::get('/vendedor/reporte','reporteProducto')->name('vendedor.reporte');
     
 });
-
+Route::get('/adminListaEcommerce/detalles/{data?}', 'detalles')->name('adminListDetalles');
 Route::controller(ShoppingCartController::class)->group(function(){
     Route::get('/shoppingCart', 'index')->name('homeShoppingCart');
     Route::get('/shoppingCart/confirmar', 'confirmData')->name('confirmData');
@@ -85,16 +85,9 @@ Route::controller(AdminEcommerceController::class)->group(function(){
     Route::get('/adminEcommerce', 'index')->name('homeAdminEcommerce');
     Route::get('/adminListaEcommerce/{lista?}', 'lista')->name('adminListaEcommerce');
     Route::get('/adminListaEcommerce/detalles/{data?}', 'detalles')->name('adminListDetalles');
-    Route::get('/perfil', 'perfil')->name('perfil')->middleware('auth');
     Route::delete('adminListaEcommerce/detalles/user/{user}','eliminarUser')->name('deleteUser');
-    //Aquí puse todo sobre actualizar datos de la sesion, debido a que no sabia donde colocarlas
-
-    Route::get('/actualizarPerfil','actualizar')->name('actPerfil')->middleware('auth');
-    Route::put('/actConfirmacion','confirmacion')->name('actConfirmacion')->middleware('auth');
-
-    Route::get('/actualizarContraseña', 'actualizarContraseña')->name('actContraseña')->middleware('auth');
-    Route::put('/confirmContraseña', 'confirmacionContraseña')->name('confirmContraseña')->middleware('auth');
     Route::get('adminEcommerce/prodVend','producVendedor')->name('adminEcommerce.productos.vendedor');
+
 });
 
 

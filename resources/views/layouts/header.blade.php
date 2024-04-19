@@ -51,7 +51,7 @@
                     @csrf
                     <div class="dropdown">
                         <div class="select">
-                            <img src="img/user.png" id="dropdownIcon" class="selected" alt="Dropdown Icon">
+                            <img src="/img/user.png" id="dropdownIcon" class="clikeao" alt="Dropdown Icon">
                             <div class="caret"></div>
                         </div>
                         <ul class="menu">
