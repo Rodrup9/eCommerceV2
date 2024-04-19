@@ -70,6 +70,7 @@ Route::controller(VendedorController::class)->group(function(){
     Route::get("/vendedor","index")->name("vendedor");
     Route::get("/vendedor/lista/productos","listaProductos")->name("vendedor.lista.productos");
     Route::get("/vendedor/producto/{producto}","detallesProducto")->name("vendedor.producto.detalle");
+    Route::get('/vendedor/reporte','reporteProducto')->name('vendedor.reporte');
     
 });
 

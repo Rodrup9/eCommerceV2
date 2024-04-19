@@ -24,7 +24,7 @@
         <i class='bx bx-package' ></i>
         <h2>Sitio Web</h2>
     </a>
-    <a href="/adminListaEcommerce/comentarios" class="cardMenuAdmin">
+    <a href="{{route('vendedor.reporte')}}" class="cardMenuAdmin">
         <i class='bx bx-message-dots' ></i>
         <h2>Comentarios</h2>
     </a>

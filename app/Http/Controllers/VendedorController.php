@@ -51,4 +51,9 @@ class VendedorController extends Controller
             "subcategoria" => $subCat,
             "nameView"=>"detalles produc"]);
     }
+
+    public function reporteProducto(){
+        return view('moduloVendedores.reporte',
+        ["nameView" => "reporte"]);
+    }
 }
