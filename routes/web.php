@@ -81,11 +81,11 @@ Route::controller(ShoppingCartController::class)->group(function(){
 
 
 Route::controller(AdminEcommerceController::class)->group(function(){
-    Route::get('/adminEcommerce', 'index')->name('homeAdminEcommerce');
-    Route::get('/adminListaEcommerce/{lista?}', 'lista')->name('adminListaEcommerce');
-    Route::get('/adminListaEcommerce/detalles/{data?}', 'detalles')->name('adminListDetalles');
-    Route::delete('adminListaEcommerce/detalles/user/{user}','eliminarUser')->name('deleteUser');
-    Route::get('adminEcommerce/prodVend','producVendedor')->name('adminEcommerce.productos.vendedor');
+    Route::get('/adminEcommerce', 'index')->name('homeAdminEcommerce')->middleware('admin');
+    Route::get('/adminListaEcommerce/{lista?}', 'lista')->name('adminListaEcommerce')->middleware('admin');
+    Route::get('/adminListaEcommerce/detalles/{data?}', 'detalles')->name('adminListDetalles')->middleware('admin');
+    Route::delete('adminListaEcommerce/detalles/user/{user}','eliminarUser')->name('deleteUser')->middleware('admin');
+    Route::get('adminEcommerce/prodVend','producVendedor')->name('adminEcommerce.productos.vendedor')->middleware('admin');
 });
 
 
