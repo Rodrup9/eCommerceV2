@@ -77,4 +77,10 @@ class AdminEcommerceController extends Controller
         ]);
     }
 
+    public function reporteProduct(){
+        return view('moduloVendedores.reporte',[
+            'nameView' => 'reporte'
+        ]);
+    }
+
 }

@@ -65,15 +65,14 @@ Route::controller(ProductoController::class)->group(function(){
 });
 
 Route::controller(VendedorController::class)->group(function(){
-    Route::get("/vendedor/pedidos","pedidos")->name("vendedor.pedidos");
-    Route::get("/vendedor/pedidos/detalles","detalles")->name("vendedor.pedidos.detalles");
-    Route::get("/vendedor","index")->name("vendedor");
-    Route::get("/vendedor/lista/productos","listaProductos")->name("vendedor.lista.productos");
-    Route::get("/vendedor/producto/{producto}","detallesProducto")->name("vendedor.producto.detalle");
-    Route::get('/vendedor/reporte','reporteProducto')->name('vendedor.reporte');
+    Route::get("/vendedor/pedidos","pedidos")->name("vendedor.pedidos")->middleware('ven');
+    Route::get("/vendedor/pedidos/detalles","detalles")->name("vendedor.pedidos.detalles")->middleware('ven');
+    Route::get("/vendedor","index")->name("vendedor")->middleware('ven');
+    Route::get("/vendedor/lista/productos","listaProductos")->name("vendedor.lista.productos")->middleware('ven');
+    Route::get("/vendedor/producto/{producto}","detallesProducto")->name("vendedor.producto.detalle")->middleware('ven');
+    Route::get('/vendedor/reporte','reporteProducto')->name('vendedor.reporte')->middleware('ven');
     
 });
-Route::get('/adminListaEcommerce/detalles/{data?}', 'detalles')->name('adminListDetalles');
 Route::controller(ShoppingCartController::class)->group(function(){
     Route::get('/shoppingCart', 'index')->name('homeShoppingCart');
     Route::get('/shoppingCart/confirmar', 'confirmData')->name('confirmData');
@@ -82,12 +81,12 @@ Route::controller(ShoppingCartController::class)->group(function(){
 
 
 Route::controller(AdminEcommerceController::class)->group(function(){
-    Route::get('/adminEcommerce', 'index')->name('homeAdminEcommerce');
-    Route::get('/adminListaEcommerce/{lista?}', 'lista')->name('adminListaEcommerce');
-    Route::get('/adminListaEcommerce/detalles/{data?}', 'detalles')->name('adminListDetalles');
-    Route::delete('adminListaEcommerce/detalles/user/{user}','eliminarUser')->name('deleteUser');
-    Route::get('adminEcommerce/prodVend','producVendedor')->name('adminEcommerce.productos.vendedor');
-
+    Route::get('/adminEcommerce', 'index')->name('homeAdminEcommerce')->middleware('admin');
+    Route::get('/adminListaEcommerce/{lista?}', 'lista')->name('adminListaEcommerce')->middleware('admin');
+    Route::get('/adminListaEcommerce/detalles/{data?}', 'detalles')->name('adminListDetalles')->middleware('admin');
+    Route::delete('/adminListaEcommerce/detalles/user/{user}','eliminarUser')->name('deleteUser')->middleware('admin');
+    Route::get('/adminEcommerce/prodVend','producVendedor')->name('adminEcommerce.productos.vendedor')->middleware('admin');
+    Route::get('/adminEcommerce/reporte','reporteProduct')->name('adminEcommerce.reporte')->middleware('admin');
 });
 
 
