@@ -16,6 +16,7 @@
 @endsection
 
 @section('main')
+    <p>{{$pedidos}}</p>
     <div class="cont-detalles">
         <div class="Acciones">
             <h1>Nombre</h1>

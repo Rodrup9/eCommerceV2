@@ -58,10 +58,10 @@ Route::group(['prefix' => 'catalogo'], function () {
 
 
 Route::controller(ProductoController::class)->group(function(){
-    Route::get("/vendedor/producto","NuevoProducto")->name("vendedor.producto");
-    Route::post("/vendedor/producto","AgregarProducto")->name("vendedor.agg.producto");
-    Route::get("/vendedor/producto/{producto}/delete","EliminarProductos")->name("vendedor.delete.producto");
-    Route::put("/vendedor/producto/{producto}/update","ActualizarProducto")->name("vendor.producto.actualizar");
+    Route::get("/vendedor/producto","NuevoProducto")->name("vendedor.producto")->middleware('ven');
+    Route::post("/vendedor/producto","AgregarProducto")->name("vendedor.agg.producto")->middleware('ven');
+    Route::get("/vendedor/producto/{producto}/delete","EliminarProductos")->name("vendedor.delete.producto")->middleware('ven');
+    Route::put("/vendedor/producto/{producto}/update","ActualizarProducto")->name("vendor.producto.actualizar")->middleware('ven');
 });
 
 Route::controller(VendedorController::class)->group(function(){
@@ -71,6 +71,9 @@ Route::controller(VendedorController::class)->group(function(){
     Route::get("/vendedor/lista/productos","listaProductos")->name("vendedor.lista.productos")->middleware('ven');
     Route::get("/vendedor/producto/{producto}","detallesProducto")->name("vendedor.producto.detalle")->middleware('ven');
     Route::get('/vendedor/reporte','reporteProducto')->name('vendedor.reporte')->middleware('ven');
+    Route::get('/vendedor/reporte/json','infoReporte')->name('vendedor.reporte.json')->middleware('ven');
+    Route::get('/vendedor/comentarios','comenProductos')->name('vendedor.comentarios')->middleware('ven');
+    Route::get('/vendedor/comentarios/{producto}','TotalComentarios')->name('vendedor.comentarios.count')->middleware('ven');
     
 });
 Route::controller(ShoppingCartController::class)->group(function(){
@@ -86,7 +89,7 @@ Route::controller(AdminEcommerceController::class)->group(function(){
     Route::get('/adminListaEcommerce/detalles/{data?}', 'detalles')->name('adminListDetalles')->middleware('admin');
     Route::delete('/adminListaEcommerce/detalles/user/{user}','eliminarUser')->name('deleteUser')->middleware('admin');
     Route::get('/adminEcommerce/prodVend','producVendedor')->name('adminEcommerce.productos.vendedor')->middleware('admin');
-    Route::get('/adminEcommerce/reporte','reporteProduct')->name('adminEcommerce.reporte')->middleware('admin');
+    // Route::get('/adminEcommerce/reporte','reporteProduct')->name('adminEcommerce.reporte')->middleware('admin');
 });
 
 

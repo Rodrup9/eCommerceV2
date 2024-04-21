@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-    <div>
+    <div class="grafica_masVen">
         <canvas id="myChart"></canvas>
     </div>
 @endsection
