@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.lista-pedidos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pedido{
+    display: grid;
+    grid-template-columns: repeat(3,484px);
+    align-items: center;
+}
+
+.color{
+    background-color: var(--colorElements);
+    margin: 10px;
+    border-radius: 10px;
+}
+
+
+
+.item-pedido{
+    text-align: center;
+    height: auto;
+    margin: 20px;
+}
+
+
+.ver-mas{
+    width: 120px;
+    height: 50px;
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: var(--btnConfirm);
+    border-radius: 10px;
+    margin-left: 35%;
+    margin-right: 35%;
+    align-content: center;
+    ;
+}
+
+.txt-aling{
+    text-align: center;
+    font-size: 40px;
+}

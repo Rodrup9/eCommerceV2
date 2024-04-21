@@ -13,17 +13,8 @@ return new class extends Migration
     {
         Schema::create('ubicaciones', function (Blueprint $table) {
             $table->id('ubicacion_id');
-            $table->unsignedBigInteger('estado_id')->nullable();
-            $table->integer('codigo_postal');
-            $table->string('calle');
-            $table->string('colonia');
-            $table->string('num_casa');
+            $table->string('direccion');
             $table->timestamps();
-
-            $table->foreign('estado_id')
-                ->references('estado_id')
-                ->on('estados')
-                ->onDelete('set null');
         });
     }
 

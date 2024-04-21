@@ -175,3 +175,8 @@
 .asideDetalles i{
     font-size: 24px;
 }
+
+.btnElimar{
+    text-decoration: none;
+    color: var(--fuenteElements);
+}

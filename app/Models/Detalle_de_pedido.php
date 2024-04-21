@@ -10,7 +10,7 @@ class Detalle_de_pedido extends Model
     use HasFactory;
     protected $primaryKey = 'detalle_id';
     
-    public function pedido(){
+    public function pedidos(){
         return $this->hasMany('App\Models\Producto','pedido_id');
     }
 

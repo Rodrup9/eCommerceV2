@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -48,14 +50,10 @@ class User extends Authenticatable
     }
 
     //one-to-many
-    public function user() {
-        return $this->hasMany('App\Models\Producto');
+    public function productos() {
+        return $this->hasMany('App\Models\Producto','user_id','id');
     }
 
-    //Relación many-to-many
-    public function categorias() {
-        return $this->belongsToMany('App\Models\Categoria');
-    }
 
     //one-to-many polimórfica
     public function images() {

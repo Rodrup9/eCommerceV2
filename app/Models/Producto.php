@@ -15,7 +15,7 @@ class Producto extends Model
 
     //many-to-one
     public function user() {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User','user_id','id');
     }
 
     //one-to-many polimórfica
@@ -25,5 +25,13 @@ class Producto extends Model
 
     public function subcategoria(){
         return $this->belongsTo(Subcategoria::class,"subcategoria_id");
+    }
+
+    public function calidad_producto(){
+        return $this->hasOne(Calidad_producto::class,'producto_id');
+    }
+
+    public function comentarios(){
+        return $this->hasMany(Comentario::class,'producto_id');
     }
 }

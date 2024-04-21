@@ -6,23 +6,23 @@
 
 @section('main')
     <main class="mainAdminAdmin">
-        <a href="/adminListaEcommerce/vendedores" class="cardMenuAdmin">
+        <a href="{{route('adminListaEcommerce','Vendedor')}}" class="cardMenuAdmin">
             <i class='bx bx-store-alt' ></i>
             <h2>Vendedores</h2>
         </a>
-        <a href="/adminListaEcommerce/usuarios" class="cardMenuAdmin">
+        <a href="{{route('adminListaEcommerce','Cliente')}}" class="cardMenuAdmin">
             <i class='bx bx-group'></i>
             <h2>Usuarios</h2>
         </a>
-        <a href="/adminListaEcommerce/reportes" class="cardMenuAdmin">
+        <a href="{{route('adminEcommerce.reporte')}}" class="cardMenuAdmin">
             <i class='bx bxs-report' ></i>
             <h2>Reportes</h2>
         </a>
-        <a href="/adminListaEcommerce/productos" class="cardMenuAdmin">
+        <a href="{{route('adminEcommerce.productos.vendedor')}}" class="cardMenuAdmin">
             <i class='bx bx-package' ></i>
             <h2>Productos</h2>
         </a>
-        <a href="/adminListaEcommerce/comentarios" class="cardMenuAdmin">
+        <a href="" class="cardMenuAdmin">
             <i class='bx bx-message-dots' ></i>
             <h2>Comentarios</h2>
         </a>

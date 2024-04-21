@@ -5,26 +5,49 @@
 
 
 .lista-pedidos{
-    width: 1450px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #474747;
-    
+}
 
+.quitar{
+    text-decoration: none;
+    color: var(--fuenteElements);
 }
 
 .pedido{
-    display: flex;
-    justify-content: space-between;
-    background-color: #5e5e5e;
+    display: grid;
+    grid-template-columns: repeat(2,50%);
     align-items: center;
-    margin: 5px 10px;
-    padding: 10px 10px;
-    border-radius: 7px;
-    color: #FFFFFF;
-}
-.pedido a{
-    text-decoration: none;
-    color: #FFFFFF;
+    background-color: var(--colorElements);
+    margin: 20px 20px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
 }
 
+.pedido:hover{
+    background-color: var(--hoverElements);
+}
+
+
+.img-pedidos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.img-pedidos img{
+    width: 100px;
+    height: 100px;
+}
+
+
+
+
+.info-pedido{
+    display: flex;
+    flex-direction: column;
+}

@@ -5,7 +5,7 @@ dropdowns.forEach(dropdown => {
     const caret = dropdown.querySelector('.caret')
     const menu = dropdown.querySelector('.menu')
     const options = dropdown.querySelector('.menu li')
-    const selected = dropdown.querySelector('.selected')
+    const selected = dropdown.querySelector('.clikeao')
 
     select.addEventListener('click', () => {
         select.classList.toggle('select-clicked')
