@@ -136,27 +136,33 @@
                     --}}
             </div>
             <div class="comentariosAdd">
-                <h3>Califica esté producto</h3>
-                <div id="starsContainer" class="scoreAdd">
-                    <span class="start"><i id="star1" class='star bx bx-star' ></i></span>
-                    <span class="start"><i id="star2" class='star bx bx-star' ></i></span>
-                    <span class="start"><i id="star3" class='star bx bx-star' ></i></span>
-                    <span class="start"><i id="star4" class='star bx bx-star' ></i></span>
-                    <span class="start"><i id="star5" class='star bx bx-star' ></i></span>
-                </div>
-                <textarea class="writtingComentario" name="comentarioAdd" id="cAdd" cols="" rows="" placeholder="Escribe un comentario"></textarea>
-                <div class="btnEnviar">
-                    <button id="btnComentario" onclick="addComentarioUser()" class="btnText btnConfirm" type="button">Enviar comentario</button>
-                </div>
-                <form action="addComentarioUser" method="post">
-                    @csrf
-                    <input id="prodcutoId" name="producto" type="hidden" value="{{$productoD['producto_id']}}">
-                    {{--<input id="userId" name="user" type="hidden" value="{{$productoD['poducto_id']}}">--}}
-                    <input id="comentarioText" name="comentarioText" type="hidden">
-                    <input id="scoreAdd" name="scoreAdd" type="hidden" value="0">
-                    <input type="hidden" name="_token" value='@csrf' >
-                    <button class="btnHidden" type="submit"></button>
-                </form>
+                @guest
+                    <h3>Iniciar sesión para añadir un comentario</h3>
+                @else
+                    <h3>Califica esté producto</h3>
+                    <div id="starsContainer" class="scoreAdd">
+                        <span class="start"><i id="star1" class='star bx bx-star' ></i></span>
+                        <span class="start"><i id="star2" class='star bx bx-star' ></i></span>
+                        <span class="start"><i id="star3" class='star bx bx-star' ></i></span>
+                        <span class="start"><i id="star4" class='star bx bx-star' ></i></span>
+                        <span class="start"><i id="star5" class='star bx bx-star' ></i></span>
+                    </div>
+                    <textarea class="writtingComentario" name="comentarioAdd" id="cAdd" cols="" rows="" placeholder="Escribe un comentario"></textarea>
+                    <div class="btnEnviar">
+                        <button id="btnComentario" onclick="addComentarioUser()" class="btnText btnConfirm" type="button">Enviar comentario</button>
+                    </div>
+                    <form action="addComentarioUser" method="post">
+                        @csrf
+                        <input id="prodcutoId" name="producto" type="hidden" value="{{$productoD['producto_id']}}">
+                        {{--<input id="userId" name="user" type="hidden" value="{{$productoD['poducto_id']}}">--}}
+                        <input id="comentarioText" name="comentarioText" type="hidden">
+                        <input id="scoreAdd" name="scoreAdd" type="hidden" value="0">
+                        <input id="idUser" name="idUser" type="hidden" value="{{$user['id']}}">
+                        <input type="hidden" name="_token" value='@csrf' >
+                        <button class="btnHidden" type="submit"></button>
+                    </form>
+                @endguest
+                
             </div>
         </section>
 

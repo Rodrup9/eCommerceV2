@@ -7,6 +7,11 @@
 @section('main')
     <main class="mainShoppingCart">
         {{--@if ($user != null and $cart != null)--}}
+        @guest
+            <div class="noCart">
+                <h2>Inicia sesión para añadir productos a tú carrito de compras</h2>
+            </div>
+        @else
             <form method="get" action="{{route('confirmData')}}" class="sectionShoppingCart">
                 @csrf  
                 <div class="headerMain">
@@ -22,6 +27,7 @@
                 </div>
                 {{-- <a " class="buttonRegresar">{{$urlPage}}</a> --}}
             </form>
+        @endguest
         {{--
         @elseif ($user != null)
             <div class="sinProductos sin">

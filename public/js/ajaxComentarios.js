@@ -10,6 +10,7 @@ function actualizarDatos() {
             let star = ``;
             if(xhr){
                 let response = JSON.parse(xhr.responseText);
+                console.log(response);
                 response.forEach(element => {
                     if(element.calificacion === 0){
                         star = `<i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i>`
@@ -37,7 +38,7 @@ function actualizarDatos() {
                     array += `
                         <div class="cardComentarioComponent">
                             <div class="UserAndScore">
-                                <p class="userNameUser">${element.user_id}</p>
+                                <p class="userNameUser">${element.user}</p>
                                 <div class="scoreIcons">${star}</div>
                             </div>
                             <p class="comentarioText">${element.descripcion}</p>
@@ -74,8 +75,9 @@ actualizarDatos()
 
 function addComentarioUser() {
     let prodcutoId = document.getElementById('prodcutoId').value;
-    let comentarioText = document.getElementById('cAdd').value;
-    let scoreAdd = document.getElementById('scoreAdd').value;
+    let comentarioText = document.getElementById('cAdd');
+    let scoreAdd = document.getElementById('scoreAdd');
+    let idUser = document.getElementById('idUser').value;
     //let userId = document.getElementById('userId').value;
 
     var xhr = new XMLHttpRequest();
@@ -86,7 +88,6 @@ function addComentarioUser() {
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
             comentarioText.value = '';
-            scoreAdd.value = 0;
             var response = JSON.parse(xhr.responseText);
             console.log('Respuesta del servidor:', response.mensaje);
         } else {
@@ -100,8 +101,9 @@ function addComentarioUser() {
 
     const datos = JSON.stringify({ 
         producto_id: prodcutoId, 
-        descripcion: comentarioText,
-        calificacion: scoreAdd,
+        descripcion: comentarioText.value,
+        calificacion: scoreAdd.value,
+        user_id: idUser
         //user_id: userId
     });
     xhr.send(datos);

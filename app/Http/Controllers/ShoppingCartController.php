@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ShoppingCartController extends Controller
 {
@@ -14,8 +15,19 @@ class ShoppingCartController extends Controller
     }
 
     function confirmData(){
+        $user = Auth::user();
+/*
+        return view('sesion.perfil', [
+            'nameView' => 'Perfil',
+            'nombre' => $user->nombre,
+            'apellido_pa' => $user->apellido_pa,
+            'apellido_ma' => $user->apellido_ma,
+            'correo' => $user->email,
+            'username' => $user->nombre_de_usuario
+        ]);*/
         return view('moduloShoppingCart.confirmDataCart', [
             'nameView' => 'shoppingCart',
+            'user' => $user
         ]);
     }
 
