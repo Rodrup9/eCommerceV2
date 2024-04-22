@@ -99,6 +99,7 @@ Route::controller(DetallesController::class)->group(function(){
 Route::controller(PerfilController::class)->group(function(){
     Route::get('/perfil', 'perfil')->name('perfil')->middleware('auth');
     Route::get('/actualizarPerfil','actualizar')->name('actPerfil')->middleware('auth');
+    Route::post('/actualizarIgm','agregarImg')->name('actImg')->middleware('auth');
     Route::put('/actConfirmacion','confirmacion')->name('actConfirmacion')->middleware('auth');
     Route::get('/actualizarContraseña', 'actualizarContraseña')->name('actContraseña')->middleware('auth');
     Route::put('/confirmContraseña', 'confirmacionContraseña')->name('confirmContraseña')->middleware('auth');

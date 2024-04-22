@@ -8,6 +8,9 @@ use App\Models\Image;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Return_;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class DetallesController extends Controller
 {
@@ -25,6 +28,13 @@ class DetallesController extends Controller
         for($i = 0; $i < count($consultaImgs); $i++){
             $producto['urls'][] = $consultaImgs[$i]['url'];
         }
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
         return view('modulodetalleproducto.producto', [
             'nameView' => 'Producto',
             'productoD' => $producto,
@@ -37,7 +47,7 @@ class DetallesController extends Controller
                 'Sugerencias' => [
                     'url' => 'recientes'
                 ],
-            ],
+            ], 'imag' => $img
         ]);
 
     }

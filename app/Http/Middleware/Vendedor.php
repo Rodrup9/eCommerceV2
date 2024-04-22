@@ -18,12 +18,17 @@ class Vendedor
     public function handle(Request $request, Closure $next): Response
     {
         $role = 2;
-        $user = Auth::user()->id;
-        $consulta = User::whereHas('type_users', function ($query) use ($role, $user) { 
-            $query->where('type_user_id',$role)->where('user_id',$user); })->get();
+        if (Auth::user() != null) {
+            $user = Auth::user()->id;
+            $consulta = User::whereHas('type_users', function ($query) use ($role, $user) {
+                $query->where('type_user_id', $role)->where('user_id', $user);
+            })->get();
 
-        if($consulta and $consulta != null and !empty($consulta) and count($consulta) > 0) {
-            return $next($request);
+            if ($consulta and $consulta != null and !empty($consulta) and count($consulta) > 0) {
+                return $next($request);
+            } else {
+                return redirect()->route('home');
+            }
         } else {
             return redirect()->route('home');
         }

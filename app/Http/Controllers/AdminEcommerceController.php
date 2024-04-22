@@ -14,14 +14,28 @@ use Illuminate\Support\Facades\Hash;
 class AdminEcommerceController extends Controller
 {
     function index(){
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
         return view('moduloAdminEcommerce.homeAdminEcommerce', 
         [
-            'nameView' => 'AdminEcomerce'
+            'nameView' => 'AdminEcomerce',
+            'imag' => $img
         ]);
     }
 
     public function lista($lista){
-        
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
         $users = User::whereHas('type_users', function($query) use($lista){
             $query->where('nombre',$lista);
         })->get();
@@ -30,18 +44,24 @@ class AdminEcommerceController extends Controller
             'nameView' => 'Lista',
             'typeList' => $lista,
             'usuarios' => $users,
+            'imag' => $img
         ]);
     }
 
     public function detalles($data){
-
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
         $user = User::find($data)->first();
-
-
         return view('moduloAdminEcommerce.detallesListAdminEcommerce',
         [
             'nameView' => 'Detalles',
-            'nameDetalle' => $user
+            'nameDetalle' => $user,
+            'imag' => $img
         ]);
     }
 

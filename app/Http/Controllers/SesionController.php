@@ -22,12 +22,21 @@ use Illuminate\Support\Str;
 
 class SesionController extends Controller
 {
-    public function index() {
-        return view('sesion.login', ['nameView' => 'Login']);
+    public function index()
+    {
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
+        return view('sesion.login', ['nameView' => 'Login', 'imag' => $img]);
     }
 
 
-    public function login(Login $request) {
+    public function login(Login $request)
+    {
         $credentials = $request->only('email', 'password');
         $remenber = $request->filled('remenber');
 
@@ -44,11 +53,20 @@ class SesionController extends Controller
         // return redirect()->route('login');
     }
 
-    public function register() {
-        return view('sesion.register', ['nameView' => 'Register']);
+    public function register()
+    {
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
+        return view('sesion.register', ['nameView' => 'Register', 'imag' => $img]);
     }
 
-    public function check(StoreRegister $request) {
+    public function check(StoreRegister $request)
+    {
         $user = new User();
         $user->nombre = $request->name;
         $user->apellido_pa = $request->apellido_pa;
@@ -59,13 +77,14 @@ class SesionController extends Controller
         $user->save();
 
         $tipoUsuario = Type_user::where('nombre', '=', 'Cliente')->first();
-        
+
         $user->type_users()->attach($tipoUsuario->id);
-        
+
         return redirect()->route('login');
     }
 
-    public function logOut(Request $request) {
+    public function logOut(Request $request)
+    {
         Auth::logout();
 
         $request->session()->invalidate();
@@ -74,13 +93,22 @@ class SesionController extends Controller
         return redirect()->route('home');
     }
 
-    public function recuperacion() {
-        return view('sesion.recuperar', ['nameView' => 'Recuperación de cuenta']);
+    public function recuperacion()
+    {
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
+        return view('sesion.recuperar', ['nameView' => 'Recuperación de cuenta', 'imag' => $img]);
     }
 
-    public function code(StoreCode $request) {
+    public function code(StoreCode $request)
+    {
 
-        $passwordReset = Password_reset_token::where('email','=',$request->email)->first();
+        $passwordReset = Password_reset_token::where('email', '=', $request->email)->first();
 
         if ($passwordReset) {
             if ($passwordReset->used || $passwordReset->created_at->addHours(1)->isPast()) {
@@ -92,7 +120,7 @@ class SesionController extends Controller
 
         $correo = $request->email;
         $token = Str::random(6);
-        
+
         DB::table('password_reset_tokens')->insert([
             'email' => $correo,
             'token' => $token,
@@ -105,14 +133,31 @@ class SesionController extends Controller
         return redirect()->route('verificacion');
     }
 
-    public function verificacion() {
-        return view('sesion.verificacion', ['nameView' => 'Verificación de código']);
+    public function verificacion()
+    {
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
+        return view('sesion.verificacion', ['nameView' => 'Verificación de código', 'imag' => $img]);
     }
 
-    public function reestablecer(ComprobarCodigo $request) {
+    public function reestablecer(ComprobarCodigo $request)
+    {
 
-        $email = Password_reset_token::where('token',$request->code)->first();
-        $passwordReset = Password_reset_token::where('email',$email->email)->first();
+        $email = Password_reset_token::where('token', $request->code)->first();
+        $passwordReset = Password_reset_token::where('email', $email->email)->first();
+
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
 
         if ($passwordReset && ($passwordReset->used || $passwordReset->created_at->addHours(1)->isPast())) {
             return redirect()->route('verificacion')->withErrors(['error' => 'El código de recuperación ya fue usado o ha excedido el tiempo de espera.']);
@@ -120,17 +165,17 @@ class SesionController extends Controller
 
         return view('sesion.reestablecer', [
             'nameView' => 'Reestablecer contraseña',
-            'correo' => $passwordReset->email
+            'correo' => $passwordReset->email, 'imag' => $img
         ]);
-    
     }
 
-    public function reestableciendo(StorePassword $storePassword) {
-        $user = User::where('email','=',$storePassword->email)->first();
+    public function reestableciendo(StorePassword $storePassword)
+    {
+        $user = User::where('email', '=', $storePassword->email)->first();
         $user->password = Hash::make($storePassword->password);
         $user->update();
 
-        $token = Password_reset_token::where('email','=',$storePassword->email)->first();
+        $token = Password_reset_token::where('email', '=', $storePassword->email)->first();
         $token->delete();
 
         return redirect()->route('login');

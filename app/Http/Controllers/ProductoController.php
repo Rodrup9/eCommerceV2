@@ -13,12 +13,22 @@ use App\Http\Requests\StoreProductoRequest;
 use Cloudinary\Configuration\Configuration;
 use Cloudinary\Api\Upload\UploadApi;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ProductoController extends Controller{
 
     public function NuevoProducto(): View{
+
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
+
         $categorias = Categoria::with("subcategorias")->get();
-        return view("moduloVendedores.agregarProduc",["nameView"=> "agregarProducto","categorias" =>$categorias]);
+        return view("moduloVendedores.agregarProduc",["nameView"=> "agregarProducto","categorias" =>$categorias, 'imag' => $img]);
     }
 
     public function AgregarProducto(StoreProductoRequest $ProductoRequest){
@@ -71,9 +81,17 @@ class ProductoController extends Controller{
             }
         }
 
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
+
         //operador terneario 
         // $valor = ($ProductoRequest->hasFile("imagen")) ? "tiene imagen" : "no tiene imagen";
-        return view("moduloVendedores.homeVendedor",["nameView"=> "Home"]);
+        return view("moduloVendedores.homeVendedor",["nameView"=> "Home", 'imag' => $img]);
     }
 
     public function EliminarProductos($producto){
@@ -92,7 +110,17 @@ class ProductoController extends Controller{
         }
         $eliminarProducto->images()->delete();
         $eliminarProducto->delete();
-        return view("moduloVendedores.homeVendedor",["nameView"=> "Home"]);
+
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }$datos = User::findOr($user->id);
+        $img = $datos->images;
+
+        return view("moduloVendedores.homeVendedor",["nameView"=> "Home", 'imag' => $img]);
     }
 
     public function ActualizarProducto(StoreProductoRequest $ProductoRequest,$producto){
@@ -149,7 +177,15 @@ class ProductoController extends Controller{
             }
         }
 
-        return view("moduloVendedores.homeVendedor",["nameView"=> "Home"]);
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
+
+        return view("moduloVendedores.homeVendedor",["nameView"=> "Home", 'imag' => $img]);
     }
 
 
