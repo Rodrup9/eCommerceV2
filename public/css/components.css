@@ -22,6 +22,8 @@
     flex-direction: var(--cardDirectionFlex);
     text-decoration: none;
     /*transition: all 200ms ease;*/
+    margin: 20px 0px;
+    border-radius: 10px;
 }
 
 .imgProducto{   

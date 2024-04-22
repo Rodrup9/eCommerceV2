@@ -9,5 +9,9 @@
 @endsection
 
 @section('main')
+
+    @foreach ($productos as $producto)
+        <p>{{$producto}}</p>
+    @endforeach
     
 @endsection

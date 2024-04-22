@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+
 class AdminEcommerceController extends Controller
 {
     function index(){
@@ -65,9 +66,41 @@ class AdminEcommerceController extends Controller
         ]);
     }
 
+
+
     public function eliminarUser($user){
-        $userElim = User::find($user);
-        $userElim->delete();
+
+        $deleteUser = User::find($user);
+        $deleteUser->delete();
+
         return redirect()->route('homeAdminEcommerce');
+
     }
+
+
+
+    public function producVendedor(){
+       // $vendedoresProduc = User::with([
+        //         'type_users' => function($query){
+        //             $query->where('nombre','Cliente');
+        //         },
+        //     'productos',
+        $vendedoresProduc = User::whereHas('type_users', function ($query) {
+            $query->where('nombre', 'Cliente');
+            })->with('productos',function($query2){
+                $query2->with('images');
+            })->get();
+            
+        return view('moduloAdminEcommerce.productosVendedor',[
+            'productos'=>$vendedoresProduc,
+            'nameView' => 'Productos de vendedores'
+        ]);
+    }
+
+    // public function reporteProduct(){
+    //     return view('moduloVendedores.reporte',[
+    //         'nameView' => 'reporte'
+    //     ]);
+    // }
+
 }

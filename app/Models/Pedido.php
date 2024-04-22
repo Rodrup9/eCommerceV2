@@ -30,5 +30,9 @@ class Pedido extends Model
     public function tipo_de_entrega(){
         return $this->belongsTo('App\Models\Tipo_de_entrega','tipo_de_entrega_id');
     }
+
+    public function detalle_de_pedido(){
+        return $this->belongsTo(Detalle_de_pedido::class,'pedido_id');
+    }
     
 }

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-
 class ShoppingCartController extends Controller
 {
     function index(){
@@ -33,6 +32,7 @@ class ShoppingCartController extends Controller
         }
         return view('moduloShoppingCart.confirmDataCart', [
             'nameView' => 'shoppingCart',
+            'user' => $user,
             'imag' => $img
         ]);
     }

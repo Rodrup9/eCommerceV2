@@ -14,7 +14,7 @@
             <i class='bx bx-group'></i>
             <h2>Usuarios</h2>
         </a>
-        <a href="" class="cardMenuAdmin">
+        <a href="{{route('adminEcommerce.reporte')}}" class="cardMenuAdmin">
             <i class='bx bxs-report' ></i>
             <h2>Reportes</h2>
         </a>
