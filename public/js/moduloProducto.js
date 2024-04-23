@@ -173,3 +173,39 @@ const cargarImagen=(event)=>{
 
 img.addEventListener("change",cargarImagen)
 
+function addStarComun(){
+    const vStarCal = document.getElementById('vStarCal');
+    let constBoxStar = document.getElementById('constBoxStar');
+    let element = parseFloat(vStarCal.value);;
+    let star = '';
+    if(element === 0){
+        star = `<i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i>`
+    }else if(element <= 0.5){
+        star = `<i class='bx bxs-star-half' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i>`
+    }else if (element <= 1){
+        star = `<i class='bx bxs-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i>`
+    }else if (element <= 1.5){
+        star = `<i class='bx bxs-star' ></i> <i class='bx bxs-star-half' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i>`
+    }else if (element <= 2){
+        star = `<i class='bx bxs-star' ></i> <i class='bx bxs-star' ></i> </i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i>`
+    }else if (element <= 2.5){
+        star = `<i class='bx bxs-star' ></i> <i class='bx bxs-star' ></i> </i> <i class='bx bxs-star-half' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i>`
+    }else if (element <= 3){
+        star = `<i class='bx bxs-star' ></i> <i class='bx bxs-star' ></i> </i> <i class='bx bxs-star' ></i> <i class='bx bx-star' ></i> <i class='bx bx-star' ></i>`
+    }else if (element <= 3.5){
+        star = `<i class='bx bxs-star' ></i> <i class='bx bxs-star' ></i> </i> <i class='bx bxs-star' ></i> <i class='bx bxs-star-half' ></i> <i class='bx bx-star' ></i>`
+    }else if (element <= 4){
+        star = `<i class='bx bxs-star' ></i> <i class='bx bxs-star' ></i> </i> <i class='bx bxs-star' ></i> <i class='bx bxs-star' ></i> <i class='bx bx-star' ></i>`
+    }else if (element <= 4.5){
+        star = `<i class='bx bxs-star' ></i> <i class='bx bxs-star' ></i> </i> <i class='bx bxs-star' ></i> <i class='bx bxs-star' ></i> <i class='bx bxs-star-half' ></i>`
+    }else if (element <= 5){
+        star = `<i class='bx bxs-star' ></i> <i class='bx bxs-star' ></i> </i> <i class='bx bxs-star' ></i> <i class='bx bxs-star' ></i> <i class='bx bxs-star' ></i>`
+    }else{
+        star = 'No hay nada';
+    }
+    constBoxStar.innerHTML = "Hola";
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    addStarComun();
+});
