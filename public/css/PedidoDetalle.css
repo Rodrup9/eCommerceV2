@@ -1,0 +1,52 @@
+.detalles-pedido{
+    width: 100%;
+    margin: 20px 0px;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.detalles-generales{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+}
+
+
+
+
+.datos-user{
+    background-color: var(--colorElements);
+    margin: 15px 15px;
+
+}
+
+.datos-pedido{
+    background-color: var(--colorElements);
+    margin: 15px 15px;
+
+}
+
+.datos-productos{
+    display: grid;
+    grid-template-columns: 300px 500px;
+    width: 800px;
+    height: 250px;
+    background-color: var(--colorElements);
+    border-radius: 15px;
+}
+
+.img-prd img{
+    width: 300px;
+    height: 250px;
+    border-radius: 15px 0px 0px 15px;
+
+}
+
+.txt-prd{
+    width: 500px;
+    height: 250px;
+    padding: 15px;
+
+}
+
