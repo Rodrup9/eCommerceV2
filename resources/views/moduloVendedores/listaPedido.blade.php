@@ -11,7 +11,7 @@
 <main class="lista-pedidos">
     <h1>Lista de pedidos realizados:</h1>
     @forelse ($pedidos as $pedido)
-        <a href="{{route("vendedor.pedidos.detalles")}}" class="pedido quitar">
+        <a href="{{route("vendedor.pedidos.detalles",$pedido->pedido_id)}}" class="pedido quitar">
             <div class="img-pedidos">
                 <p>Fecha del pedido: {{$pedido->fecha_de_pedido}}</p>
                 @foreach ($pedido->detalle_de_pedido->productos as $producto)
