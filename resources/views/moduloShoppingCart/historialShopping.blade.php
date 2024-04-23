@@ -16,114 +16,14 @@
             <div class="ctitle tFecha"> <h3>Fecha de compra</h3> </div>
             <div class="ctitle tStatus"> <h3>Estatus</h3> </div>
         </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-timer'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-check-shield'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-timer'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-shield-x'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-check-shield'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-timer'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-check-shield'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-shield-x'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-check-shield'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-shield-x'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-check-shield'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-shield-x'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-shield-x'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-check-shield'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-check-shield'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-shield-x'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-shield-x'></i> </div>
-        </div>
-        <div class="liProduct"> 
-            <div class="ctitle lProducto"> <p>Producto</p> </div>
-            <div class="ctitle lDescripcion"> <p>Descripcion Breve</p> </div>
-            <div class="ctitle lFecha"> <p>Fecha</p> </div>
-            <div class="ctitle lStatus"> <i class='bx bx-shield-x'></i> </div>
-        </div>
+        @foreach ($pedidos as $item)
+            <div class="liProduct"> 
+                <div class="ctitle lProducto"> <p>{{$item->pedido_id}}</p> </div>
+                <div class="ctitle lDescripcion"> <p>{{$item->descripcion}}</p> </div>
+                <div class="ctitle lFecha"> <p>{{$item->fecha_de_pedido}}</p> </div>
+                <div class="ctitle lStatus"> <i class='bx bx-timer'></i> </div>
+            </div>
+        @endforeach
     </main>
     {{-- <div class="boxFinished">
         <h2 hidden class="mensajeFinished">{{$messegeStatus}}</h2>

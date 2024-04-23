@@ -50,25 +50,25 @@
                     <a href="{{ route('login') }}" class="opcionPrincipal">Iniciar sesión</a>
                     <a href="{{ route('register') }}" class="opcionPrincipal">Registrarse</a>
                 @else
-                    <form action="{{ route('logOut') }}" method="POST">
-                        @csrf
-                        <div class="dropdown">
-                            <div class="select">
-                                @if ($imag != null)
-                                    <img src="{{ $imag->url }}" id="dropdownIcon" class="clikeao" alt="Dropdown Icon">
-                                    <div class="caret"></div>
-                                @else
-                                    <img src="/img/user.png" id="dropdownIcon" class="clikeao" alt="Dropdown Icon">
-                                    <div class="caret"></div>
-                                @endif
-                            </div>
-                            <ul class="menu">
-                                <li><a href="{{ route('perfil') }}" class="opcionPrincipal">Ver perfil</a></li>
-                                <li><a href="#" onclick="this.closest('form').submit()" class="opcionPrincipal">Cerrar
-                                        sesión</a></li>
-                            </ul>
+                <form action="{{ route('logOut') }}" method="POST">
+                    @csrf
+                    <div class="dropdown">
+                        <div class="select">
+                            @if ($imag != null)
+                                <img src="{{ $imag->url }}" id="dropdownIcon" class="clikeao" alt="Dropdown Icon">
+                                <div class="caret"></div>
+                            @else
+                                <img src="/img/user.png" id="dropdownIcon" class="clikeao" alt="Dropdown Icon">
+                                <div class="caret"></div>
+                            @endif
                         </div>
-                    </form>
+                        <ul class="menu">
+                            <li><a href="{{ route('perfil') }}" class="opcionPrincipal">Ver perfil</a></li>
+                            <li><a href="{{route('historialShopping')}}">Pedidos</a></li>
+                            <li><a href="#" onclick="this.closest('form').submit()" class="opcionPrincipal">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                </form>
                     {{-- <a href="{{route('logOut')}}" class="opcionPrincipal">Cerrar sesión</a> --}}
                 @endguest
 

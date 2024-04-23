@@ -6,8 +6,8 @@
 
 @section('main')
     <main class="mainShoppingCart">
-        <form method="get" action="{{route('historialShopping')}}" class="sectionShoppingCart">
-            @csrf
+        <div  class="sectionShoppingCart">
+            
             <div class="headerMain">
                 <h1>Confirmación de datos</h1>
             </div>
@@ -35,16 +35,23 @@
                         <label for="">Clave</label>
                         <input type="number" placeholder="CVV" min="0" lang="3">
                     </div>
+                    <input type="hidden">
                     
                 </div>
             </section>
             <div class="buttonCart">
                 <a href="{{route('homeShoppingCart')}}" class="btnText btnCancel">Regresar</a>
-                <button type="submit" class="btnText btnConfirm">Confirmar compra</button>
+                <button type="button" onclick="payPay()" class="btnText btnConfirm">Confirmar compra</button>
             </div>
-        </form>
+        </div>
             
-        <div></div>
+        <form method="post" action="{{route('pay')}}">
+            @csrf
+            @foreach ($show as $item)
+                <input class="inValue" name="{{$item->id}}" type="hidden" value="{{$item->cantidad}}">
+                <button id="paying" type="submit" class="btnHidden">Confirmar compra</button>
+            @endforeach
+        </form>
     </main>
 
 @endsection

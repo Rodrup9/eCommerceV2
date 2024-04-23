@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria;
 use App\Models\Image;
 use App\Models\Producto;
 use Illuminate\Http\Request;
@@ -45,7 +46,7 @@ class HomeController extends Controller
             ->take(15)
             ->get();
         */
-
+        $categorias = Categoria::with("subcategorias")->get();
         $user = Auth::user();
         if ($user != null) {
             $datos = User::findOr($user->id);
@@ -53,12 +54,11 @@ class HomeController extends Controller
         } else {
             $img = null;
         }
-
-
         return view('moduloInicio.home', [
             'nameView' => 'Home',
             'products' => $consulta,
             'ofertasEspeciales' => $ofertasEspeciales,
+            'categorias' => $categorias,
             'sectionS' => [
                 'Busquedas recientes' => [
                     'url' => 'null/recientes'

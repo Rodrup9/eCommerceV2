@@ -4,24 +4,22 @@
             @if ($nameView == 'Home' || $nameView == 'Catalogo')
                 <li>
                     <h2>Inicio</h2>
-                    <ul>
+                    {{--<ul>
                         <li><a href="#">Ofertas del dias</a></li>
                         <li><a href="#">Lo más vendido</a></li>
                         <li><a href="#">Descuentos</a></li>
-                    </ul>
+                    </ul>--}}
                 </li>
                 <li>
                     <h2>Categorias</h2>
-                    <ul>
-                        <li><a href="#">Tecnologia</a></li>
-                        <li><a href="#">Hogar</a></li>
-                        <li><a href="#">Accesorios PC</a></li>
-                        <li><a href="#">gamming</a></li>
-                        <li><a href="#">Electrodomesticos</a></li>
-                        <li><a href="#">Sala de estar</a></li>
-                        <li><a href="#">Arte</a></li>
-                        <li><a href="#">Ropa</a></li>
-                    </ul>
+                    @foreach ($categorias as $categoria)  
+                        <h3>{{$categoria->nombre}}</h3>
+                            <ul>
+                                @foreach ($categoria->subcategorias as $subcategoria)
+                                    <li><a href="/catalogo/searchCategoria/{{$subcategoria->subcategoria_id}}">{{$subcategoria->nombreSubCategoria}}</a></li>
+                                @endforeach                        
+                            </ul> 
+                    @endforeach
                 </li>
                 <li>
                     <h2>Perfil</h2>

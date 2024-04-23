@@ -9,6 +9,16 @@ class Pedido extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',  // Agrega 'user_id' al array fillable
+        'ubicacion_id',
+        'tipo_de_entrega_id',
+        'estado_pedido_id',
+        'descripcion',
+        'fecha_de_pedido',
+        'fecha_de_entrega',
+    ];
+
     protected $primaryKey = 'pedido_id';
 
     //many-to-one

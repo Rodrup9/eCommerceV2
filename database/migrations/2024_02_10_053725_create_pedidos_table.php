@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('ubicacion_id')->nullable();
             $table->unsignedBigInteger('tipo_de_entrega_id')->nullable();
             $table->unsignedBigInteger('estado_pedido_id')->nullable();
+            $table->string('descripcion');
             $table->dateTime('fecha_de_pedido');
             $table->dateTime('fecha_de_entrega');
             $table->timestamps();
