@@ -84,6 +84,7 @@ class CatalogoController extends Controller
         return view('moduloInicio.catalogo', [
             'nameView' => 'Catalogo',
             'consulta' => $consulta,
+            'categorias' => $categorias,
             'imag' => $img
         ]);
     }
