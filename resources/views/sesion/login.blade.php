@@ -26,15 +26,21 @@
                         <br>
                     @endforeach
                 </fieldset>
-                <fieldset>
+                <fieldset class="remenber">
                     <input type="checkbox" name="remenber">
                     <label for="">Recuerdame</label>
                 </fieldset>
                 <button class="submit" type="submit">Entrar</button>
                 <p><a href="{{route('recuperar')}}">¿Problemas al inciar sesión?</a></p>
             </form>
-            <p class="changePage"><a href="{{route('register')}}">Registrarse</a></p>
         </div>
         
+        <div class="container-right">
+            <h1 class="title-right">Ingresar con</h1>
+            <div class="elements">
+                <div class="round"><a href="/google-auth/redirect"><img src="img/google.png" alt="Logo de google"></a></div>
+            </div>
+        </div>
+
     </div>
 @endsection

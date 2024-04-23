@@ -1,6 +1,6 @@
 .container-left {
     background-color: var(--formularioBox);
-    width: 40%;
+    width: 70%;
     min-height: 100vh;
     max-height: 100%;
     margin: 0;
@@ -12,10 +12,17 @@
     align-items: center;
 }
 
-.container-center {
+/* .container-center {
     margin: auto 40px;
     width: 80%;
     max-width: 80%;
+} */
+
+.container-center {
+    margin: auto;
+    width: 50%;
+    max-width: 50%;
+    padding: 0 40px;
 }
 
 h1 {
@@ -23,6 +30,21 @@ h1 {
     text-align: center;
     font-size: 35px;
     color: var(--fuenteHeader);
+}
+
+.remenber {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.remenber input {
+    width: 40px;
+}
+
+.remenber label {
+    margin-left: 15px;
 }
 
 .submit {
@@ -35,6 +57,41 @@ h1 {
     border: 0;
     color: var(--fuenteHeader);
 }
+
+.container-right {
+    width: 50%;
+    margin: auto;
+}
+
+.title-right {
+    margin: -100px 0 0 0;
+}
+
+.elements {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.round {
+    border-radius: 100%;
+    width: 90px;
+    height: 90px;
+    background-color: var(--fuenteHeader);
+}
+
+.round a{
+    text-decoration: none;
+}
+
+.round img{
+    border-radius: 100%;
+    width: 100%;
+}
+
 
 .changePage {
     position: absolute;

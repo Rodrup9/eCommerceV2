@@ -1,6 +1,6 @@
 .container-left {
     background-color: var(--formularioBox);
-    width: 70%;
+    width: 40%;
     min-height: 100vh;
     max-height: 100%;
     margin: 0;
@@ -12,11 +12,17 @@
     align-items: center;
 }
 
-.container-center {
+/* .container-center {
     margin: auto;
     width: 50%;
     max-width: 50%;
     padding: 0 40px;
+} */
+
+.container-center {
+    margin: auto 40px;
+    width: 80%;
+    max-width: 80%;
 }
 
 h1 {
@@ -42,7 +48,7 @@ fieldset {
     color: var(--fuenteHeader);
 }
 
-.container-right {
+/* .container-right {
 	width: 50%;
     margin: auto;
 }
@@ -65,9 +71,10 @@ fieldset {
     width: 90px;
     height: 90px;
     background-color: var(--fuenteHeader);
-}
+} */
 
 .changePage {
-    margin-left: 5vh;
-    margin-bottom: 5vh;
+    position: absolute;
+    left: 5vh;
+    bottom: 5vh;
 }

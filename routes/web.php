@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\AdminEcommerceController;
 use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\DetallesController;
+use App\Http\Controllers\GoogleControlller;
 use App\Http\Controllers\VendedorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\SesionController;
 use App\Http\Controllers\ShoppingCartController;
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +33,36 @@ use App\Http\Controllers\ShoppingCartController;
 Route::get('/', function () {
     return view('welcome');
 });*/
+
+
+
+// Route::get('/google-auth/redirect', function () {
+//     return Socialite::driver('google')->redirect();
+// });
+ 
+// Route::get('/google-auth/callback', function () {
+//     $user = Socialite::driver('google')->stateless()->user();
+//     dd($user);
+
+//     $user = User::updateOrCreate([
+//         'google_id' => $user->id,
+//     ], [
+//         'name' => $user->name,
+//         'email' => $user->email,
+//         'github_token' => $user->token,
+//         'github_refresh_token' => $user->refreshToken,
+//     ]);
+ 
+//     Auth::login($user);
+ 
+//     return redirect('/dashboard');
+//     // $user->token
+// });
+
+Route::controller(GoogleControlller::class)->group(function() {
+    Route::get('/google-auth/redirect','redirect')->middleware('guest');;
+    Route::get('/google-auth/callback','callback')->middleware('guest');;
+});
 
 //Rutas para el manejo de las sesiones
 Route::controller(SesionController::class)->group(function() {

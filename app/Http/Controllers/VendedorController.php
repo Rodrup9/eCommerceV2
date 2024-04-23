@@ -153,6 +153,13 @@ class VendedorController extends Controller
     {
 
         $idUser = Auth::user();
+        $user = Auth::user();
+        if ($user != null) {
+            $datos = User::findOr($user->id);
+            $img = $datos->images;
+        } else {
+            $img = null;
+        }
 
         $producCommt = Producto::where('user_id', $idUser->id)->withCount('comentarios')->get();
 
@@ -161,7 +168,8 @@ class VendedorController extends Controller
             'moduloVendedores.comentarios',
             [
                 'nameView' => 'comentarios',
-                'totalComn' => $producCommt
+                'totalComn' => $producCommt,
+                'imag' => $img
             ]
         );
     }

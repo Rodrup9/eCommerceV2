@@ -74,15 +74,14 @@
         </div>
         
 
-        <div class="container-right">
+        {{-- <div class="container-right">
             <h1 class="title-right">Ingresar con</h1>
             <div class="elements">
                 <div class="round"></div>
                 <div class="round"></div>
                 <div class="round"></div>
             </div>
-            
-        </div>
+        </div> --}}
 
 
         <p class="changePage"><a href="{{route('login')}}">Iniciar sesión</a></p>
