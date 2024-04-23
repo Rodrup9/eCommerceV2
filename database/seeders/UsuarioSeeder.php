@@ -23,7 +23,16 @@ class UsuarioSeeder extends Seeder
         $user->nombre_de_usuario = 'canelita07';
         $user->password = Hash::make('12345678');
         $user->save();
-        $tipoUsuario = Type_user::where('nombre', '=', 'Cliente')->first();
         $user->type_users()->attach(1);
+
+        $user = new User();
+        $user->nombre = 'CanelitaAdmin';
+        $user->apellido_pa = 'De Vainilla';
+        $user->apellido_ma = 'Lopez';
+        $user->email = 'rayadecanela2@gmail.com';
+        $user->nombre_de_usuario = 'canelita007';
+        $user->password = Hash::make('12345678');
+        $user->save();
+        $user->type_users()->attach(3);
     }
 }

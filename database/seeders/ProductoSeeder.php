@@ -25,8 +25,7 @@ class ProductoSeeder extends Seeder
         Color: Verde vibrante que resalta y complementa cualquier atuendo.
         Diseño: Estilo clásico de gorra de béisbol con una visera curva que proporciona protección solar adicional.
         Material: Hecha de tela resistente y transpirable que permite una ventilación óptima.
-        Ajuste: Cierre ajustable en la parte posterior para adaptarse a diferentes tamaños de cabeza.
-        Versatilidad: Perfecta para uso diario, deportes al aire libre, o simplemente como un accesorio de moda.';
+        Ajuste: Cierre ajustable en la parte posterior para adaptarse a diferentes tamaños de cabeza.';
         $producto->cantidad = 275;
         $producto->direccion = '123 Calle Principal, Ciudad de Ejemplolandia, Estado de Imaginación, País de la Creatividad, 12345';
         $producto->tipo_envio = 'ambos';
@@ -37,9 +36,9 @@ class ProductoSeeder extends Seeder
         $producto->precio_ante = null;
         $producto->fecha_lim_desc = null;
         $producto->save();
-        
+
         $imagen = new Image;
-        $imagen->url = 'https://res.cloudinary.com/dlxpr11ok/image/upload/v1712946152/Productos/gorra3.jpg';        
+        $imagen->url = 'https://res.cloudinary.com/dlxpr11ok/image/upload/v1712946152/Productos/gorra3.jpg';
         $imagen->public_id = 'Productos/gorra3';
         $producto->images()->save($imagen);
     }

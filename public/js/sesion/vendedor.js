@@ -56,10 +56,11 @@ form.addEventListener("submit", (e) => {
                     popup: "containerModal",
                     title: "containerModal",
                 },
+                showConfirmButton: false
             });
             setTimeout(function() {
                 form.submit();
-            }, 3000);
+            }, 1000);
             
         } else {
             Swal.fire({
