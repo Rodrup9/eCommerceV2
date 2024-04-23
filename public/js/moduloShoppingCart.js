@@ -2,16 +2,19 @@ const productsCart = document.getElementById('productsCart');
 
 function showProductsCart(){
     let arrayProducts = localStorage.getItem('cart');
-    if(arrayProducts){
-        arrayProducts = JSON.parse(arrayProducts);
+    const goPay = document.getElementById('goPay');
+    arrayProducts = JSON.parse(arrayProducts);
+    if(arrayProducts[0]){
+        goPay.disabled = false;
         let listProducts = ''
         arrayProducts.forEach(element => {
           listProducts += `
             <div class="productCart">
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" class="inputCheck" name="" id="">
                 <img src="${element.url}" alt="${element.name}">
                 <p>${element.name}</p>
                 <input type="number" class="cantidad" value="${element.count}" name="${element.id}" id="">
+                <input type="hidden" class="id" value="${element.id}" name="${element.id}" id="">
                 <span>${element.price}</span>
                 <i onclick='removeProducto(${element.id})' class='bx bx-trash bxMy'></i>
             </div>
@@ -19,7 +22,8 @@ function showProductsCart(){
         });
         productsCart.innerHTML = listProducts;
     }else{
-        productsCart.innerHTML = 'No hay nada'
+        productsCart.innerHTML = 'No hay nada, añada articulos a su carrito'
+        goPay.disabled = true;
     }
 }
 
@@ -93,4 +97,37 @@ function removeProducto(id) {
     } else {
         console.log('No hay productos en el carrito almacenados en localStorage.');
     }
+}
+
+function pagar(){
+    let productos = document.querySelectorAll('.productCart');
+    let listCheck = [];
+    let data = document.getElementById('data');
+    let goPay = document.getElementById('goPay');
+    productos.forEach((product, index) => {
+        let input = product.querySelector('.inputCheck');
+        if (input.checked) {
+            let cantidad = product.querySelector('.cantidad').value;
+            let id =product.querySelector('.id').value;
+            listCheck.push({
+                'id': id,
+                'cantidad': cantidad
+            });
+        }
+    })
+    //let productosQuery = listCheck.map(item => `cantidad=${item[0]}&id=${item[1]}`).join('&');
+    data.value = JSON.stringify(listCheck);
+    goPay.click();
+}
+
+function payPay(){
+    let paying = document.getElementById('paying');
+    const inputs = document.querySelectorAll('.inValue');
+    let storage = JSON.parse(localStorage.getItem('cart'))
+    inputs.forEach(input => {  
+        const nombreInput = input.getAttribute('name');
+        storage = storage.filter(obj => obj.id !== nombreInput);
+    });
+    localStorage.setItem('cart' ,JSON.stringify(storage));
+    paying.click();
 }

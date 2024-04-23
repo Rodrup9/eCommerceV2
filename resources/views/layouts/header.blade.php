@@ -56,6 +56,7 @@
                         </div>
                         <ul class="menu">
                             <li><a href="{{route('perfil')}}" class="opcionPrincipal">Ver perfil</a></li>
+                            <li><a href="{{route('historialShopping')}}">Pedidos</a></li>
                             <li><a href="#" onclick="this.closest('form').submit()" class="opcionPrincipal">Cerrar sesión</a></li>
                         </ul>
                     </div>

@@ -54,6 +54,7 @@ Route::controller(HomeController::class)->group(function(){
 Route::group(['prefix' => 'catalogo'], function () {
     Route::get('', [CatalogoController::class, 'index'])->name('catalogo');
     Route::get('/search', [CatalogoController::class, 'search'])->name('search');
+    Route::get('/searchCategoria/{id}', [CatalogoController::class, 'searchCategoria'])->name('searchCategoria');
 });
 
 
@@ -78,7 +79,8 @@ Route::controller(VendedorController::class)->group(function(){
 });
 Route::controller(ShoppingCartController::class)->group(function(){
     Route::get('/shoppingCart', 'index')->name('homeShoppingCart');
-    Route::get('/shoppingCart/confirmar', 'confirmData')->name('confirmData');
+    Route::post('/shoppingCart/confirmar', 'confirmData')->name('confirmData');
+    Route::post('/shoppingCart/pay', 'pay')->name('pay');
     Route::get('/shoppingCart/Historial', 'historialShopping')->name('historialShopping');
 });
 
