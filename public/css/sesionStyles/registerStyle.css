@@ -74,7 +74,7 @@ fieldset {
 } */
 
 .changePage {
-    position: absolute;
+    position: relative;
     left: 5vh;
     bottom: 5vh;
 }
