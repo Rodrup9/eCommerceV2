@@ -2,7 +2,7 @@
 @section('cssPage')
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="/css/navVendedor.css">
-    <link rel="stylesheet" href="/css/PedidoDetalle.css">
+    <link rel="stylesheet" href="/css/ProductoDetalle.css">
     <link rel="stylesheet" href="/css/ProductoVendedor.css">
 @endsection
 

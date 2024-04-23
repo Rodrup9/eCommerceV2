@@ -14,21 +14,25 @@
             <i class='bx bx-group'></i>
             <h2>Usuarios</h2>
         </a>
-        <a href="{{route('adminEcommerce.reporte')}}" class="cardMenuAdmin">
-            <i class='bx bxs-report' ></i>
-            <h2>Reportes</h2>
-        </a>
+        
         <a href="{{route('adminEcommerce.productos.vendedor')}}" class="cardMenuAdmin">
             <i class='bx bx-package' ></i>
             <h2>Productos</h2>
         </a>
-        <a href="" class="cardMenuAdmin">
-            <i class='bx bx-message-dots' ></i>
-            <h2>Comentarios</h2>
-        </a>
+        
         <a href="{{route('perfil')}}" class="cardMenuAdmin">
             <i class='bx bx-user' ></i>
             <h2>Perfil</h2>
+        </a>
+
+        <a href="{{'vendedor'}}" class="cardMenuAdmin">
+            <i class='bx bxs-report' ></i>
+            <h2>Vendedor</h2>
+        </a>
+
+        <a href="{{'home'}}" class="cardMenuAdmin">
+            <i class='bx bxs-report' ></i>
+            <h2>Sitio web</h2>
         </a>
     </main>
 @endsection

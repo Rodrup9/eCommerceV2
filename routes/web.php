@@ -101,7 +101,7 @@ Route::controller(ProductoController::class)->group(function(){
 
 Route::controller(VendedorController::class)->group(function(){
     Route::get("/vendedor/pedidos","pedidos")->name("vendedor.pedidos")->middleware('ven');
-    Route::get("/vendedor/pedidos/detalles","detalles")->name("vendedor.pedidos.detalles")->middleware('ven');
+    Route::get("/vendedor/pedidos/detalles/{pedido}","detallesPedido")->name("vendedor.pedidos.detalles")->middleware('ven');
     Route::get("/vendedor","index")->name("vendedor")->middleware('ven');
     Route::get("/vendedor/lista/productos","listaProductos")->name("vendedor.lista.productos")->middleware('ven');
     Route::get("/vendedor/producto/{producto}","detallesProducto")->name("vendedor.producto.detalle")->middleware('ven');
@@ -125,7 +125,7 @@ Route::controller(AdminEcommerceController::class)->group(function(){
     Route::get('/adminListaEcommerce/detalles/{data?}', 'detalles')->name('adminListDetalles')->middleware('admin');
     Route::delete('/adminListaEcommerce/detalles/user/{user}','eliminarUser')->name('deleteUser')->middleware('admin');
     Route::get('/adminEcommerce/prodVend','producVendedor')->name('adminEcommerce.productos.vendedor')->middleware('admin');
-    // Route::get('/adminEcommerce/reporte','reporteProduct')->name('adminEcommerce.reporte')->middleware('admin');
+    Route::get('/adminEcommerce/prodvend/{producto}','detallesProdVen')->name('adminEcommerce.productos.vendedor.detalles')->middleware('admin');
 });
 
 

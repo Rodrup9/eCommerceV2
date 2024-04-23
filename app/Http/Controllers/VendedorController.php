@@ -19,11 +19,14 @@ class VendedorController extends Controller
     {
         $idVendedor = Auth::user();
         $pedidos = Pedido::withWhereHas(
-            'detalle_de_pedido.productos',
-            function ($query) use ($idVendedor) {
-                $query->where('user_id', $idVendedor->id);
-            }
-        )->with(['user', 'ubicacion', 'estado_pedido', 'tipo_de_entrega', 'detalle_de_pedido.productos.images'])->get();
+                'detalle_de_pedido.productos',function($query) use($idVendedor){
+                    $query->where('user_id', $idVendedor->id);
+                })->with(['user','estado_pedido','detalle_de_pedido.productos.images'])->get();
+        
+        // $pedidos = Pedido::with(['user','ubicacion','estado_pedido','tipo_de_entrega','detalle_de_pedido.productos.user'=>function($query) use($idVendedor){
+        //     $query->where('id', $idVendedor->id);
+        // }])->get();
+        
         $user = Auth::user();
         if ($user != null) {
             $datos = User::findOr($user->id);
@@ -31,18 +34,15 @@ class VendedorController extends Controller
         } else {
             $img = null;
         }
-        return view(
-            "moduloVendedores.listaPedido",
-            [
-                'nameView' => 'Pedidos',
-                'pedidos' => $pedidos, 'imag' => $img
-            ]
-        );
+
+        return view("moduloVendedores.listaPedido",
+        ['nameView' => 'Pedidos',
+            'pedidos' => $pedidos, 'imag' => $img
+        ]);
     }
 
-
-    public function index(): View
-    {
+    
+    public function index(): View{
 
         $user = Auth::user();
         if ($user != null) {
@@ -61,20 +61,35 @@ class VendedorController extends Controller
         );
     }
 
-    public function detalles()
-    {
-        $user = Auth::user();
+    public function detallesPedido($pedido){
+
+
+        $pedido = Pedido::with([
+            'detalle_de_pedido.productos.images'
+            ,'user','estado_pedido',
+            'ubicacion',
+            'tipo_de_entrega'
+            ])->find($pedido);
+
+            $user = Auth::user();
         if ($user != null) {
             $datos = User::findOr($user->id);
             $img = $datos->images;
         } else {
             $img = null;
         }
-        return view(
-            "moduloVendedores.detallesPedido",
-            ['nameView' => 'detalles pedido',
-            'imag' => $img]
-        );
+
+        // $pedidos = Pedido::withWhereHas(
+        //     'detalle_de_pedido.productos',function($query) use($idVendedor){
+        //         $query->where('user_id', $idVendedor->id);
+        //     })->with(['user','estado_pedido','detalle_de_pedido.productos.images'])->get();
+
+        return view("moduloVendedores.detallesPedido",
+        [
+            'nameView' => 'detalles pedido',
+            'pedido' => $pedido,
+            'imag' => $img
+        ]);
     }
 
     public function listaProductos()

@@ -85,16 +85,36 @@ class AdminEcommerceController extends Controller
         //             $query->where('nombre','Cliente');
         //         },
         //     'productos',
+        // $vendedoresProduc = User::whereHas('type_users', function ($query) {
+        //     $query->where('nombre', 'Vendedor');
+        //     })->with('productos',function($query2){
+        //         $query2->with('images');
+        //     })->get();
+
         $vendedoresProduc = User::whereHas('type_users', function ($query) {
-            $query->where('nombre', 'Cliente');
-            })->with('productos',function($query2){
-                $query2->with('images');
-            })->get();
+            $query->where('nombre', 'Vendedor');
+            })->withCount('productos')->get();
             
         return view('moduloAdminEcommerce.productosVendedor',[
             'productos'=>$vendedoresProduc,
             'nameView' => 'Productos de vendedores'
         ]);
+    }
+
+
+    public function detallesProdVen($producto){
+
+        // $vendedorProduc = User::find($producto)->whereHas('type_users', function ($query) {
+        //     $query->where('nombre', 'Vendedor');
+        //     })->with('productos.images');
+
+        $vendedorProduc = User::where('id',$producto)->with('productos.images')->get();
+
+            return view('moduloAdminEcommerce.detalleProducVendedor',[
+                'nameView' => 'detalles productos',
+                'productos' => $vendedorProduc
+            ]);
+
     }
 
     // public function reporteProduct(){
