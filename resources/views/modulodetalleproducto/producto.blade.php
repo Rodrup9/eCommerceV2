@@ -61,13 +61,10 @@
                     </div>
                     <div class="sourseDetalles">
                         <p>Califiación</p>  
-                        <span class="calificacion">75%</span>
-                        <div class="">
-                            <span class="start"><i class='bx bxs-star' ></i></span>
-                            <span class="start"><i class='bx bxs-star' ></i></span>
-                            <span class="start"><i class='bx bxs-star' ></i></span>
-                            <span class="start"><i class='bx bx-star' ></i></span>
-                            <span class="start"><i class='bx bx-star' ></i></span>
+                        <input id="vStarCal" type="hidden" value="{{$calidad[0]['media']}}">
+                        <span id="vCal" class="calificacion">{{$calidad[0]['media']}}</span>
+                        <div id="constBoxStar" class="">
+
                         </div>
                     </div>
                 </form>

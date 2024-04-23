@@ -20,6 +20,8 @@ class DetallesController extends Controller
             ->where('productos.producto_id', $id)->where('images.imageable_id', $id)->first();
         $consulta = Producto::join('images', 'productos.producto_id', '=', 'images.image_id')
             ->get();
+        
+        $calidad = Calidad_producto::where('producto_id', '=', $id)->get();
 
         $producto2 = Producto::where('producto_id', $id)->first();
         $consultaImgs = Image::where('imageable_id', $id)->get();
@@ -28,11 +30,19 @@ class DetallesController extends Controller
         for($i = 0; $i < count($consultaImgs); $i++){
             $producto['urls'][] = $consultaImgs[$i]['url'];
         }
+        //dd($calidad);
+
+        if($calidad->isEmpty()){
+           $calidad = [[
+            "media" => 0
+           ]];
+        }
         return view('modulodetalleproducto.producto', [
             'nameView' => 'Producto',
             'user' => $user,
             'productoD' => $producto,
             'products' => $consulta,
+            'calidad' => $calidad,
             'img' => $consultaImgs,
             'sectionS' => [
                 'Mas productos del vendedor' => [

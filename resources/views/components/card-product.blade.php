@@ -8,7 +8,7 @@
                 <p>{{$tag}}</p>
             </div>
             <div class="iconOption">
-                <i class='bx bx-heart iconoCard'></i>
+                {{--<i class='bx bx-heart iconoCard'></i>--}}
             </div>
         </div>
         <div class="priceDes">
