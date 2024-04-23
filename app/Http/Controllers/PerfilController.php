@@ -29,6 +29,11 @@ class PerfilController extends Controller
             $img = null;
         }
 
+        $role = 2;
+        $consulta = User::whereHas('type_users', function ($query) use ($role, $user) {
+            $query->where('type_user_id', $role)->where('user_id', $user->id);
+        })->get();
+
 
         return view('sesion.perfil', [
             'nameView' => 'Perfil',
@@ -37,7 +42,8 @@ class PerfilController extends Controller
             'apellido_ma' => $user->apellido_ma,
             'correo' => $user->email,
             'username' => $user->nombre_de_usuario,
-            'imag' => $img
+            'imag' => $img,
+            'consul' => $consulta
         ]);
     }
 

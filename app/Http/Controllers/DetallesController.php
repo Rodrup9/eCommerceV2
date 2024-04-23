@@ -10,8 +10,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Return_;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
 
 class DetallesController extends Controller

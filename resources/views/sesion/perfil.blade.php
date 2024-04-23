@@ -19,11 +19,12 @@
                         </label>
                     @else
                         <img src="img/user.png" alt="Usuario" class="imgUser">
-                        <input name="imagen[]" type="file" id="addImg" accept="image/*" multiple />
-                        <label for="addImg" class="btnText btnConfirm">
-                            <i class='bx bxs-file-image'></i>
-                            <span>Agregar imagen</span>
-                        </label>
+                        <div class="btnAddImg">
+                            <input name="imagen[]" type="file" id="addImg" accept="image/*" multiple />
+                            <label for="addImg" class="btnText btnConfirm">
+                                <i class='bx bxs-file-image'></i>
+                                <span>Agregar imagen</span>
+                            </label>
                 @endif
         </div>
         <button id="boton" style="display: none;" class="btnAparece">Actualizar foto de perfil</button>
@@ -58,7 +59,12 @@
             <a href="{{ route('actPerfil') }}">Actualizar</a>
             <a href="{{ route('actContraseña') }}">¿Deseas cambiar su contraseña?</a>
         </div>
-        <a href="{{ route('vuelVen') }}">Vuelvete vendedor</a>
+
+        @if ($consul and $consul != null and count($consul) > 0)
+        @else
+            <a href="{{ route('vuelVen') }}">Vuelvete vendedor</a>
+        @endif
+
     </div>
 
     </div>
