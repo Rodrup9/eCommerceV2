@@ -180,3 +180,8 @@
     text-decoration: none;
     color: var(--fuenteElements);
 }
+
+.imgs img{
+    width: 150px;
+    height: 150px;
+}

@@ -20,7 +20,7 @@ class VendedorController extends Controller
         $pedidos = Pedido::withWhereHas(
                 'detalle_de_pedido.productos',function($query) use($idVendedor){
                     $query->where('user_id', $idVendedor->id);
-                })->with(['user','ubicacion','estado_pedido','tipo_de_entrega','detalle_de_pedido.productos.images'])->get();
+                })->with(['user','estado_pedido','detalle_de_pedido.productos.images'])->get();
         
         // $pedidos = Pedido::with(['user','ubicacion','estado_pedido','tipo_de_entrega','detalle_de_pedido.productos.user'=>function($query) use($idVendedor){
         //     $query->where('id', $idVendedor->id);
@@ -44,10 +44,25 @@ class VendedorController extends Controller
         ]);
     }
 
-    public function detalles(){
+    public function detallesPedido($pedido){
+
+
+        $pedido = Pedido::with([
+            'detalle_de_pedido.productos.images'
+            ,'user','estado_pedido',
+            'ubicacion',
+            'tipo_de_entrega'
+            ])->find($pedido);
+
+        // $pedidos = Pedido::withWhereHas(
+        //     'detalle_de_pedido.productos',function($query) use($idVendedor){
+        //         $query->where('user_id', $idVendedor->id);
+        //     })->with(['user','estado_pedido','detalle_de_pedido.productos.images'])->get();
 
         return view("moduloVendedores.detallesPedido",
-        ['nameView' => 'detalles pedido',
+        [
+            'nameView' => 'detalles pedido',
+            'pedido' => $pedido
         ]);
     }
 
