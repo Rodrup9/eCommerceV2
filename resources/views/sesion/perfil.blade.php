@@ -56,7 +56,7 @@
 
     <div class="acciones">
         <div class="sub-acciones">
-            <a href="{{ route('actPerfil') }}">Actualizar</a>
+            <a href="{{ route('actPerfil') }}">Modificar perfil</a>
             <a href="{{ route('actContraseña') }}">¿Deseas cambiar su contraseña?</a>
         </div>
 

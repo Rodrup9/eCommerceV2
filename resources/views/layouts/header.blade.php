@@ -50,7 +50,7 @@
                     <a href="{{ route('login') }}" class="opcionPrincipal">Iniciar sesión</a>
                     <a href="{{ route('register') }}" class="opcionPrincipal">Registrarse</a>
                 @else
-                <form action="{{ route('logOut') }}" method="POST">
+                <form action="{{ route('logOut') }}" class="menuForm" method="POST">
                     @csrf
                     <div class="dropdown">
                         <div class="select">
@@ -63,9 +63,9 @@
                             @endif
                         </div>
                         <ul class="menu">
-                            <li><a href="{{ route('perfil') }}" class="opcionPrincipal">Ver perfil</a></li>
+                            <li><a href="{{ route('perfil') }}" >Ver perfil</a></li>
                             <li><a href="{{route('historialShopping')}}">Pedidos</a></li>
-                            <li><a href="#" onclick="this.closest('form').submit()" class="opcionPrincipal">Cerrar sesión</a></li>
+                            <li><button  type="submit">Cerrar sesión</button></li>
                         </ul>
                     </div>
                 </form>
@@ -95,6 +95,7 @@
     <script src="/js/globals.js"></script>
     <script src="/js/headers.js"></script>
     <script src="/js/sesion/vendedor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

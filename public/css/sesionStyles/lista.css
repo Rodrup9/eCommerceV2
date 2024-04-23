@@ -45,11 +45,29 @@
     z-index: 1;
 }
 
+.menu li button {
+    background-color: transparent;
+    color: var(--fuenteHeader);
+    border: none;
+    padding: 0.4em 0.5em;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+}
+
 .menu li, .menu a {
-    padding: 0.7em 0.5em;
-    margin: 0.3em 0;
+    padding: 0.4em 0.5em;
     border-radius: 0.5em;
     cursor: pointer;
+}
+
+.menu li:hover, .menu a :hover {
+    color: red;
+}
+
+.menu li a {
+    display: inline-block;
+    width: 100%;
 }
 
 .menu li:hover {
@@ -65,4 +83,9 @@
     width: 30px;
     height: 30px;
     border-radius: 100px;
+}
+
+.containerModal{
+    background-color: var(--colorElements);
+    color: var(--fuenteElements) ;
 }
